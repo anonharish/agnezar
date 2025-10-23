@@ -13,9 +13,17 @@ export const StyledTopBar = styled(Box)(({ theme }) => {
   const topbarTypography = (theme.typography as any)?.topBar ?? appTypography.topBar;
 
   return {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    height: 40,
+    display: 'flex',
+    alignItems: 'center',
     backgroundColor: topBarBg,
     color: topBarText,
     borderBottom: `1px solid ${borderColor}`,
+    zIndex: (theme.zIndex as any)?.appBar ? (theme.zIndex as any).appBar + 10 : 1300,
 
     '& .MuiTypography-root': {
       color: topBarText,
