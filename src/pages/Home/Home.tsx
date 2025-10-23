@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHome } from './Home.hook';
 import { StyledHome } from './Home.style';
-import { Hero, SpotlightBox } from '@components/molecules';
+import { Hero, SpotlightBox, UnParalleled } from '@components/molecules';
 
 export const Home: React.FC = () => {
   const {
@@ -23,6 +23,9 @@ export const Home: React.FC = () => {
         buttonLabel="Contact Us"
         onButtonClick={() => { /* handle contact click */ }}
       />
+
+  {/* Unparalleled Section (below spotlight) */}
+  <UnParalleled />
     </StyledHome>
   );
 };

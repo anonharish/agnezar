@@ -1,6 +1,7 @@
 export { TopBar } from './TopBar';
 export { Navbar } from './Navbar';
 export { Hero } from './Hero';
+export { UnParalleled } from './UnParalleled/UnParalleled';
 export { SpotlightBox } from './SpotlightBox/SpotlightBox';
 export { Footer } from './Footer';
 
