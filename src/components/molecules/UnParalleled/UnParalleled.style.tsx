@@ -10,7 +10,7 @@ export const StyledUnParalleled = styled(Box)(({ theme }) => ({
 }));
 
 export const SmallText = styled(MuiTypography)(({ theme }) => ({
-  color: (theme.palette as any)?.secondary?.main ?? colors.secondary.main,
+  color: (theme.palette as any)?.primary?.main ?? colors.primary.main,
   fontWeight: 600,
   fontSize: '0.75rem',
   letterSpacing: '0.08em',

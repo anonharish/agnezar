@@ -2,17 +2,17 @@
 export const colors = {
   // Primary colors
   primary: {
-    main: '#1976d2',
-    light: '#42a5f5',
-    dark: '#1565c0',
+     main: '#C74634',
+    light: '#fc8181',
+    dark: '#c53030',
     contrastText: '#ffffff',
   },
   
   // Secondary colors (Red from Figma)
   secondary: {
-    main: '#C74634',
-    light: '#fc8181',
-    dark: '#c53030',
+    main: '#221C50',
+    light: '#3a3479',
+    dark: '#1a183c',
     contrastText: '#ffffff',
   },
   
