@@ -8,7 +8,7 @@ export const useHome = () => {
     title: 'Transform Your Business with Agnezar',
     subtitle: 'Innovation & Excellence',
     description: 'We deliver cutting-edge digital solutions that drive growth, enhance efficiency, and transform your business into a market leader.',
-    backgroundImage: '/assets/images/hero-image.jpg',
+    backgroundImage: '/assets/images/hero-bg.png',
     primaryButton: {
       label: 'Get Started',
       onClick: () => navigate('/contact'),

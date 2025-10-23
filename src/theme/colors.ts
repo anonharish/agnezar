@@ -81,6 +81,11 @@ export const colors = {
     main: '#C74634',
     contrastText: '#ffffff',
   },
+  // White color group — main white and a white secondary (light gray) token
+  white: {
+    main: '#ffffff',
+    secondary: '#E0E0E0',
+  },
 } as const;
 
 export type ColorPalette = typeof colors;

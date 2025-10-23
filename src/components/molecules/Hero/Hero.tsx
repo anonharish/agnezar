@@ -38,14 +38,15 @@ export const Hero: React.FC<HeroProps> = ({
   return (
     <StyledHero backgroundImage={backgroundImage} overlay={overlay}>
       <Container maxWidth="lg">
-        <Grid container spacing={4} alignItems="center" minHeight="80vh">
-          <Grid item xs={12} md={6}>
-            <Box>
+        <Grid container spacing={4} alignItems="center" justifyContent="center" sx={{ minHeight: 'inherit' }}>
+          <Grid item xs={12} md={10} lg={8}>
+
+            <Box sx={{ mx: 'auto', textAlign: 'center', maxWidth: 900 }}>
               {subtitle && (
                 <Typography
                   variant="overline"
                   color="primary"
-                  sx={{ mb: 2, display: 'block' }}
+                  sx={{ mb: 2, display: 'block', color: "#E0E0E0" }}
                 >
                   {subtitle}
                 </Typography>
@@ -53,7 +54,7 @@ export const Hero: React.FC<HeroProps> = ({
               
               <Typography
                 variant="h1"
-                sx={{ mb: 3, fontWeight: 700 }}
+                sx={{ mb: 3, fontWeight: 700, color: "white" }}
               >
                 {title}
               </Typography>
@@ -61,13 +62,13 @@ export const Hero: React.FC<HeroProps> = ({
               {description && (
                 <Typography
                   variant="body1"
-                  sx={{ mb: 4, fontSize: '1.125rem', lineHeight: 1.7 }}
+                  sx={{ mb: 4, fontSize: '1.125rem', lineHeight: 1.7, color:"white" }}
                 >
                   {description}
                 </Typography>
               )}
               
-              <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap' }}>
+              <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', justifyContent: 'center' }}>
                 {primaryButton && (
                   <Button
                     variant="primary"
@@ -90,29 +91,6 @@ export const Hero: React.FC<HeroProps> = ({
               </Box>
             </Box>
           </Grid>
-          
-          {backgroundImage && (
-            <Grid item xs={12} md={6}>
-              <Box
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                }}
-              >
-                <Box
-                  component="img"
-                  src={backgroundImage}
-                  alt="Hero"
-                  sx={{
-                    maxWidth: '100%',
-                    height: 'auto',
-                    borderRadius: 2,
-                  }}
-                />
-              </Box>
-            </Grid>
-          )}
         </Grid>
       </Container>
     </StyledHero>

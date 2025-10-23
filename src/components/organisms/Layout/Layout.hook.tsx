@@ -21,7 +21,7 @@ export const useLayout = ({}: UseLayoutProps = {}) => {
       // { label: 'Contact Us', href: '/contact' },
     ],
     ctaButton: {
-      label: 'Get Started',
+      label: 'Login',
       onClick: () => {
         // Handle CTA click
         console.log('Get Started clicked');
