@@ -38,13 +38,13 @@ export const AdvantageDesc = styled(MuiTypography)(({ theme }) => ({
 }));
 
 export const CardsGrid = styled(Grid)(({ theme }) => ({
-  marginTop: theme.spacing(6),
+  marginTop: theme.spacing(2),
 }));
 
 export const AdvantageCardInner = styled(Box)(({ theme }) => ({
   background: '#fff',
-  padding: theme.spacing(4),
-  borderRadius: 6,
+  padding: theme.spacing(2),
+//   borderRadius: 6,
   minHeight: 160,
 }));
 
@@ -52,7 +52,7 @@ export const CardIcon = styled(Box)(({ theme }) => ({
   width: 40,
   height: 40,
   borderRadius: 8,
-  background: (theme.palette as any)?.secondary?.main ?? colors.secondary.main,
+//   background: (theme.palette as any)?.secondary?.main ?? colors.secondary.main,
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
