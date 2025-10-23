@@ -18,7 +18,7 @@ export const useLayout = ({}: UseLayoutProps = {}) => {
       { label: 'Our Services', href: '/services' },
       { label: 'Industries', href: '/industries' },
       { label: 'Why Agnezar', href: '/why-agnezar' },
-      { label: 'Contact Us', href: '/contact' },
+      // { label: 'Contact Us', href: '/contact' },
     ],
     ctaButton: {
       label: 'Get Started',

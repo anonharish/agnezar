@@ -16,7 +16,7 @@ export const TopBar: React.FC<TopBarProps> = ({
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 3 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
               <Typography variant="body2">
-                Spotlight Urgent Need? Nitrosamine Impurity Solutions
+                Spotlight Urgent Need? Nitrosamine Impurity Solutions.
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>

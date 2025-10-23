@@ -1,14 +1,14 @@
 import React from 'react';
+import mainLogo from "../../../../public/assets/logos/main-logo.svg"
 import { AppBar, Toolbar, Box, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
 import { useNavbar } from './Navbar.hook';
 import { StyledNavbar } from './Navbar.style';
-import { Button } from '@components/atoms';
+import { Button, CustomFilledButton, CustomTextButton } from '@components/atoms';
 import { Typography } from '@components/atoms';
 
 export interface NavbarProps {
   logo?: string;
-  logoText?: string;
   menuItems?: Array<{
     label: string;
     href: string;
@@ -20,8 +20,6 @@ export interface NavbarProps {
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
-  logo = '/assets/logos/agnezar-logo.svg',
-  logoText = 'Agnezar',
   menuItems = [],
   ctaButton,
 }) => {
@@ -35,20 +33,15 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <StyledNavbar>
       <AppBar position="static" elevation={0}>
-        <Toolbar>
+        <Toolbar sx={{display:'flex', justifyContent:"space-between"}}>
           {/* Logo */}
-          <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-            {logo && (
+          <Box sx={{ display: 'flex', alignItems: 'center',  }}>          
               <Box
                 component="img"
-                src={logo}
+                src={mainLogo}
                 alt="Logo"
                 sx={{ height: 40, marginRight: 2 }}
               />
-            )}
-            <Typography variant="h6" color="primary">
-              {logoText}
-            </Typography>
           </Box>
 
           {/* Desktop Menu */}
@@ -63,12 +56,15 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {item.label}
               </Typography>
             ))}
-            {ctaButton && (
-              <Button variant="primary" onClick={ctaButton.onClick}>
-                {ctaButton.label}
-              </Button>
-            )}
           </Box>
+          <Box>
+          <CustomTextButton>Contact Us</CustomTextButton>
+            {ctaButton && (
+              <CustomFilledButton  onClick={ctaButton.onClick}>
+                {ctaButton.label}
+              </CustomFilledButton>
+            )}
+            </Box>
 
           {/* Mobile Menu Button */}
           <IconButton
