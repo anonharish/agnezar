@@ -115,4 +115,11 @@ export const typography = {
     textTransform: 'uppercase' as const,
     color: colors.text.secondary,
   },
+  topBar: {
+    fontSize: '14px',
+    fontWeight: 400,
+    lineHeight: '22px',
+    letterSpacing: '0px',
+    color: colors.text.primary,
+  },
 } as const;

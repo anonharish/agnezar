@@ -1,27 +1,41 @@
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/material';
 import { colors } from '@theme/colors';
+import { typography as appTypography } from '@theme/typography';
 
-export const StyledTopBar = styled(Box)(({ theme }) => ({
-  backgroundColor: colors.neutral[900],
-  color: colors.text.primary,
-  borderBottom: `1px solid ${colors.neutral[700]}`,
-  
-  '& .MuiTypography-root': {
-    color: colors.text.primary,
-    fontSize: '0.875rem',
-  },
-  
-  '& .MuiIconButton-root': {
-    color: colors.text.secondary,
-    '&:hover': {
-      color: colors.primary.main,
+export const StyledTopBar = styled(Box)(({ theme }) => {
+  // Prefer values from theme.palette if available at runtime, fallback to our colors exports
+  const topBarBg = (theme.palette as any).topBar?.main ?? colors.topBar.main;
+  const topBarText = (theme.palette as any).topBar?.contrastText ?? colors.topBar.contrastText ?? colors.text.primary;
+  const iconColor = (theme.palette as any).text?.secondary ?? colors.text.secondary;
+  const borderColor = (theme.palette as any).divider ?? colors.neutral[700];
+
+  const topbarTypography = (theme.typography as any)?.topBar ?? appTypography.topBar;
+
+  return {
+    backgroundColor: topBarBg,
+    color: topBarText,
+    borderBottom: `1px solid ${borderColor}`,
+
+    '& .MuiTypography-root': {
+      color: topBarText,
+      fontSize: topbarTypography.fontSize,
+      fontWeight: topbarTypography.fontWeight,
+      lineHeight: topbarTypography.lineHeight,
+      letterSpacing: topbarTypography.letterSpacing,
     },
-  },
-  
-  [theme.breakpoints.down('md')]: {
-    '& .MuiContainer-root': {
-      padding: '0 16px',
+
+    '& .MuiIconButton-root': {
+      color: iconColor,
+      '&:hover': {
+        color: (theme.palette as any).primary?.main ?? colors.primary.main,
+      },
     },
-  },
-}));
+
+    [theme.breakpoints.down('md')]: {
+      '& .MuiContainer-root': {
+        padding: '0 16px',
+      },
+    },
+  };
+});

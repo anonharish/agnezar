@@ -8,6 +8,7 @@ export const theme = createTheme({
     primary: colors.primary,
     secondary: colors.secondary,
     background: colors.background,
+    topBar: colors.topBar,
     text: colors.text,
     success: colors.success,
     error: colors.error,

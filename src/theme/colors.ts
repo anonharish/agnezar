@@ -10,7 +10,7 @@ export const colors = {
   
   // Secondary colors (Red from Figma)
   secondary: {
-    main: '#e53e3e',
+    main: '#C74634',
     light: '#fc8181',
     dark: '#c53030',
     contrastText: '#ffffff',
@@ -76,6 +76,10 @@ export const colors = {
     secondary: 'linear-gradient(135deg, #e53e3e 0%, #fc8181 100%)',
     hero: 'linear-gradient(135deg, rgba(25, 118, 210, 0.9) 0%, rgba(66, 165, 245, 0.8) 100%)',
     red: 'linear-gradient(135deg, #e53e3e 0%, #c53030 100%)',
+  },
+  topBar: {
+    main: '#C74634',
+    contrastText: '#ffffff',
   },
 } as const;
 
