@@ -3,13 +3,15 @@ import { Box, Typography as MuiTypography } from '@mui/material';
 import { colors } from '@theme/colors';
 
 export const StyledSpotlightBox = styled(Box)(({ theme }) => ({
+  width:"80%",
+  margin:"4rem auto",
   backgroundColor: (theme.palette as any)?.background?.spotlight?.bg10 ?? colors.background.spotlight.bg10,
-  borderLeft: `4px solid ${(theme.palette as any)?.secondary?.main ?? colors.secondary.main}`,
-  padding: theme.spacing(4),
+  borderLeft: `3px solid ${(theme.palette as any)?.secondary?.main ?? colors.secondary.main}`,
+  padding: theme.spacing(3),
   borderRadius: 4,
   display: 'flex',
   gap: theme.spacing(4),
-  alignItems: 'center',
+  alignItems: 'flex-start',
 }));
 
 export const SpotlightHeading = styled(MuiTypography)(({ theme }) => ({
