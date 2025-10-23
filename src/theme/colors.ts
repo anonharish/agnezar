@@ -35,6 +35,11 @@ export const colors = {
     default: '#ffffff',
     paper: '#fafafa',
     dark: '#121212',
+    // Spotlight color grouped here to avoid adding new top-level keys
+    spotlight: {
+      main: '#AD1113',
+      bg10: 'rgba(173, 17, 19, 0.1)',
+    },
   },
   
   // Text colors
@@ -43,6 +48,11 @@ export const colors = {
     secondary: '#757575',
     disabled: '#bdbdbd',
     hint: '#9e9e9e',
+    // Alternative text colors for headings/descriptions
+    alt: {
+      heading: '#1A1F29',
+      body: '#1A1F29',
+    },
   },
   
   // Status colors
