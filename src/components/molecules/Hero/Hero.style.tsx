@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { Box } from '@mui/material';
+import { Box, Typography as MuiTypography } from '@mui/material';
 import { colors } from '@theme/colors';
 
 interface StyledHeroProps {
@@ -50,4 +50,17 @@ export const StyledHero = styled(Box, {
   // minHeight: '60vh',
   textAlign: 'center',
 },
+}));
+
+export const HeroTitle = styled(MuiTypography)(({ theme }) => ({
+  color: (theme.palette as any).white?.main ?? colors.white.main,
+}));
+
+export const HeroSubtitle = styled(MuiTypography)(({ theme }) => ({
+  color: (theme.palette as any).white?.secondary ?? colors.white.secondary,
+  textTransform: 'uppercase',
+}));
+
+export const HeroDescription = styled(MuiTypography)(({ theme }) => ({
+  color: (theme.palette as any).white?.main ?? colors.white.main,
 }));

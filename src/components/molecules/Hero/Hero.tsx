@@ -1,9 +1,8 @@
 import React from 'react';
 import { Box, Container, Grid } from '@mui/material';
 import { useHero } from './Hero.hook';
-import { StyledHero } from './Hero.style';
+import { StyledHero, HeroTitle, HeroSubtitle, HeroDescription } from './Hero.style';
 import { Button } from '@components/atoms';
-import { Typography } from '@components/atoms';
 
 export interface HeroProps {
   title: string;
@@ -43,29 +42,19 @@ export const Hero: React.FC<HeroProps> = ({
 
             <Box sx={{ mx: 'auto', textAlign: 'center', maxWidth: 900 }}>
               {subtitle && (
-                <Typography
-                  variant="overline"
-                  color="primary"
-                  sx={{ mb: 2, display: 'block', color: "#E0E0E0" }}
-                >
+                <HeroSubtitle variant="overline" sx={{ mb: 2, display: 'block' }}>
                   {subtitle}
-                </Typography>
+                </HeroSubtitle>
               )}
-              
-              <Typography
-                variant="h1"
-                sx={{ mb: 3, fontWeight: 700, color: "white" }}
-              >
+
+              <HeroTitle variant="h1" sx={{ mb: 3, fontWeight: 700 }}>
                 {title}
-              </Typography>
-              
+              </HeroTitle>
+
               {description && (
-                <Typography
-                  variant="body1"
-                  sx={{ mb: 4, fontSize: '1.125rem', lineHeight: 1.7, color:"white" }}
-                >
+                <HeroDescription variant="body1" sx={{ mb: 4, fontSize: '1.125rem', lineHeight: 1.7 }}>
                   {description}
-                </Typography>
+                </HeroDescription>
               )}
               
               <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', justifyContent: 'center' }}>
