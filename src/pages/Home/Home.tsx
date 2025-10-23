@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHome } from './Home.hook';
 import { StyledHome } from './Home.style';
-import { Hero, SpotlightBox, UnParalleled, AgnezerAdvantage } from '@components/molecules';
+import { Hero, SpotlightBox, UnParalleled, AgnezerAdvantage, MakeEveryStudy } from '@components/molecules';
 
 export const Home: React.FC = () => {
   const {
@@ -29,6 +29,9 @@ export const Home: React.FC = () => {
 
   {/* Agnezer Advantage Section */}
   <AgnezerAdvantage />
+
+  {/* Make Every Study Section */}
+  <MakeEveryStudy />
     </StyledHome>
   );
 };

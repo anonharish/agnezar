@@ -4,6 +4,7 @@ export { Hero } from './Hero';
 export { UnParalleled } from './UnParalleled/UnParalleled';
 export { SpotlightBox } from './SpotlightBox/SpotlightBox';
 export { AgnezerAdvantage } from './AgnezerAdvantage/AgnezerAdvantage';
+export { MakeEveryStudy } from './MakeEveryStudy/MakeEveryStudy';
 export { Footer } from './Footer';
 
 export type { TopBarProps } from './TopBar';
