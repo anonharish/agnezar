@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Container, Grid } from '@mui/material';
 import { useHero } from './Hero.hook';
 import { StyledHero, HeroTitle, HeroSubtitle, HeroDescription } from './Hero.style';
-import { Button } from '@components/atoms';
+import { CustomFilledButton, CustomOutlineButton } from '@components/atoms';
 
 export interface HeroProps {
   title: string;
@@ -59,23 +59,15 @@ export const Hero: React.FC<HeroProps> = ({
               
               <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', justifyContent: 'center' }}>
                 {primaryButton && (
-                  <Button
-                    variant="primary"
-                    size="large"
-                    onClick={handlePrimaryClick}
-                  >
-                    {primaryButton.label}
-                  </Button>
+                  <CustomFilledButton onClick={handlePrimaryClick}>
+                    Discuss Your Project
+                  </CustomFilledButton>
                 )}
-                
+
                 {secondaryButton && (
-                  <Button
-                    variant="outline"
-                    size="large"
-                    onClick={handleSecondaryClick}
-                  >
-                    {secondaryButton.label}
-                  </Button>
+                  <CustomOutlineButton onClick={handleSecondaryClick}>
+                    Explore Our Services
+                  </CustomOutlineButton>
                 )}
               </Box>
             </Box>

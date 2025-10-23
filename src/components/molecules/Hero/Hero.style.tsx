@@ -9,7 +9,7 @@ interface StyledHeroProps {
 
 export const StyledHero = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'backgroundImage' && prop !== 'overlay',
-})<StyledHeroProps>(({ theme, backgroundImage, overlay }) => ({
+})<StyledHeroProps>(({ theme, backgroundImage }) => ({
   position: 'relative',
   minHeight: 'calc(100vh - 104px)',
   display: 'flex',
