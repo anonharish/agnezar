@@ -22,12 +22,30 @@ export const MakeEveryStudy: React.FC = () => {
 
         <AccordionsWrap>
           {menu.find(m => m.id === activeMenu)?.items.map(item => (
-            <Accordion key={item.id}>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography variant="h6">{item.title}</Typography>
+            <Accordion
+              key={item.id}
+              sx={{
+                boxShadow: 'none',
+                backgroundColor: theme => (theme.palette.background?.default ?? '#fff'),
+                '&:before': { display: 'none' },
+              }}
+            >
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                sx={{
+                  py: 2,
+                  
+                  '& .MuiAccordionSummary-content': { margin: 0 },
+                  borderBottom: theme => `1px solid ${theme.palette.divider}`,
+                  
+                }}
+              >
+                <Typography variant="h6" sx={{ fontWeight: 600,
+                  fontSize: "1.5rem", }}>{item.title}</Typography>
               </AccordionSummary>
-              <AccordionDetails>
-                <Typography variant="body1" sx={{ mb: 2 }}>{item.summary}</Typography>
+
+              <AccordionDetails sx={{ pt: 2, pb: 4, backgroundColor: theme => (theme.palette.background?.default ?? '#fff') , borderBottom: theme => `1px solid ${theme.palette.divider}`,}}>
+                <Typography variant="body1" sx={{ mb: 3, fontSize: "1rem", color: theme => theme.palette.text.secondary }}>{item.summary}</Typography>
                 <CustomFilledButton onClick={() => {}}>{item.buttonLabel}</CustomFilledButton>
               </AccordionDetails>
             </Accordion>
