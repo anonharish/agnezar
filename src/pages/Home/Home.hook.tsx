@@ -4,9 +4,9 @@ export const useHome = () => {
   const navigate = useNavigate();
 
   const heroConfig = {
-    title: 'Transform Your Business with Agnezar',
+    title: 'Redefining the Analytical Partnership: Accelerating Your Journey from Discovery to Market',
     subtitle: 'Innovation & Excellence',
-    description: 'We deliver cutting-edge digital solutions that drive growth, enhance efficiency, and transform your business into a market leader.',
+    description: 'We are your next-generation analytical development partner, integrating advanced science, regulatory intelligence, and a seamless client experience to empower your success.',
     backgroundImage: '/assets/images/hero-bg.png',
     primaryButton: {
       label: 'Get Started',

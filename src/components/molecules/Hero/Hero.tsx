@@ -47,7 +47,7 @@ export const Hero: React.FC<HeroProps> = ({
                 </HeroSubtitle>
               )}
 
-              <HeroTitle variant="h1" sx={{ mb: 3, fontWeight: 700 }}>
+              <HeroTitle variant="h2" sx={{ mb: 3, fontWeight: 700, }}>
                 {title}
               </HeroTitle>
 

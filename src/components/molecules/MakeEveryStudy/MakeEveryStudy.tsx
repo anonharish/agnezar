@@ -12,7 +12,10 @@ export const MakeEveryStudy: React.FC = () => {
 
     return (
         <StyledMakeEvery>
-            <UnParalleled />
+            <UnParalleled 
+                mainHeading='Insights & Expertise from Our Scientific Leaders'
+                description='Stay informed on the latest scientific advancements, regulatory trends, and analytical best practices. Our Resources Hub is your source for expert-written content designed to help you navigate the complexities of pharmaceutical development.'
+            />
             <Inner>
                 <VerticalMenu>
                     {menu.map(m => (
