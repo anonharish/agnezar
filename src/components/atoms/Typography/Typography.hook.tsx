@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 import { colors } from '@theme/colors';
 
 interface UseTypographyProps {
-  color: 'primary' | 'secondary' | 'textPrimary' | 'textSecondary' | 'error' | 'warning' | 'info' | 'success';
+  color: 'primary' | 'secondary' | 'textPrimary' | 'textSecondary' | 'error' | 'warning' | 'info' | 'success' | 'white';
 }
 
 export const useTypography = ({ color }: UseTypographyProps) => {
@@ -16,6 +16,7 @@ export const useTypography = ({ color }: UseTypographyProps) => {
       warning: colors.warning.main,
       info: colors.info.main,
       success: colors.success.main,
+      white: '#ffffff',
     };
     
     return () => colorMap[color];

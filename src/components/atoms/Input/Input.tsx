@@ -1,5 +1,5 @@
 import React from 'react';
-import { TextField, TextFieldProps } from '@mui/material';
+import { TextFieldProps } from '@mui/material';
 import { useInput } from './Input.hook';
 import { StyledInput } from './Input.style';
 

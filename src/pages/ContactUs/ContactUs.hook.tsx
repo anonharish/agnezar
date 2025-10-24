@@ -25,22 +25,22 @@ export const useContactUs = () => {
     description: 'We\'re here to help you succeed. Reach out to us through any of the channels below, and we\'ll get back to you within 24 hours.',
     details: [
       {
-        icon: <Email color="white" />,
+        icon: <Email sx={{ color: 'white' }} />,
         title: 'Email Us',
         value: 'hello@agnezar.com',
       },
       {
-        icon: <Phone color="white" />,
+        icon: <Phone sx={{ color: 'white' }} />,
         title: 'Call Us',
         value: '+1 (555) 123-4567',
       },
       {
-        icon: <LocationOn color="white" />,
+        icon: <LocationOn sx={{ color: 'white' }} />,
         title: 'Visit Us',
         value: '123 Business St, Suite 100, City, State 12345',
       },
       {
-        icon: <Schedule color="white" />,
+        icon: <Schedule sx={{ color: 'white' }} />,
         title: 'Business Hours',
         value: 'Monday - Friday: 9:00 AM - 6:00 PM',
       },

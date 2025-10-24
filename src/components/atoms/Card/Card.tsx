@@ -1,9 +1,9 @@
 import React from 'react';
-import { Card as MuiCard, CardProps as MuiCardProps } from '@mui/material';
+import { CardProps as MuiCardProps } from '@mui/material';
 import { useCard } from './Card.hook';
 import { StyledCard } from './Card.style';
 
-export interface CardProps extends MuiCardProps {
+export interface CardProps extends Omit<MuiCardProps, 'variant'> {
   variant?: 'elevated' | 'outlined' | 'filled';
   hoverable?: boolean;
   children: React.ReactNode;
@@ -17,9 +17,13 @@ export const Card: React.FC<CardProps> = ({
 }) => {
   const { handleMouseEnter, handleMouseLeave } = useCard({ hoverable });
 
+  // Map custom variants to MUI variants
+  const muiVariant = variant === 'elevated' ? 'elevation' : 'outlined';
+
   return (
     <StyledCard
-      variant={variant}
+      variant={muiVariant}
+      customVariant={variant}
       hoverable={hoverable}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}

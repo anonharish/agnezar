@@ -36,7 +36,7 @@ export const AgnezerAdvantage: React.FC<AgnezerAdvantageProps> = ({ smallText, t
           {cfg.cards.map((c, i) => (
             <Grid item xs={12} md={6} key={i}>
               <AdvantageCardInner>
-                <Card variant="filled" sx={{background: "inherit", borderRadius:"none",padding:"4px"}}>
+                <Card variant="filled" sx={{background: "inherit", border:"none",borderRadius:"none",padding:"4px"}}>
                     <Box sx={{  gap: 2, }}>
                       <CardIcon>
                         {c.icon && typeof c.icon === 'string' ? (

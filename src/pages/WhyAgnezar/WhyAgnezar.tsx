@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Grid, Box, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import { CheckCircle, Star, Security, Speed, Support } from '@mui/icons-material';
+import { CheckCircle, Star } from '@mui/icons-material';
 import { useWhyAgnezar } from './WhyAgnezar.hook';
 import { StyledWhyAgnezar } from './WhyAgnezar.style';
 import { Typography, Card, Button } from '@components/atoms';

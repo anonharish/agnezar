@@ -2,7 +2,7 @@ import { styled } from '@mui/material/styles';
 import { TextField } from '@mui/material';
 import { colors } from '@theme/colors';
 
-export const StyledInput = styled(TextField)(({ theme }) => ({
+export const StyledInput = styled(TextField)(() => ({
   '& .MuiOutlinedInput-root': {
     borderRadius: '8px',
     transition: 'all 0.3s ease',

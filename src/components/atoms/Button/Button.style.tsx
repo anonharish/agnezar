@@ -3,13 +3,13 @@ import { Button as MuiButton } from '@mui/material';
 import { colors } from '@theme/colors';
 
 interface StyledButtonProps {
-  variant: 'primary' | 'secondary' | 'outline' | 'text';
+  customVariant?: 'primary' | 'secondary' | 'outline' | 'text';
   size: 'small' | 'medium' | 'large';
 }
 
 export const StyledButton = styled(MuiButton, {
-  shouldForwardProp: (prop) => prop !== 'variant' && prop !== 'size',
-})<StyledButtonProps>(({ theme, variant, size }) => ({
+  shouldForwardProp: (prop) => prop !== 'customVariant' && prop !== 'size',
+})<StyledButtonProps>(({ customVariant, size }) => ({
   borderRadius: '8px',
   textTransform: 'none',
   fontWeight: 500,
@@ -30,7 +30,7 @@ export const StyledButton = styled(MuiButton, {
     fontSize: '1.125rem',
   }),
   
-  ...(variant === 'primary' && {
+  ...(customVariant === 'primary' && {
     backgroundColor: colors.primary.main,
     color: colors.primary.contrastText,
     '&:hover': {
@@ -40,7 +40,7 @@ export const StyledButton = styled(MuiButton, {
     },
   }),
   
-  ...(variant === 'secondary' && {
+  ...(customVariant === 'secondary' && {
     backgroundColor: colors.secondary.main,
     color: colors.secondary.contrastText,
     '&:hover': {
@@ -50,7 +50,7 @@ export const StyledButton = styled(MuiButton, {
     },
   }),
   
-  ...(variant === 'outline' && {
+  ...(customVariant === 'outline' && {
     backgroundColor: 'transparent',
     color: colors.primary.main,
     border: `2px solid ${colors.primary.main}`,
@@ -61,7 +61,7 @@ export const StyledButton = styled(MuiButton, {
     },
   }),
   
-  ...(variant === 'text' && {
+  ...(customVariant === 'text' && {
     backgroundColor: 'transparent',
     color: colors.primary.main,
     '&:hover': {

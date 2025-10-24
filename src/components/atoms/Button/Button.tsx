@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button as MuiButton, ButtonProps as MuiButtonProps } from '@mui/material';
+import { ButtonProps as MuiButtonProps } from '@mui/material';
 import { useButton } from './Button.hook';
 import { StyledButton } from './Button.style';
 
-export interface ButtonProps extends Omit<MuiButtonProps, 'onClick'> {
+export interface ButtonProps extends Omit<MuiButtonProps, 'onClick' | 'variant'> {
   variant?: 'primary' | 'secondary' | 'outline' | 'text';
   size?: 'small' | 'medium' | 'large';
   loading?: boolean;
@@ -21,9 +21,14 @@ export const Button: React.FC<ButtonProps> = ({
 }) => {
   const { handleClick, isLoading } = useButton({ onClick, loading });
 
+  // Map custom variants to MUI variants
+  const muiVariant = variant === 'outline' ? 'outlined' : 
+                    variant === 'text' ? 'text' : 'contained';
+
   return (
     <StyledButton
-      variant={variant}
+      variant={muiVariant}
+      customVariant={variant}
       size={size}
       onClick={handleClick}
       disabled={isLoading || props.disabled}
