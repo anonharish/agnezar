@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHome } from './Home.hook';
 import { StyledHome } from './Home.style';
-import { Hero, SpotlightBox, UnParalleled, AgnezerAdvantage, MakeEveryStudy } from '@components/molecules';
+import { Hero, SpotlightBox, UnParalleled, AgnezerAdvantage, EmailInsights, MakeEveryStudy } from '@components/molecules';
 
 export const Home: React.FC = () => {
   const {
@@ -24,14 +24,15 @@ export const Home: React.FC = () => {
         onButtonClick={() => { /* handle contact click */ }}
       />
 
-  {/* Unparalleled Section (below spotlight) */}
-  <UnParalleled />
+      {/* Unparalleled Section (below spotlight) */}
+      <UnParalleled />
 
-  {/* Agnezer Advantage Section */}
-  <AgnezerAdvantage />
+      {/* Agnezer Advantage Section */}
+      <AgnezerAdvantage />
 
-  {/* Make Every Study Section */}
-  <MakeEveryStudy />
+      {/* Make Every Study Section */}
+      <MakeEveryStudy />
+      <EmailInsights />
     </StyledHome>
   );
 };
