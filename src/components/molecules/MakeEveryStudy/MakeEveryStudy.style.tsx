@@ -6,11 +6,14 @@ export const StyledMakeEvery = styled(Box)(({ theme }) => ({
 }));
 
 export const Inner = styled(Box)(({ theme }) => ({
-  maxWidth: 1100,
+  maxWidth: "85%",
   margin: '0 auto',
   display: 'flex',
+  justifyContent: "space-between",
+  alignItems: "start",
   gap: theme.spacing(4),
-  padding: theme.spacing(0, 3),
+  paddingBottom: theme.spacing(5),
+//   padding: theme.spacing(0, 3),
   [theme.breakpoints.down('md')]: {
     flexDirection: 'column',
   },
@@ -30,10 +33,34 @@ export const MenuItem = styled('button')(({ theme }) => ({
   padding: theme.spacing(1, 2),
   cursor: 'pointer',
   color: theme.palette.text.secondary,
+  width:"fit-content",
+  display: 'flex',
+  alignItems: 'center',
+//   justifyContent: 'space-between',
+  // typography match design
+  fontWeight: 600,
+  fontSize: '1rem',
+  lineHeight: '2rem',
+  letterSpacing: '0',
   '&.active': {
-    color: (theme.palette as any).secondary?.main,
-    borderLeft: `3px solid ${(theme.palette as any).secondary?.main}`,
-    paddingLeft: theme.spacing(1.5),
+    // active: use primary main color and show underline + arrow
+    color: theme.palette.primary?.main,
+    borderLeft: 'none',
+    paddingLeft: theme.spacing(2),
+    paddingRight: theme.spacing(2),
+    borderBottom: `2px solid ${theme.palette.primary?.main}`,
+    // add arrow on the right via pseudo-element
+    '&::after': {
+      content: '"→"',
+      marginLeft: theme.spacing(1),
+      color: theme.palette.primary?.main,
+      fontSize: '18px',
+      lineHeight: '1',
+    },
+  },
+  // keep a subtle hover to indicate interactivity
+  '&:hover': {
+    color: theme.palette.primary?.main,
   },
 }));
 
