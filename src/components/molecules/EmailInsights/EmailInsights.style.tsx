@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { Box, Typography } from '@mui/material';
+import { Box, Typography, TextField } from '@mui/material';
 
 export const StyledEmailInsights = styled(Box)(({ theme }) => ({
   backgroundColor: (theme.palette as any).secondary?.main ?? '#221C50',
@@ -49,6 +49,60 @@ export const Heading = styled(Typography)(({ theme }) => ({
 export const Description = styled(Typography)(({ theme }) => ({
   color: theme.palette.common.white,
   opacity: 0.9,
+}));
+
+export const StyledInput = styled(TextField)(({ theme }) => ({
+  '& .MuiOutlinedInput-root': {
+    borderRadius: '8px',
+    transition: 'all 0.3s ease',
+    color: theme.palette.common.white,
+    
+    '& fieldset': {
+      borderColor: 'rgba(255, 255, 255, 0.3)',
+    },
+    
+    '&:hover fieldset': {
+      borderColor: 'rgba(255, 255, 255, 0.5)',
+    },
+    
+    '&.Mui-focused fieldset': {
+      borderColor: theme.palette.common.white,
+      borderWidth: 2,
+    },
+    
+    '&.Mui-error fieldset': {
+      borderColor: theme.palette.error.main,
+    },
+  },
+  
+  '& .MuiInputLabel-root': {
+    color: 'rgba(255, 255, 255, 0.7)',
+    
+    '&.Mui-focused': {
+      color: theme.palette.common.white,
+    },
+    
+    '&.Mui-error': {
+      color: theme.palette.error.main,
+    },
+  },
+  
+  '& .MuiInputBase-input': {
+    color: theme.palette.common.white,
+    
+    '&::placeholder': {
+      color: 'rgba(255, 255, 255, 0.5)',
+      opacity: 1,
+    },
+  },
+  
+  '& .MuiFormHelperText-root': {
+    color: 'rgba(255, 255, 255, 0.7)',
+    
+    '&.Mui-error': {
+      color: theme.palette.error.main,
+    },
+  },
 }));
 
 export default StyledEmailInsights;

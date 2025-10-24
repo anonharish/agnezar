@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Input } from '@components/atoms';
 import { CustomFilledButton } from '@components/atoms';
-import { StyledEmailInsights, Inner, FormRow, InputWrap, Heading, Description } from './EmailInsights.style';
+import { StyledEmailInsights, Inner, FormRow, InputWrap, Heading, Description, StyledInput } from './EmailInsights.style';
 import { useEmailInsights } from './EmailInsights.hook';
 
 export interface EmailInsightsProps {
@@ -25,11 +24,11 @@ export const EmailInsights: React.FC<EmailInsightsProps> = (props) => {
 
         <FormRow>
           <InputWrap>
-            <Input
+            <StyledInput
               label={label}
               placeholder={placeholder}
               value={value}
-              onChange={(v) => setValue(v)}
+              onChange={(e) => setValue(e.target.value)}
               fullWidth
             />
           </InputWrap>

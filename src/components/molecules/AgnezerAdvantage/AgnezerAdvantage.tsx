@@ -28,9 +28,6 @@ export const AgnezerAdvantage: React.FC<AgnezerAdvantageProps> = ({ smallText, t
         description='Four pillars driving quality and trust in every project.'
         descriptionColor={theme.palette.white.main}
         />
-        {/* <AdvantageTopSmall variant="overline">{cfg.smallText}</AdvantageTopSmall>
-        <AdvantageTitle variant="h3">{cfg.title}</AdvantageTitle>
-        <AdvantageDesc variant="body1">{cfg.description}</AdvantageDesc> */}
 
         <CardsGrid container spacing={4}>
           {cfg.cards.map((c, i) => (

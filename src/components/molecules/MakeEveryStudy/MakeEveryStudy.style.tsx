@@ -24,6 +24,7 @@ export const VerticalMenu = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   gap: theme.spacing(2),
+  marginTop:theme.spacing(1),
 }));
 
 export const MenuItem = styled('button')(({ theme }) => ({
