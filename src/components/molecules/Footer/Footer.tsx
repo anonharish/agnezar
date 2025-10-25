@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Typography, Link } from '@mui/material';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
@@ -16,6 +16,12 @@ import {
   ContactInfo,
   BottomBar,
   SocialLinks,
+  ReviewSection,
+  ReviewLogo,
+  ReviewContent,
+  ReviewStars,
+  ReviewText,
+  LocationLinks,
 } from './Footer.style';
 
 export interface FooterProps {
@@ -123,33 +129,59 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
         </FooterInner>
 
         {/* Bottom Bar */}
-        <FooterInner>
-          <BottomBar>
-            <Box sx={{ display: 'flex', gap: 3 }}>
-              <FooterLink href="#">UK:</FooterLink>
-              <FooterLink href="#">Lorweufs</FooterLink>
-              <FooterLink href="#">Privacy Policy</FooterLink>
-              <FooterLink href="#">Terms of Use</FooterLink>
+        <BottomBar>
+          {/* Reviews Section */}
+          <ReviewSection>
+            <ReviewLogo>
+              <img src="/assets/images/clutch-logo.png" alt="Clutch Reviews" />
+            </ReviewLogo>
+            <ReviewContent>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                <ReviewText component="span">REVIEWS</ReviewText>
+                <ReviewStars>
+                  {'★★★★★'}
+                </ReviewStars>
+              </Box>
+              <ReviewText>
+                45 REVIEWS
+              </ReviewText>
+            </ReviewContent>
+          </ReviewSection>
+
+          {/* Location Links */}
+          <LocationLinks>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+              <Box component="span">UK:</Box>
+              <Box component="a" href="#">Lorweufs</Box>
             </Box>
-            <SocialLinks>
-              <FooterLink href="#" target="_blank" rel="noopener">
-                <LinkedInIcon />
-              </FooterLink>
-              <FooterLink href="#" target="_blank" rel="noopener">
-                <GitHubIcon />
-              </FooterLink>
-              <FooterLink href="#" target="_blank" rel="noopener">
-                <TwitterIcon />
-              </FooterLink>
-              <FooterLink href="#" target="_blank" rel="noopener">
-                <FacebookIcon />
-              </FooterLink>
-              <FooterLink href="#" target="_blank" rel="noopener">
-                <YouTubeIcon />
-              </FooterLink>
-            </SocialLinks>
-          </BottomBar>
-        </FooterInner>
+            <Box component="span" sx={{ 
+              width: '1px', 
+              height: '20px', 
+              backgroundColor: 'rgba(255,255,255,0.1)' 
+            }} />
+            <Box component="a" href="#">Privacy Policy</Box>
+            <Box component="a" href="#">Terms of Use</Box>
+          </LocationLinks>
+
+          {/* Social Links */}
+          <SocialLinks>
+            <Link href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <LinkedInIcon />
+            </Link>
+            <Link href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <GitHubIcon />
+            </Link>
+            <Link href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+              <TwitterIcon />
+            </Link>
+            <Link href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <FacebookIcon />
+            </Link>
+            <Link href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <YouTubeIcon />
+            </Link>
+          </SocialLinks>
+        </BottomBar>
       </Box>
     </StyledFooter>
     // </StyledFooter>

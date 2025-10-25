@@ -11,12 +11,14 @@ import {
   WhyAgnezar,
   ContactUs,
 } from './pages';
+import { ScrollToTop } from './components/molecules';
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Router>
+        <ScrollToTop />
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />

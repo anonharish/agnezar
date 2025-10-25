@@ -66,29 +66,97 @@ export const ContactInfo = styled(Box)(({ theme }) => ({
 }));
 
 export const BottomBar = styled(Box)(({ theme }) => ({
-  borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-  marginTop: theme.spacing(6),
-  paddingTop: theme.spacing(3),
+  backgroundColor: '#000000',
+  padding: theme.spacing(2, 3),
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  flexWrap: 'wrap',
+  flexWrap: 'nowrap',
+  gap: theme.spacing(4),
+  [theme.breakpoints.down('md')]: {
+    flexDirection: 'column',
+    gap: theme.spacing(3),
+    padding: theme.spacing(3),
+  },
+}));
+
+export const ReviewSection = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
   gap: theme.spacing(2),
   [theme.breakpoints.down('sm')]: {
-    flexDirection: 'column',
-    textAlign: 'center',
+    width: '100%',
+    justifyContent: 'center',
+  },
+}));
+
+export const ReviewLogo = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  height: 28,
+  '& img': {
+    height: '100%',
+    width: 'auto',
+  },
+}));
+
+export const ReviewContent = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: theme.spacing(0.5),
+}));
+
+export const ReviewStars = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  gap: theme.spacing(0.5),
+  '& svg': {
+    fontSize: 16,
+  },
+}));
+
+export const ReviewText = styled(Box)(({ theme }) => ({
+  color: '#F5F5F1B2',
+  fontSize: '12px',
+  lineHeight: 1,
+}));
+
+export const LocationLinks = styled(Box)(({ theme }) => ({
+  display: 'flex',
+  alignItems: 'center',
+  gap: theme.spacing(2),
+  color: '#F5F5F1B2',
+  [theme.breakpoints.down('sm')]: {
+    width: '100%',
+    justifyContent: 'center',
+  },
+  '& a': {
+    color: '#F5F5F1B2',
+    textDecoration: 'none',
+    fontSize: '14px',
+    '&:hover': {
+      textDecoration: 'underline',
+    },
   },
 }));
 
 export const SocialLinks = styled(Box)(({ theme }) => ({
   display: 'flex',
+  alignItems: 'center',
   gap: theme.spacing(3),
+  [theme.breakpoints.down('sm')]: {
+    width: '100%',
+    justifyContent: 'center',
+  },
   '& a': {
-    color: '#fff',
-    opacity: 0.8,
+    color: '#F5F5F1B2',
+    display: 'flex',
+    alignItems: 'center',
     transition: 'opacity 0.2s ease',
     '&:hover': {
-      opacity: 1,
+      opacity: 0.8,
     },
+  },
+  '& svg': {
+    fontSize: 20,
   },
 }));
