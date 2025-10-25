@@ -13,10 +13,12 @@ export const MakeEveryStudy: React.FC = () => {
     return (
         <StyledMakeEvery>
             <UnParalleled 
+                smallText='RESOURCES'
                 mainHeading='Insights & Expertise from Our Scientific Leaders'
                 description='Stay informed on the latest scientific advancements, regulatory trends, and analytical best practices. Our Resources Hub is your source for expert-written content designed to help you navigate the complexities of pharmaceutical development.'
             />
-            <Inner>
+            {/* NOTE: Removed the accordion section as per the recent requirement */}
+            {/* <Inner>
                 <VerticalMenu>
                     {menu.map(m => (
                         <MenuItem key={m.id} className={m.id === activeMenu ? 'active' : ''} onClick={() => setActiveMenu(m.id)}>{m.label}</MenuItem>
@@ -56,7 +58,7 @@ export const MakeEveryStudy: React.FC = () => {
                         </Accordion>
                     ))}
                 </AccordionsWrap>
-            </Inner>
+            </Inner> */}
         </StyledMakeEvery>
     );
 };

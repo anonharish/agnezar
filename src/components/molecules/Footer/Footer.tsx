@@ -30,6 +30,19 @@ export interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ logo }) => {
+  // Contact information structure
+  const contactInfo = {
+    phone: '1-555-439-5782',
+    email: 'info@example-tech.com',
+    address: {
+      country: 'New York, USA',
+      area: 'Tech Valley',
+      street: '123 Innovation Dr',
+      city: 'Albany, NY 12203',
+      phone: '(518) 555-1234'
+    }
+  };
+
   // Footer content structure with navigation links
   const whatWeDo = [
     { label: 'Analytical R&D', href: '/services/analytical-rd' },
@@ -64,7 +77,7 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
   ];
 
   return (
-    <StyledFooter sx={{ border: "3px solid red" }}>
+    <StyledFooter>
       <Box>
         <FooterInner>
           {/* Logo and Contact Section */}
@@ -73,14 +86,14 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
               <Box component="img" src="/assets/logos/main-logo.svg" alt="Agnezar" sx={{ width: 150, height: 'auto', mb: 3, background: "white", padding: ".75rem", borderRadius: ".5rem" }} />
             )}
             <ContactInfo>
-              <Box>T: 1-555-439-5782</Box>
-              <Box>E: info@example-tech.com</Box>
+              <Box>T: {contactInfo.phone}</Box>
+              <Box>E: {contactInfo.email}</Box>
               <Box sx={{ mt: 2 }}>
-                <Box>A: New York, USA</Box>
-                <Box>Tech Valley</Box>
-                <Box>123 Innovation Dr</Box>
-                <Box>Albany, NY 12203</Box>
-                <Box>(518) 555-1234</Box>
+                <Box>A: {contactInfo.address.country}</Box>
+                <Box>{contactInfo.address.area}</Box>
+                <Box>{contactInfo.address.street}</Box>
+                <Box>{contactInfo.address.city}</Box>
+                <Box>{contactInfo.address.phone}</Box>
               </Box>
             </ContactInfo>
           </LogoSection>
@@ -159,16 +172,11 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
               <Typography component="p">UK:</Typography>
               <Typography component="p">Lorweufs</Typography>
             </Box>
-            <Box component="span" sx={{
-              width: '1px',
-              height: '20px',
-              backgroundColor: "#fff"
-            }} />
+            <Box component="span" className="divider" />
             <Box>
-              <Typography >Privacy Policy</Typography>
-              <Typography >Terms of Use</Typography>
+              <Typography component="p">Privacy Policy</Typography>
+              <Typography component="p">Terms of Use</Typography>
             </Box>
-
           </LocationLinks>
 
           {/* Social Links */}

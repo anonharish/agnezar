@@ -12,7 +12,7 @@ export const StyledFooter = styled(Box)(() => ({
 export const FooterInner = styled(Box)(({ theme }) => ({
   maxWidth: "100%",
   margin: '0 auto',
-  padding: '0 24px',
+  padding: theme.spacing(0, 4),
   display: 'grid',
   gridTemplateColumns: 'repeat(4, 1fr)',
   gap: theme.spacing(4),
@@ -116,27 +116,35 @@ export const ReviewStars = styled(Box)(({ theme }) => ({
 }));
 
 export const ReviewText = styled(Box)(({ theme }) => ({
-  color: '#F5F5F1B2',
+  color: '#fff',
   fontSize: '12px',
   lineHeight: 1,
+  fontWeight: 500,
 }));
 
 export const LocationLinks = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  gap: theme.spacing(2),
-  color: '#F5F5F1B2',
+  gap: theme.spacing(4),
+  color: '#fff',
   [theme.breakpoints.down('sm')]: {
     width: '100%',
     justifyContent: 'center',
   },
-  '& a': {
-    color: '#F5F5F1B2',
-    textDecoration: 'none',
+  '& > div': {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: theme.spacing(0.5),
+  },
+  '& p': {
+    color: '#fff',
     fontSize: '14px',
-    '&:hover': {
-      textDecoration: 'underline',
-    },
+    margin: 0,
+  },
+  '& span.divider': {
+    width: '1px',
+    height: '20px',
+    backgroundColor: '#fff',
   },
 }));
 
@@ -149,7 +157,7 @@ export const SocialLinks = styled(Box)(({ theme }) => ({
     justifyContent: 'center',
   },
   '& a': {
-    color: '#F5F5F1B2',
+    color: '#fff',
     display: 'flex',
     alignItems: 'center',
     transition: 'opacity 0.2s ease',
@@ -158,6 +166,6 @@ export const SocialLinks = styled(Box)(({ theme }) => ({
     },
   },
   '& svg': {
-    fontSize: 20,
+    fontSize: 24,
   },
 }));
