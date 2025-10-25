@@ -6,11 +6,11 @@ export const StyledFooter = styled(Box)(() => ({
   backgroundColor: '#1E1B4B', // Dark navy background from screenshot
   color: '#fff',
   marginTop: 'auto',
-  padding: '64px 0 32px',
+  padding: '64px 0 0px',
 }));
 
 export const FooterInner = styled(Box)(({ theme }) => ({
-  maxWidth: 1200,
+  maxWidth: "100%",
   margin: '0 auto',
   padding: '0 24px',
   display: 'grid',
@@ -67,7 +67,8 @@ export const ContactInfo = styled(Box)(({ theme }) => ({
 
 export const BottomBar = styled(Box)(({ theme }) => ({
   backgroundColor: '#000000',
-  padding: theme.spacing(2, 3),
+  padding: theme.spacing(2, 8),
+  marginTop: theme.spacing(4),
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',

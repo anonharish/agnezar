@@ -64,13 +64,13 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
   ];
 
   return (
-    <StyledFooter>
+    <StyledFooter sx={{ border: "3px solid red" }}>
       <Box>
         <FooterInner>
           {/* Logo and Contact Section */}
           <LogoSection>
             {logo || (
-              <Box component="img" src="/assets/logos/main-logo.svg" alt="Agnezar" sx={{ width: 150, height: 'auto', mb: 3 , background: "white" , padding:".75rem",borderRadius: ".5rem"}} />
+              <Box component="img" src="/assets/logos/main-logo.svg" alt="Agnezar" sx={{ width: 150, height: 'auto', mb: 3, background: "white", padding: ".75rem", borderRadius: ".5rem" }} />
             )}
             <ContactInfo>
               <Box>T: 1-555-439-5782</Box>
@@ -91,7 +91,7 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
             <FooterList>
               {whatWeDo.map((item, index) => (
                 <FooterListItem key={index}>
-                  <FooterLink 
+                  <FooterLink
                   // href={item.href}
                   >{item.label}</FooterLink>
                 </FooterListItem>
@@ -105,7 +105,7 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
             <FooterList>
               {about.map((item, index) => (
                 <FooterListItem key={index}>
-                  <FooterLink 
+                  <FooterLink
                   // href={item.href}
                   >{item.label}</FooterLink>
                 </FooterListItem>
@@ -119,7 +119,7 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
             <FooterList>
               {company.map((item, index) => (
                 <FooterListItem key={index}>
-                  <FooterLink 
+                  <FooterLink
                   // href={item.href}
                   >{item.label}</FooterLink>
                 </FooterListItem>
@@ -131,13 +131,18 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
         {/* Bottom Bar */}
         <BottomBar>
           {/* Reviews Section */}
+
+
           <ReviewSection>
-            <ReviewLogo>
-              <img src="/assets/images/clutch-logo.png" alt="Clutch Reviews" />
-            </ReviewLogo>
+            <Box>
+              <ReviewText sx={{ mb: 1 }}> REVIEWS </ReviewText>
+              <ReviewLogo>
+                <img src="/assets/logos/clutch-logo.png" alt="Clutch Reviews" />
+              </ReviewLogo>
+            </Box>
             <ReviewContent>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                <ReviewText component="span">REVIEWS</ReviewText>
+                {/* <ReviewText component="span">REVIEWS</ReviewText> */}
                 <ReviewStars>
                   {'★★★★★'}
                 </ReviewStars>
@@ -150,17 +155,20 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
 
           {/* Location Links */}
           <LocationLinks>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Box component="span">UK:</Box>
-              <Box component="a" href="#">Lorweufs</Box>
+            <Box>
+              <Typography component="p">UK:</Typography>
+              <Typography component="p">Lorweufs</Typography>
             </Box>
-            <Box component="span" sx={{ 
-              width: '1px', 
-              height: '20px', 
-              backgroundColor: 'rgba(255,255,255,0.1)' 
+            <Box component="span" sx={{
+              width: '1px',
+              height: '20px',
+              backgroundColor: "#fff"
             }} />
-            <Box component="a" href="#">Privacy Policy</Box>
-            <Box component="a" href="#">Terms of Use</Box>
+            <Box>
+              <Typography >Privacy Policy</Typography>
+              <Typography >Terms of Use</Typography>
+            </Box>
+
           </LocationLinks>
 
           {/* Social Links */}
