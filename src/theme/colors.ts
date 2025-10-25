@@ -53,6 +53,7 @@ export const colors = {
       heading: '#1A1F29',
       body: '#1A1F29',
     },
+    footer: '#F5F5F1B2',
   },
   
   // Status colors

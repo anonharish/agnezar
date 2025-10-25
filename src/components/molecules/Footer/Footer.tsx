@@ -1,111 +1,152 @@
 import React from 'react';
-import { Box, Container, Grid, Link, Divider } from '@mui/material';
-import { useFooter } from './Footer.hook';
-import { StyledFooter } from './Footer.style';
+import { Box } from '@mui/material';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import TwitterIcon from '@mui/icons-material/Twitter';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 import { Typography } from '@components/atoms';
+import {
+  StyledFooter,
+  FooterInner,
+  LogoSection,
+  FooterHeading,
+  FooterList,
+  FooterListItem,
+  FooterLink,
+  ContactInfo,
+  BottomBar,
+  SocialLinks,
+} from './Footer.style';
 
 export interface FooterProps {
-  companyName?: string;
-  companyDescription?: string;
-  links?: {
-    title: string;
-    items: Array<{
-      label: string;
-      href: string;
-    }>;
-  }[];
-  socialLinks?: Array<{
-    platform: string;
-    href: string;
-    icon: React.ReactNode;
-  }>;
-  copyright?: string;
+  // Optional props for customization
+  logo?: React.ReactNode;
 }
 
-export const Footer: React.FC<FooterProps> = ({
-  companyName = 'Agnezar',
-  companyDescription = 'Your trusted partner in digital transformation and innovation.',
-  links = [],
-  socialLinks = [],
-  copyright = `© ${new Date().getFullYear()} Agnezar. All rights reserved.`,
-}) => {
-  const { handleLinkClick } = useFooter();
+export const Footer: React.FC<FooterProps> = ({ logo }) => {
+  // Footer content structure based on the screenshot
+  const whatWeDo = [
+    'Analytical R&D',
+    'QC Testing',
+    'ICH Stability Studies',
+    'Impurity Profiling',
+    'Extractables & Leachables (E&L)',
+    'Nitrosamine Impurity Solutions (Fast-Track)',
+    'Regulatory Consulting',
+    'Training Programs',
+    'Fast-Track Testing',
+    'AI & Predictive Modeling',
+  ];
+
+  const about = [
+    'Our Mission',
+    'Our Values',
+    'Openings',
+    'Affiliates',
+    'Recognition',
+    'Articles',
+    'Client Success',
+    'Webinars',
+    'Support',
+  ];
+
+  const company = [
+    'About Agnezar',
+    'Leadership',
+    'Quality & Compliance',
+    'Industries',
+  ];
 
   return (
     <StyledFooter>
-      <Container maxWidth="lg">
-        <Grid container spacing={4} sx={{ py: 6 }}>
-          {/* Company Info */}
-          <Grid item xs={12} md={4}>
-            <Box>
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
-                {companyName}
-              </Typography>
-              <Typography variant="body2" color="textSecondary" sx={{ mb: 3 }}>
-                {companyDescription}
-              </Typography>
-              
-              {/* Social Links */}
-              {socialLinks.length > 0 && (
-                <Box sx={{ display: 'flex', gap: 2 }}>
-                  {socialLinks.map((social, index) => (
-                    <Link
-                      key={index}
-                      href={social.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      sx={{
-                        color: 'text.secondary',
-                        '&:hover': { color: 'primary.main' },
-                        transition: 'color 0.3s ease',
-                      }}
-                    >
-                      {social.icon}
-                    </Link>
-                  ))}
-                </Box>
-              )}
-            </Box>
-          </Grid>
-
-          {/* Links */}
-          {links.map((section, sectionIndex) => (
-            <Grid key={sectionIndex} item xs={12} sm={6} md={2}>
-              <Box>
-                <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 600 }}>
-                  {section.title}
-                </Typography>
-                <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
-                  {section.items.map((item, itemIndex) => (
-                    <Link
-                      key={itemIndex}
-                      href={item.href}
-                      onClick={(e) => handleLinkClick(e, item.href)}
-                      sx={{
-                        color: 'text.secondary',
-                        textDecoration: 'none',
-                        '&:hover': { color: 'primary.main' },
-                        transition: 'color 0.3s ease',
-                      }}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </Box>
+      <Box>
+        <FooterInner>
+          {/* Logo and Contact Section */}
+          <LogoSection>
+            {logo || (
+              <Box component="img" src="/assets/logos/main-logo.svg" alt="Agnezar" sx={{ width: 150, height: 'auto', mb: 3 , background: "white" , padding:".75rem",borderRadius: ".5rem"}} />
+            )}
+            <ContactInfo>
+              <Box>T: 1-555-439-5782</Box>
+              <Box>E: info@example-tech.com</Box>
+              <Box sx={{ mt: 2 }}>
+                <Box>A: New York, USA</Box>
+                <Box>Tech Valley</Box>
+                <Box>123 Innovation Dr</Box>
+                <Box>Albany, NY 12203</Box>
+                <Box>(518) 555-1234</Box>
               </Box>
-            </Grid>
-          ))}
-        </Grid>
+            </ContactInfo>
+          </LogoSection>
 
-        <Divider sx={{ my: 3 }} />
-        
-        {/* Copyright */}
-        <Box sx={{ textAlign: 'center', py: 2 }}>
-          <Typography variant="body2" color="textSecondary">
-            {copyright}
-          </Typography>
-        </Box>
-      </Container>
+          {/* What We Do Section */}
+          <Box>
+            <FooterHeading>What We Do</FooterHeading>
+            <FooterList>
+              {whatWeDo.map((item, index) => (
+                <FooterListItem key={index}>
+                  <FooterLink href="#">{item}</FooterLink>
+                </FooterListItem>
+              ))}
+            </FooterList>
+          </Box>
+
+          {/* About Section */}
+          <Box>
+            <FooterHeading>About</FooterHeading>
+            <FooterList>
+              {about.map((item, index) => (
+                <FooterListItem key={index}>
+                  <FooterLink href="#">{item}</FooterLink>
+                </FooterListItem>
+              ))}
+            </FooterList>
+          </Box>
+
+          {/* Company Section */}
+          <Box>
+            <FooterHeading>Company</FooterHeading>
+            <FooterList>
+              {company.map((item, index) => (
+                <FooterListItem key={index}>
+                  <FooterLink href="#">{item}</FooterLink>
+                </FooterListItem>
+              ))}
+            </FooterList>
+          </Box>
+        </FooterInner>
+
+        {/* Bottom Bar */}
+        <FooterInner>
+          <BottomBar>
+            <Box sx={{ display: 'flex', gap: 3 }}>
+              <FooterLink href="#">UK:</FooterLink>
+              <FooterLink href="#">Lorweufs</FooterLink>
+              <FooterLink href="#">Privacy Policy</FooterLink>
+              <FooterLink href="#">Terms of Use</FooterLink>
+            </Box>
+            <SocialLinks>
+              <FooterLink href="#" target="_blank" rel="noopener">
+                <LinkedInIcon />
+              </FooterLink>
+              <FooterLink href="#" target="_blank" rel="noopener">
+                <GitHubIcon />
+              </FooterLink>
+              <FooterLink href="#" target="_blank" rel="noopener">
+                <TwitterIcon />
+              </FooterLink>
+              <FooterLink href="#" target="_blank" rel="noopener">
+                <FacebookIcon />
+              </FooterLink>
+              <FooterLink href="#" target="_blank" rel="noopener">
+                <YouTubeIcon />
+              </FooterLink>
+            </SocialLinks>
+          </BottomBar>
+        </FooterInner>
+      </Box>
     </StyledFooter>
+    // </StyledFooter>
   );
 };

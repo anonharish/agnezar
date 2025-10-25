@@ -9,6 +9,9 @@ declare module '@mui/material/styles' {
     topBar?: PaletteColorOptions;
     white?: PaletteColorOptions;
   }
+  interface TypeText {
+    footer?: string;
+  }
 }
 
 // allow usage in sx prop
