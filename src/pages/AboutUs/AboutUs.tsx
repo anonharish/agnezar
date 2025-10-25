@@ -82,128 +82,60 @@ export const AboutUs: React.FC = () => {
           },
         ]}
       />
-      <Box sx={{width: "90%", mx: "auto"}}>
-      <UnParalleled
-                smallText={"Our Leadership"}
-                mainHeading={"Driven by Science. Defined by Expertise."}
-                description={"At Agnezar, our leadership team combines decades of global experience in pharmaceutical analysis, regulatory affairs, and quality assurance with the agility and innovation of a startup.Our experts deliver end-to-end solutions for Module 3 – CMC, including analytical testing, regulatory strategy, and FDA query resolution, guiding projects with precision, integrity, and scientific excellence.United by a mission to transform pharmaceutical analysis, our team of scientists, strategists, and innovators ensures every solution is compliant, data-driven, and designed for client success."}
-              />
-      </Box>
-      
+      {/* The Agnezar Advantage section */}
 
-      {/* Mission & Vision */}
-      <Box sx={{ py: 8 }}>
-        <Container maxWidth="lg">
-          <Grid container spacing={6}>
-            <Grid item xs={12} md={6}>
-              <Card sx={{ p: 4, height: '100%' }}>
-                <Typography variant="h4" sx={{ mb: 3, color: 'primary.main' }}>
-                  Our Mission
-                </Typography>
-                <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.7 }}>
-                  {mission}
-                </Typography>
-              </Card>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Card sx={{ p: 4, height: '100%' }}>
-                <Typography variant="h4" sx={{ mb: 3, color: 'primary.main' }}>
-                  Our Vision
-                </Typography>
-                <Typography variant="body1" sx={{ fontSize: '1.125rem', lineHeight: 1.7 }}>
-                  {vision}
-                </Typography>
-              </Card>
-            </Grid>
-          </Grid>
-        </Container>
+      <Box sx={{ width: "90%", mx: "auto" }}>
+        <UnParalleled
+          smallText={"Our Leadership"}
+          mainHeading={"Driven by Science. Defined by Expertise."}
+          description={"At Agnezar, our leadership team combines decades of global experience in pharmaceutical analysis, regulatory affairs, and quality assurance with the agility and innovation of a startup.Our experts deliver end-to-end solutions for Module 3 – CMC, including analytical testing, regulatory strategy, and FDA query resolution, guiding projects with precision, integrity, and scientific excellence.United by a mission to transform pharmaceutical analysis, our team of scientists, strategists, and innovators ensures every solution is compliant, data-driven, and designed for client success."}
+        />
       </Box>
 
-      {/* Values */}
-      <Box sx={{ py: 8, backgroundColor: 'background.paper' }}>
-        <Container maxWidth="lg">
-          <Box sx={{ textAlign: 'center', mb: 6 }}>
-            <Typography variant="h2" sx={{ mb: 3 }}>
-              Our Values
-            </Typography>
-            <Typography variant="body1" color="textSecondary">
-              The principles that guide everything we do
-            </Typography>
-          </Box>
+      <AgnezerAdvantage
+        title="The Agnezar Advantage"
+        cards={[
+          {
+            title: 'Regulatory Excellence',
+            description:
+              'Navigate global submissions with confidence. Our facilities are cGMP, GLP, and ISO 17025 compliant, registered with the FDA, and adhere to EMA guidelines to ensure your data meets the highest standards of integrity and acceptance.',
+          },
+          {
+            title: 'Innovation-Driven Science',
+            description:
+              'Leverage the power of technology to accelerate your timeline. We employ AI-powered analytics, robotic automation, and predictive modeling to deliver results with unparalleled speed, precision, and data integrity.',
+          },
+          {
+            title: 'One-Stop Solutions',
+            description:
+              'Streamline your development lifecycle with a single, integrated partner. Our comprehensive services unite analytical testing, regulatory consulting, and formulation support under one roof, eliminating handoffs and ensuring data continuity.',
+          },
+          {
+            title: 'Client-First Partnership',
+            description:
+              'Experience a new standard of transparency and support. We provide dedicated project managers and 24/7 access to your project data through personalized, real-time dashboards, putting critical information at your fingertips.',
+          },
+          {
+            title: 'Real-Time Project Dashboards',
+            description:
+              "Why wait for a weekly update? Our secure client portal provides 24/7 access to your project's progress. Track sample status, view preliminary results, and access final reports anytime, anywhere.",
+          },
+          {
+            title: 'Dedicated Project Managers',
+            description:
+              'Your project is supported by a dedicated Project Manager who serves as your single point of contact. This expert is not just a coordinator but a scientific liaison who understands your goals, ensures seamless communication, and proactively manages your project to meet every milestone.',
+          },
+          {
+            title: 'An Unparalleled Client Experience',
+            description:
+              "Engineered for Your Success — In today's competitive landscape, access to data is not enough. You need a partner who has engineered a smarter, faster, and more transparent way for you to get the critical information you need to make decisions. We have moved beyond the traditional CRO model to provide a service experience built on visibility and control.",
+          },
+        ]}
+      />
 
-          <Grid container spacing={4}>
-            {values.map((value, index) => (
-              <Grid key={index} item xs={12} sm={6} md={4}>
-                <Card hoverable sx={{ p: 3, height: '100%', textAlign: 'center' }}>
-                  <Box
-                    sx={{
-                      width: 60,
-                      height: 60,
-                      backgroundColor: 'primary.main',
-                      borderRadius: '50%',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      mx: 'auto',
-                      mb: 2,
-                    }}
-                  >
-                    <Typography variant="h5" color="white">
-                      {value.icon}
-                    </Typography>
-                  </Box>
-                  <Typography variant="h6" sx={{ mb: 2 }}>
-                    {value.title}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    {value.description}
-                  </Typography>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
-
-      {/* Team */}
-      <Box sx={{ py: 8 }}>
-        <Container maxWidth="lg">
-          <Box sx={{ textAlign: 'center', mb: 6 }}>
-            <Typography variant="h2" sx={{ mb: 3 }}>
-              Meet Our Team
-            </Typography>
-            <Typography variant="body1" color="textSecondary">
-              The talented individuals behind our success
-            </Typography>
-          </Box>
-
-          <Grid container spacing={4}>
-            {team.map((member, index) => (
-              <Grid key={index} item xs={12} sm={6} md={4}>
-                <Card sx={{ p: 3, textAlign: 'center' }}>
-                  <Avatar
-                    src={member.avatar}
-                    alt={member.name}
-                    sx={{ width: 120, height: 120, mx: 'auto', mb: 2 }}
-                  />
-                  <Typography variant="h6" sx={{ mb: 1 }}>
-                    {member.name}
-                  </Typography>
-                  <Typography variant="body2" color="primary" sx={{ mb: 2 }}>
-                    {member.position}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    {member.bio}
-                  </Typography>
-                </Card>
-              </Grid>
-            ))}
-          </Grid>
-        </Container>
-      </Box>
 
       {/* CTA Section */}
-      <Box sx={{ py: 8, backgroundColor: 'primary.main', color: 'white' }}>
+      {/* <Box sx={{ py: 8, backgroundColor: 'primary.main', color: 'white' }}>
         <Container maxWidth="md">
           <Box sx={{ textAlign: 'center' }}>
             <Typography variant="h3" sx={{ mb: 3 }}>
@@ -217,7 +149,7 @@ export const AboutUs: React.FC = () => {
             </Button>
           </Box>
         </Container>
-      </Box>
+      </Box> */}
     </StyledAboutUs>
   );
 };
