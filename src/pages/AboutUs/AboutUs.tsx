@@ -5,6 +5,7 @@ import { StyledAboutUs } from './AboutUs.style';
 import { Typography, Card, Button } from '@components/atoms';
 import { HeroSectionWithContent } from '@components/molecules/HeroSectionWithContent';
 import { HeroMediaSection } from '@components/molecules/HeroMediaSection';
+import { OurMission } from '@components/molecules/OurMission';
 
 export const AboutUs: React.FC = () => {
   const {
@@ -31,6 +32,19 @@ export const AboutUs: React.FC = () => {
       <HeroMediaSection
         title={"Meet our team of industry experts guiding your projects with decades of experience in pharmaceutical analysis, regulatory compliance, and quality assurance."}
         imageSrc="/assets/images/meetOurteam.png"
+      />
+
+      {/* Our Mission section (uses UnParalleled + CardsGrid internally) */}
+      <OurMission
+        smallText="OUR MISSION & VISION"
+        mainHeading="Built for Rigor. Designed for Partnership."
+        description={mission}
+        heroTitle={"Meet our team of industry experts guiding your projects with decades of experience in pharmaceutical analysis, regulatory compliance, and quality assurance."}
+        heroImageSrc="/assets/images/meetOurteam.png"
+        cards={[
+          { title: 'Our Mission', description: mission, icon: 'assets/icons/mission-icon.png' },
+          { title: 'Our Vision', description: vision, icon: 'assets/icons/vision-icon.png' },
+        ]}
       />
 
       {/* Mission & Vision */}

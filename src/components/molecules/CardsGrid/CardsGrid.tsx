@@ -25,13 +25,21 @@ export const CardsGrid: React.FC<CardsGridProps> = ({ cards, cardHeight: _cardHe
           <CardBox>
             <Card variant="filled" sx={{ background: 'inherit', border: 'none', borderRadius: 'none', padding: '4px' }}>
               <Box sx={{ gap: 2 }}>
-                <CardIcon>
-                  {c.icon && typeof c.icon === 'string' ? (
-                    <img src={c.icon} alt={c.title} style={{ width: 40, height: 40, objectFit: 'contain' }} />
+                {c.icon && <CardIcon>
+                  {c.icon ? (
+                    typeof c.icon === 'string' ? (
+                      <img src={c.icon} alt={c.title} style={{ width: 40, height: 40, objectFit: 'contain' }} />
+                    ) : (
+                      c.icon
+                    )
                   ) : (
-                    c.icon
+                    // Generic placeholder icon (simple SVG) when no icon provided
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
+                      <rect x="3" y="3" width="18" height="18" rx="3" fill="#E6EEF0" />
+                      <path d="M7 12h10M7 8h10M7 16h6" stroke="#879296" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
                   )}
-                </CardIcon>
+                </CardIcon>}
                 <Box>
                   <Typography variant="h6" sx={{ fontWeight: 700 }}>{c.title}</Typography>
                   <Typography variant="body2" sx={{ mt: 1 }}>{c.description}</Typography>

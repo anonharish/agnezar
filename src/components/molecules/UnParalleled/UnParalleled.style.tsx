@@ -27,9 +27,11 @@ export const MainHeading = styled(MuiTypography)(({ theme }) => ({
   },
 }));
 
-export const DescText = styled(MuiTypography)(({ theme }) => ({
+export const DescText = styled(MuiTypography, { shouldForwardProp: (prop) => prop !== 'alignment' })<{
+  alignment?: 'left' | 'center';
+}>(({ theme, alignment }) => ({
   color: (theme.palette as any)?.text?.alt?.body ?? colors.text.alt.body,
   maxWidth: 900,
-  margin: '0 auto',
+  margin: alignment === 'left' ? undefined : '0 auto',
   marginTop: theme.spacing(2),
 }));

@@ -99,6 +99,10 @@ export const colors = {
     main: '#ffffff',
     secondary: '#E0E0E0',
   },
+  // Border tokens
+  borders: {
+    muted: '#8792965C',
+  },
 } as const;
 
 export type ColorPalette = typeof colors;
