@@ -7,6 +7,7 @@ import { HeroSectionWithContent } from '@components/molecules/HeroSectionWithCon
 import { HeroMediaSection } from '@components/molecules/HeroMediaSection';
 import { OurMission } from '@components/molecules/OurMission';
 import { AgnezerAdvantage } from '../../components/molecules/AgnezerAdvantage/AgnezerAdvantage'
+import { UnParalleled } from '@/components';
 
 export const AboutUs: React.FC = () => {
   const {
@@ -81,7 +82,13 @@ export const AboutUs: React.FC = () => {
           },
         ]}
       />
-
+      <Box sx={{width: "90%", mx: "auto"}}>
+      <UnParalleled
+                smallText={"Our Leadership"}
+                mainHeading={"Driven by Science. Defined by Expertise."}
+                description={"At Agnezar, our leadership team combines decades of global experience in pharmaceutical analysis, regulatory affairs, and quality assurance with the agility and innovation of a startup.Our experts deliver end-to-end solutions for Module 3 – CMC, including analytical testing, regulatory strategy, and FDA query resolution, guiding projects with precision, integrity, and scientific excellence.United by a mission to transform pharmaceutical analysis, our team of scientists, strategists, and innovators ensures every solution is compliant, data-driven, and designed for client success."}
+              />
+      </Box>
       
 
       {/* Mission & Vision */}
