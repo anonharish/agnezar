@@ -5,7 +5,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import { Typography } from '@components/atoms';
 import {
   StyledFooter,
   FooterInner,
@@ -25,37 +24,37 @@ export interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ logo }) => {
-  // Footer content structure based on the screenshot
+  // Footer content structure with navigation links
   const whatWeDo = [
-    'Analytical R&D',
-    'QC Testing',
-    'ICH Stability Studies',
-    'Impurity Profiling',
-    'Extractables & Leachables (E&L)',
-    'Nitrosamine Impurity Solutions (Fast-Track)',
-    'Regulatory Consulting',
-    'Training Programs',
-    'Fast-Track Testing',
-    'AI & Predictive Modeling',
+    { label: 'Analytical R&D', href: '/services/analytical-rd' },
+    { label: 'QC Testing', href: '/services/qc-testing' },
+    { label: 'ICH Stability Studies', href: '/services/ich-stability-studies' },
+    { label: 'Impurity Profiling', href: '/services/impurity-profiling' },
+    { label: 'Extractables & Leachables (E&L)', href: '/services/el-testing' },
+    { label: 'Nitrosamine Impurity Solutions (Fast-Track)', href: '/services/nitrosamine-solutions' },
+    { label: 'Regulatory Consulting', href: '/services/regulatory-consulting' },
+    { label: 'Training Programs', href: '/services/training' },
+    { label: 'Fast-Track Testing', href: '/services/fast-track-testing' },
+    { label: 'AI & Predictive Modeling', href: '/services/ai-modeling' },
   ];
 
   const about = [
-    'Our Mission',
-    'Our Values',
-    'Openings',
-    'Affiliates',
-    'Recognition',
-    'Articles',
-    'Client Success',
-    'Webinars',
-    'Support',
+    { label: 'Our Mission', href: '/about/mission' },
+    { label: 'Our Values', href: '/about/values' },
+    { label: 'Openings', href: '/about/careers' },
+    { label: 'Affiliates', href: '/about/affiliates' },
+    { label: 'Recognition', href: '/about/recognition' },
+    { label: 'Articles', href: '/about/articles' },
+    { label: 'Client Success', href: '/about/success-stories' },
+    { label: 'Webinars', href: '/resources/webinars' },
+    { label: 'Support', href: '/support' },
   ];
 
   const company = [
-    'About Agnezar',
-    'Leadership',
-    'Quality & Compliance',
-    'Industries',
+    { label: 'About Agnezar', href: '/company/about' },
+    { label: 'Leadership', href: '/company/leadership' },
+    { label: 'Quality & Compliance', href: '/company/quality-compliance' },
+    { label: 'Industries', href: '/company/industries' },
   ];
 
   return (
@@ -86,7 +85,9 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
             <FooterList>
               {whatWeDo.map((item, index) => (
                 <FooterListItem key={index}>
-                  <FooterLink href="#">{item}</FooterLink>
+                  <FooterLink 
+                  // href={item.href}
+                  >{item.label}</FooterLink>
                 </FooterListItem>
               ))}
             </FooterList>
@@ -98,7 +99,9 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
             <FooterList>
               {about.map((item, index) => (
                 <FooterListItem key={index}>
-                  <FooterLink href="#">{item}</FooterLink>
+                  <FooterLink 
+                  // href={item.href}
+                  >{item.label}</FooterLink>
                 </FooterListItem>
               ))}
             </FooterList>
@@ -110,7 +113,9 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
             <FooterList>
               {company.map((item, index) => (
                 <FooterListItem key={index}>
-                  <FooterLink href="#">{item}</FooterLink>
+                  <FooterLink 
+                  // href={item.href}
+                  >{item.label}</FooterLink>
                 </FooterListItem>
               ))}
             </FooterList>
