@@ -11,6 +11,8 @@ declare module '@mui/material/styles' {
   }
   interface TypeText {
     footer?: string;
+    dark?: string;
+    body?: string;
   }
 }
 

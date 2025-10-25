@@ -1,7 +1,6 @@
 import React from 'react';
-import { Container, Box } from '@mui/material';
 import { Typography } from '@components/atoms';
-import { StyledHeroSection, HeroContent, HeroImage, HeroContainer } from './HeroSectionWithContent.style.tsx';
+import { StyledHeroSection, HeroContent, HeroImage, HeroContainer } from './HeroSectionWithContent.style';
 
 export interface HeroSectionWithContentProps {
   title: string;
@@ -34,14 +33,14 @@ export const HeroSectionWithContent: React.FC<HeroSectionWithContentProps> = ({
           )}
           <Typography 
             variant="h1" 
-            color="textDark"
             className="hero-title"
+            sx={(theme) => ({ color: theme.palette.text.dark })}
           >
             {title}
           </Typography>
           <Typography 
-            color="textBody"
             className="hero-description"
+            sx={(theme) => ({ color: theme.palette.text.body })}
           >
             {description}
           </Typography>

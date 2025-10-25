@@ -91,7 +91,7 @@ export const ReviewSection = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const ReviewLogo = styled(Box)(({ theme }) => ({
+export const ReviewLogo = styled(Box)(() => ({
   display: 'flex',
   alignItems: 'center',
   height: 28,
@@ -115,7 +115,7 @@ export const ReviewStars = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const ReviewText = styled(Box)(({ theme }) => ({
+export const ReviewText = styled(Box)(() => ({
   color: '#fff',
   fontSize: '12px',
   lineHeight: 1,

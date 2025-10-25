@@ -4,6 +4,7 @@ import { useAboutUs } from './AboutUs.hook';
 import { StyledAboutUs } from './AboutUs.style';
 import { Typography, Card, Button } from '@components/atoms';
 import { HeroSectionWithContent } from '@components/molecules/HeroSectionWithContent';
+import { HeroMediaSection } from '@components/molecules/HeroMediaSection';
 
 export const AboutUs: React.FC = () => {
   const {
@@ -24,6 +25,12 @@ export const AboutUs: React.FC = () => {
         description={heroConfig.description}
         imageSrc="/assets/images/about-hero.png"
         backgroundColor="background.default"
+      />
+
+      {/* Media section below hero (text + large media placeholder) */}
+      <HeroMediaSection
+        title={"Meet our team of industry experts guiding your projects with decades of experience in pharmaceutical analysis, regulatory compliance, and quality assurance."}
+        imageSrc="/assets/images/meetOurteam.png"
       />
 
       {/* Mission & Vision */}
