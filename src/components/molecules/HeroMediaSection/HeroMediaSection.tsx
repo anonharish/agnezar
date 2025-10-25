@@ -1,5 +1,4 @@
 import React from 'react';
-import { Box } from '@mui/material';
 import { Typography } from '@components/atoms';
 import {
   StyledHeroMediaSection,

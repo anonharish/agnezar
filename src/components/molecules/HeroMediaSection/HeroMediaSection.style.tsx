@@ -43,7 +43,7 @@ export const MediaImage = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const ImageWrapper = styled(Box)(({ theme }) => ({
+export const ImageWrapper = styled(Box)(({}) => ({
   position: 'relative',
   width: '100%',
 //   borderRadius: theme.spacing(1),
