@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { Box, Typography as MuiTypography, Grid } from '@mui/material';
+import { Box, Typography as MuiTypography } from '@mui/material';
 import { colors } from '@theme/colors';
 
 export const StyledAdvantage = styled(Box)(({ theme }) => ({
@@ -37,25 +37,4 @@ export const AdvantageDesc = styled(MuiTypography)(({ theme }) => ({
   marginRight: 'auto',
 }));
 
-export const CardsGrid = styled(Grid)(({ theme }) => ({
-  marginTop: theme.spacing(2),
-}));
-
-export const AdvantageCardInner = styled(Box)(({ theme }) => ({
-  background: '#fff',
-  padding: theme.spacing(2),
-//   borderRadius: 6,
-  minHeight: 160,
-}));
-
-export const CardIcon = styled(Box)(({ theme }) => ({
-  width: 40,
-  height: 40,
-  borderRadius: 8,
-//   background: (theme.palette as any)?.secondary?.main ?? colors.secondary.main,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: '#fff',
-  marginBottom: theme.spacing(2),
-}));
+// Cards grid and card substyles moved to the reusable CardsGrid component
