@@ -6,7 +6,7 @@ export const useAboutUs = () => {
 
   const heroConfig = {
     title: 'About Agnezar',
-    description: 'We are a leading technology company dedicated to delivering innovative solutions that transform businesses and drive growth.',
+    description: 'Agnezar is a next-generation Analytical Service Laboratory committed to advancing the quality, safety, and innovation of pharmaceutical products. We provide comprehensive analytical solutions that empower research, development, and manufacturing teams to achieve excellence in every stage of the product lifecycle.',
   };
 
   const mission = 'To empower businesses with cutting-edge technology solutions that drive innovation, efficiency, and growth. We believe in creating lasting partnerships and delivering exceptional value to our clients through our expertise and dedication.';

@@ -3,6 +3,7 @@ import { Container, Grid, Box, Avatar } from '@mui/material';
 import { useAboutUs } from './AboutUs.hook';
 import { StyledAboutUs } from './AboutUs.style';
 import { Typography, Card, Button } from '@components/atoms';
+import { HeroSectionWithContent } from '@components/molecules/HeroSectionWithContent';
 
 export const AboutUs: React.FC = () => {
   const {
@@ -17,18 +18,13 @@ export const AboutUs: React.FC = () => {
   return (
     <StyledAboutUs>
       {/* Hero Section */}
-      <Box sx={{ py: 8, backgroundColor: 'primary.main', color: 'white' }}>
-        <Container maxWidth="lg">
-          <Box sx={{ textAlign: 'center' }}>
-            <Typography variant="h1" sx={{ mb: 3 }}>
-              {heroConfig.title}
-            </Typography>
-            <Typography variant="h5" sx={{ maxWidth: 800, mx: 'auto' }}>
-              {heroConfig.description}
-            </Typography>
-          </Box>
-        </Container>
-      </Box>
+      <HeroSectionWithContent
+        sectionLabel="ABOUT"
+        title={heroConfig.title}
+        description={heroConfig.description}
+        imageSrc="/assets/images/about-hero.png"
+        backgroundColor="background.default"
+      />
 
       {/* Mission & Vision */}
       <Box sx={{ py: 8 }}>

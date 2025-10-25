@@ -7,6 +7,7 @@ export { AgnezerAdvantage } from './AgnezerAdvantage/AgnezerAdvantage';
 export { MakeEveryStudy } from './MakeEveryStudy/MakeEveryStudy';
 export { EmailInsights } from './EmailInsights';
 export { Footer } from './Footer';
+export { HeroSectionWithContent } from './HeroSectionWithContent';
 export { ScrollToTop } from './ScrollToTop';
 
 export type { TopBarProps } from './TopBar';

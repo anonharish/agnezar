@@ -48,6 +48,8 @@ export const colors = {
     secondary: '#757575',
     disabled: '#bdbdbd',
     hint: '#9e9e9e',
+    dark: '#0E151B',
+    body: '#445A60',
     // Alternative text colors for headings/descriptions
     alt: {
       heading: '#1A1F29',
