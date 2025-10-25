@@ -20,9 +20,15 @@ export const UnParalleled: React.FC<UnParalleledProps> = ({ smallText, mainHeadi
 
     return (
         <StyledUnParalleled sx ={alignment === 'left' ? { textAlign: 'left', width: '90%' , mx: 0 } : { textAlign: 'center' }}>
-            <SmallText variant="overline" sx={smallTextColor ? { color: smallTextColor } : undefined}>{cfg.smallText}</SmallText>
-            <MainHeading variant="h1" sx={mainHeadingColor ? { color: mainHeadingColor } : undefined}>{cfg.mainHeading}</MainHeading>
-            <DescText alignment={alignment} variant="body1" sx={descriptionColor ? { color: descriptionColor } : undefined}>{cfg.description}</DescText>
+            {smallText && (
+                <SmallText variant="overline" sx={smallTextColor ? { color: smallTextColor } : undefined}>{cfg.smallText}</SmallText>
+            )}
+            {mainHeading && (
+                <MainHeading variant="h1" sx={mainHeadingColor ? { color: mainHeadingColor } : undefined}>{cfg.mainHeading}</MainHeading>
+            )}
+            {description && (
+                <DescText alignment={alignment} variant="body1" sx={descriptionColor ? { color: descriptionColor } : undefined}>{cfg.description}</DescText>
+            )}
             {cfg.button && (
                 <div style={{ marginTop: 32 }}>
                     <CustomFilledButton onClick={cfg.button.onClick}>{cfg.button.label}</CustomFilledButton>

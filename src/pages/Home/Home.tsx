@@ -28,7 +28,11 @@ export const Home: React.FC = () => {
       <UnParalleled />
 
       {/* Agnezer Advantage Section */}
-      <AgnezerAdvantage />
+      <AgnezerAdvantage
+        smallText={'Excellence. Innovation. Partnership.'}
+        title='The Agnezar Advantage'
+        description='Four pillars driving quality and trust in every project.'
+      />
 
       {/* Make Every Study Section */}
       <MakeEveryStudy />

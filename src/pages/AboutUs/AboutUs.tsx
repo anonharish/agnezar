@@ -6,6 +6,7 @@ import { Typography, Card, Button } from '@components/atoms';
 import { HeroSectionWithContent } from '@components/molecules/HeroSectionWithContent';
 import { HeroMediaSection } from '@components/molecules/HeroMediaSection';
 import { OurMission } from '@components/molecules/OurMission';
+import { AgnezerAdvantage } from '../../components/molecules/AgnezerAdvantage/AgnezerAdvantage'
 
 export const AboutUs: React.FC = () => {
   const {
@@ -44,6 +45,44 @@ export const AboutUs: React.FC = () => {
         heroImageSrc="/assets/images/meetOurteam.png"
         cards={cards}
       />
+
+      {/* Agnezer Advantage / Our Values */}
+      <AgnezerAdvantage
+        title="Our Values"
+        description={"At Agnezar, our values define who we are and guide every decision, discovery, and collaboration."}
+        cards={[
+          {
+            title: 'Integrity',
+            description: 'We uphold the highest ethical and scientific standards in every analysis, ensuring transparency, trust, and accountability across all operations.',
+          },
+          {
+            title: 'Innovation',
+            description: 'We embrace technology, automation, and AI-driven solutions to continuously enhance analytical precision, accelerate research, and redefine industry benchmarks.',
+          },
+          {
+            title: 'Excellence',
+            description: 'We are committed to delivering reliable, high-quality results that meet and exceed international regulatory and scientific standards.',
+          },
+          {
+            title: 'Collaboration',
+            description: 'We believe in the power of partnerships—working closely with clients, researchers, and industry experts to achieve shared success and scientific advancement.',
+          },
+          {
+            title: 'Quality & Compliance',
+            description: 'We maintain a culture of quality rooted in robust systems, validated methods, and continuous improvement aligned with global regulatory requirements.',
+          },
+          {
+            title: 'Sustainability',
+            description: 'We promote responsible practices that reduce environmental impact, encourage resource efficiency, and contribute to a healthier world.',
+          },
+          {
+            title: 'Empowerment',
+            description: 'We foster a culture where knowledge, curiosity, and teamwork empower our people to innovate, learn, and lead in the field of analytical science.',
+          },
+        ]}
+      />
+
+      
 
       {/* Mission & Vision */}
       <Box sx={{ py: 8 }}>

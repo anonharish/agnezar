@@ -20,11 +20,11 @@ export const AgnezerAdvantage: React.FC<AgnezerAdvantageProps> = ({ smallText, t
     <StyledAdvantage>
       <AdvantageInner>
         <UnParalleled
-        smallText='Excellence. Innovation. Partnership.'
+          smallText={smallText }
         // smallTextColor='#fff'
-        mainHeading='The Agnezar Advantage'
+        mainHeading={title}
         mainHeadingColor= {theme.palette.white.main}
-        description='Four pillars driving quality and trust in every project.'
+        description={description}
         descriptionColor={theme.palette.white.main}
         />
 
