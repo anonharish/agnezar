@@ -6,7 +6,7 @@ import { Card } from '@components/atoms';
 export interface CardItem {
   icon?: React.ReactNode | string;
   title: string;
-  description?: string;
+  description?: string | string[];
 }
 
 export interface CardsGridProps {
@@ -42,7 +42,15 @@ export const CardsGrid: React.FC<CardsGridProps> = ({ cards, cardHeight: _cardHe
                 </CardIcon>}
                 <Box>
                   <Typography variant="h6" sx={{ fontWeight: 700 }}>{c.title}</Typography>
-                  <Typography variant="body2" sx={{ mt: 1 }}>{c.description}</Typography>
+                  {Array.isArray(c.description) ? (
+                    <Box component="ul" sx={{ mt: 1, pl: 2, m: 0, color: 'text.secondary' }}>
+                      {c.description.map((d, idx) => (
+                        <Box component="li" key={idx} sx={{ lineHeight: 1.6 }}>{d}</Box>
+                      ))}
+                    </Box>
+                  ) : (
+                    <Typography variant="body2" sx={{ mt: 1 }}>{c.description}</Typography>
+                  )}
                 </Box>
               </Box>
             </Card>

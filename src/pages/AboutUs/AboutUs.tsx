@@ -15,6 +15,7 @@ export const AboutUs: React.FC = () => {
     values,
     team,
     handleContactUs,
+    cards
   } = useAboutUs();
 
   return (
@@ -41,10 +42,7 @@ export const AboutUs: React.FC = () => {
         description={mission}
         heroTitle={"Meet our team of industry experts guiding your projects with decades of experience in pharmaceutical analysis, regulatory compliance, and quality assurance."}
         heroImageSrc="/assets/images/meetOurteam.png"
-        cards={[
-          { title: 'Our Mission', description: mission, icon: 'assets/icons/mission-icon.png' },
-          { title: 'Our Vision', description: vision, icon: 'assets/icons/vision-icon.png' },
-        ]}
+        cards={cards}
       />
 
       {/* Mission & Vision */}

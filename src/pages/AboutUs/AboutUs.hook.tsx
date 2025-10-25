@@ -85,6 +85,18 @@ export const useAboutUs = () => {
     },
   ];
 
+  const cards = [
+          { title: 'Our Mission', description: 'To be a global leader in next-generation analytical science, empowering the pharmaceutical and healthcare industries through innovation, precision, and integrity.We envision Agnezar as a catalyst for scientific excellence—where advanced technology, intelligent analytics, and collaborative expertise redefine quality standards and accelerate the development of safe, effective, and accessible healthcare solutions worldwide.', icon: 'assets/icons/mission-icon.png' },
+          { title: 'Our Vision', description: [
+  "At Agnezar, our mission is to deliver analytical excellence through science-driven innovation, regulatory precision, and technological advancement.",
+  "Providing accurate, reliable, and compliant analytical solutions that support product development from concept to commercialization.",
+  "Leveraging AI-driven analytics and digital transformation to enhance data integrity and decision-making.",
+  "Fostering a culture of innovation, transparency, and collaboration that drives continuous improvement.",
+  "Building long-term partnerships with pharmaceutical, biotechnology, and healthcare organizations to ensure global standards of quality and patient safety.",
+  "Our mission is clear: to redefine analytical science through innovation, collaboration, and uncompromising quality—empowering the next generation of advanced healthcare solutions."
+], icon: 'assets/icons/vision-icon.png' },
+        ]
+
   const handleContactUs = useCallback(() => {
     navigate('/contact');
   }, [navigate]);
@@ -96,5 +108,6 @@ export const useAboutUs = () => {
     values,
     team,
     handleContactUs,
+    cards
   };
 };
