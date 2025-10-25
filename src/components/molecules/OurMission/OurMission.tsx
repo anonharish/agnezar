@@ -40,7 +40,7 @@ export const OurMission: React.FC<OurMissionProps> = ({
         {/* Cards grid */}
         {cards && cards.length > 0 && (
           <div>
-            <CardsGrid cards={cards} columns={2} cardHeight={260} />
+            <CardsGrid cards={cards} columns={2} cardHeight={150} />
           </div>
         )}
       </OurMissionInner>
