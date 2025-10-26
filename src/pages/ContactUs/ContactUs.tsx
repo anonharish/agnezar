@@ -1,34 +1,12 @@
 import React from "react";
-import {
-  Container,
-  Grid,
-  Box,
-  TextField,
-  MenuItem,
-  Alert,
-} from "@mui/material";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
+import { Container, Grid, Box, TextField, MenuItem, Alert } from "@mui/material";
+import { useState, useEffect } from 'react';
 import { useContactUs } from "./ContactUs.hook";
 import UnParalleled from "@components/molecules/UnParalleled/UnParalleled";
 import { StyledContactUs } from "./ContactUs.style";
 import { Typography, Card, CustomFilledButton } from "@components/atoms";
 
-const contactSchema = yup.object({
-  firstName: yup.string().required('First name is required'),
-  lastName: yup.string().required('Last name is required'),
-  company: yup.string().required('Company is required'),
-  email: yup.string().email('Invalid email').required('Email is required'),
-  phone: yup.string().notRequired(),
-  service: yup.string().required('Service is required'),
-  moleculeType: yup.string().notRequired(),
-  developmentPhase: yup.string().notRequired(),
-  projectDescription: yup.string().required('Project description is required'),
-  howDidYouHear: yup.string().notRequired(),
-});
-
-type ContactFormData = yup.InferType<typeof contactSchema>;
+// Manual form state + validation (we avoid react-hook-form per request)
 
 export const ContactUs: React.FC = () => {
   const {
@@ -43,50 +21,72 @@ export const ContactUs: React.FC = () => {
   } = useContactUs();
 
   // If the hook doesn't provide services, use the canonical list
-  const serviceOptions = (services && services.length > 0)
-    ? services
-    : []
+  const serviceOptions = (services && services.length > 0) ? services : [];
 
-  const {
-    control,
-    handleSubmit: handleFormSubmit,
-    formState: { errors },
-    reset,
-  } = useForm<ContactFormData>({
-    resolver: yupResolver(contactSchema),
-    defaultValues: {
-      firstName: '',
-      lastName: '',
-      company: '',
-      email: '',
-      phone: '',
-      service: '',
-      moleculeType: '',
-      developmentPhase: '',
-      projectDescription: '',
-      howDidYouHear: '',
-    },
-  });
+  // Local form state (single-column layout) with manual validation
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [companyField, setCompanyField] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [serviceField, setServiceField] = useState('');
+  const [moleculeType, setMoleculeType] = useState('');
+  const [developmentPhase, setDevelopmentPhase] = useState('');
+  const [projectDescription, setProjectDescription] = useState('');
+  const [howDidYouHear, setHowDidYouHear] = useState('');
 
-  const onSubmit = async (data: ContactFormData) => {
-    // map new form shape to existing handler shape
+  const [errors, setErrors] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    // clear errors when submitSuccess becomes true
+    if (submitSuccess) {
+      setFirstName('');
+      setLastName('');
+      setCompanyField('');
+      setEmail('');
+      setPhone('');
+      setServiceField('');
+      setMoleculeType('');
+      setDevelopmentPhase('');
+      setProjectDescription('');
+      setHowDidYouHear('');
+      setErrors({});
+    }
+  }, [submitSuccess]);
+
+  const validate = () => {
+    const e: Record<string, string> = {};
+    if (!firstName.trim()) e.firstName = 'First name is required';
+    if (!lastName.trim()) e.lastName = 'Last name is required';
+    if (!companyField.trim()) e.company = 'Company is required';
+    if (!email.trim()) e.email = 'Email is required';
+    else {
+      const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\\.,;:\s@\"]+\.)+[^<>()[\]\\.,;:\s@\"]{2,})$/i;
+      if (!re.test(email)) e.email = 'Invalid email';
+    }
+    if (!serviceField) e.service = 'Service is required';
+    if (!projectDescription.trim()) e.projectDescription = 'Project description is required';
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  };
+
+  const onSubmit = async () => {
+    if (!validate()) return;
+
     const payload: any = {
-      name: `${data.firstName} ${data.lastName}`,
-      email: data.email,
-      phone: data.phone,
-      company: data.company,
-      service: data.service,
+      name: `${firstName} ${lastName}`,
+      email,
+      phone,
+      company: companyField,
+      service: serviceField,
       budget: undefined,
-      message: data.projectDescription,
-      moleculeType: data.moleculeType,
-      developmentPhase: data.developmentPhase,
-      howDidYouHear: data.howDidYouHear,
+      message: projectDescription,
+      moleculeType,
+      developmentPhase,
+      howDidYouHear,
     };
 
     await handleSubmit(payload);
-    if (submitSuccess) {
-      reset();
-    }
   };
 
   return (
@@ -208,184 +208,159 @@ export const ContactUs: React.FC = () => {
                     </Alert>
                   )}
 
-                  <form onSubmit={handleFormSubmit(onSubmit)}>
+                  <form onSubmit={(e) => { e.preventDefault(); onSubmit(); }}>
                     <Grid container spacing={3}>
                       <Grid item xs={12}>
-                        <Controller
-                          name="firstName"
-                          control={control}
-                          render={({ field }) => (
-                            <TextField
-                              {...field}
-                              label="First Name"
-                              fullWidth
-                              error={!!errors.firstName}
-                              helperText={errors.firstName?.message}
-                            />
-                          )}
+                        <TextField
+                          label="First Name"
+                          value={firstName}
+                          onChange={(e) => setFirstName(e.target.value)}
+                          fullWidth
+                          size="small"
+                          error={!!errors.firstName}
+                          helperText={errors.firstName}
+                          InputLabelProps={{ sx: { fontSize: '0.875rem' } }}
+                          inputProps={{ sx: { fontSize: '0.95rem' } }}
                         />
                       </Grid>
 
                       <Grid item xs={12}>
-                        <Controller
-                          name="lastName"
-                          control={control}
-                          render={({ field }) => (
-                            <TextField
-                              {...field}
-                              label="Last Name"
-                              fullWidth
-                              error={!!errors.lastName}
-                              helperText={errors.lastName?.message}
-                            />
-                          )}
+                        <TextField
+                          label="Last Name"
+                          value={lastName}
+                          onChange={(e) => setLastName(e.target.value)}
+                          fullWidth
+                          size="small"
+                          error={!!errors.lastName}
+                          helperText={errors.lastName}
+                          InputLabelProps={{ sx: { fontSize: '0.875rem' } }}
+                          inputProps={{ sx: { fontSize: '0.95rem' } }}
                         />
                       </Grid>
 
                       <Grid item xs={12}>
-                        <Controller
-                          name="company"
-                          control={control}
-                          render={({ field }) => (
-                            <TextField
-                              {...field}
-                              label="Company"
-                              fullWidth
-                              error={!!errors.company}
-                              helperText={errors.company?.message}
-                            />
-                          )}
+                        <TextField
+                          label="Company"
+                          value={companyField}
+                          onChange={(e) => setCompanyField(e.target.value)}
+                          fullWidth
+                          size="small"
+                          error={!!errors.company}
+                          helperText={errors.company}
+                          InputLabelProps={{ sx: { fontSize: '0.875rem' } }}
+                          inputProps={{ sx: { fontSize: '0.95rem' } }}
                         />
                       </Grid>
 
                       <Grid item xs={12}>
-                        <Controller
-                          name="email"
-                          control={control}
-                          render={({ field }) => (
-                            <TextField
-                              {...field}
-                              label="Email"
-                              type="email"
-                              fullWidth
-                              error={!!errors.email}
-                              helperText={errors.email?.message}
-                            />
-                          )}
+                        <TextField
+                          label="Email"
+                          type="email"
+                          value={email}
+                          onChange={(e) => setEmail(e.target.value)}
+                          fullWidth
+                          size="small"
+                          error={!!errors.email}
+                          helperText={errors.email}
+                          InputLabelProps={{ sx: { fontSize: '0.875rem' } }}
+                          inputProps={{ sx: { fontSize: '0.95rem' } }}
                         />
                       </Grid>
 
                       <Grid item xs={12}>
-                        <Controller
-                          name="phone"
-                          control={control}
-                          render={({ field }) => (
-                            <TextField
-                              {...field}
-                              label="Phone Number"
-                              fullWidth
-                              error={!!errors.phone}
-                              helperText={errors.phone?.message}
-                            />
-                          )}
+                        <TextField
+                          label="Phone Number"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          fullWidth
+                          size="small"
+                          InputLabelProps={{ sx: { fontSize: '0.875rem' } }}
+                          inputProps={{ sx: { fontSize: '0.95rem' } }}
                         />
                       </Grid>
 
                       <Grid item xs={12}>
-                        <Controller
-                          name="service"
-                          control={control}
-                          render={({ field }) => (
-                            <TextField
-                              {...field}
-                              select
-                              label="Service of Interest"
-                              fullWidth
-                              error={!!errors.service}
-                              helperText={errors.service?.message}
-                            >
-                              {serviceOptions.map((service) => (
-                                <MenuItem key={service.value} value={service.value}>
-                                  {service.label}
-                                </MenuItem>
-                              ))}
-                            </TextField>
-                          )}
+                        <TextField
+                          select
+                          label="Service of Interest"
+                          value={serviceField}
+                          onChange={(e) => setServiceField(e.target.value)}
+                          fullWidth
+                          size="small"
+                          error={!!errors.service}
+                          helperText={errors.service}
+                          InputLabelProps={{ sx: { fontSize: '0.875rem' } }}
+                        >
+                          {serviceOptions.map((service) => (
+                            <MenuItem key={service.value} value={service.value}>
+                              {service.label}
+                            </MenuItem>
+                          ))}
+                        </TextField>
+                      </Grid>
+
+                      <Grid item xs={12}>
+                        <TextField
+                          select
+                          label="Molecule Type"
+                          value={moleculeType}
+                          onChange={(e) => setMoleculeType(e.target.value)}
+                          fullWidth
+                          size="small"
+                          InputLabelProps={{ sx: { fontSize: '0.875rem' } }}
+                        >
+                          <MenuItem value="Small Molecule">Small Molecule</MenuItem>
+                          <MenuItem value="Biologic/Protein">Biologic/Protein</MenuItem>
+                          <MenuItem value="Advanced Therapeutic">Advanced Therapeutic</MenuItem>
+                          <MenuItem value="Medical Device">Medical Device</MenuItem>
+                          <MenuItem value="Other">Other</MenuItem>
+                        </TextField>
+                      </Grid>
+
+                      <Grid item xs={12}>
+                        <TextField
+                          select
+                          label="Development Phase"
+                          value={developmentPhase}
+                          onChange={(e) => setDevelopmentPhase(e.target.value)}
+                          fullWidth
+                          size="small"
+                          InputLabelProps={{ sx: { fontSize: '0.875rem' } }}
+                        >
+                          <MenuItem value="Pre-clinical">Pre-clinical</MenuItem>
+                          <MenuItem value="Phase I">Phase I</MenuItem>
+                          <MenuItem value="Phase II">Phase II</MenuItem>
+                          <MenuItem value="Phase III">Phase III</MenuItem>
+                          <MenuItem value="Commercial">Commercial</MenuItem>
+                          <MenuItem value="Other">Other</MenuItem>
+                        </TextField>
+                      </Grid>
+
+                      <Grid item xs={12}>
+                        <TextField
+                          label="Project Description"
+                          multiline
+                          rows={5}
+                          value={projectDescription}
+                          onChange={(e) => setProjectDescription(e.target.value)}
+                          fullWidth
+                          size="small"
+                          error={!!errors.projectDescription}
+                          helperText={errors.projectDescription}
+                          InputLabelProps={{ sx: { fontSize: '0.875rem' } }}
+                          inputProps={{ sx: { fontSize: '0.95rem' } }}
                         />
                       </Grid>
 
                       <Grid item xs={12}>
-                        <Controller
-                          name="moleculeType"
-                          control={control}
-                          render={({ field }) => (
-                            <TextField
-                              {...field}
-                              select
-                              label="Molecule Type"
-                              fullWidth
-                            >
-                              <MenuItem value="Small Molecule">Small Molecule</MenuItem>
-                              <MenuItem value="Biologic/Protein">Biologic/Protein</MenuItem>
-                              <MenuItem value="Advanced Therapeutic">Advanced Therapeutic</MenuItem>
-                              <MenuItem value="Medical Device">Medical Device</MenuItem>
-                              <MenuItem value="Other">Other</MenuItem>
-                            </TextField>
-                          )}
-                        />
-                      </Grid>
-
-                      <Grid item xs={12}>
-                        <Controller
-                          name="developmentPhase"
-                          control={control}
-                          render={({ field }) => (
-                            <TextField
-                              {...field}
-                              select
-                              label="Development Phase"
-                              fullWidth
-                            >
-                              <MenuItem value="Pre-clinical">Pre-clinical</MenuItem>
-                              <MenuItem value="Phase I">Phase I</MenuItem>
-                              <MenuItem value="Phase II">Phase II</MenuItem>
-                              <MenuItem value="Phase III">Phase III</MenuItem>
-                              <MenuItem value="Commercial">Commercial</MenuItem>
-                              <MenuItem value="Other">Other</MenuItem>
-                            </TextField>
-                          )}
-                        />
-                      </Grid>
-
-                      <Grid item xs={12}>
-                        <Controller
-                          name="projectDescription"
-                          control={control}
-                          render={({ field }) => (
-                            <TextField
-                              {...field}
-                              label="Project Description"
-                              multiline
-                              rows={5}
-                              fullWidth
-                              error={!!errors.projectDescription}
-                              helperText={errors.projectDescription?.message}
-                            />
-                          )}
-                        />
-                      </Grid>
-
-                      <Grid item xs={12}>
-                        <Controller
-                          name="howDidYouHear"
-                          control={control}
-                          render={({ field }) => (
-                            <TextField
-                              {...field}
-                              label="How did you hear about us?"
-                              fullWidth
-                            />
-                          )}
+                        <TextField
+                          label="How did you hear about us?"
+                          value={howDidYouHear}
+                          onChange={(e) => setHowDidYouHear(e.target.value)}
+                          fullWidth
+                          size="small"
+                          InputLabelProps={{ sx: { fontSize: '0.875rem' } }}
+                          inputProps={{ sx: { fontSize: '0.95rem' } }}
                         />
                       </Grid>
 
