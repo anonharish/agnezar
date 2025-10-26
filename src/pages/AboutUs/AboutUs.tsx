@@ -1,8 +1,8 @@
 import React from 'react';
-import { Container, Grid, Box, Avatar } from '@mui/material';
+import { Box } from '@mui/material';
 import { useAboutUs } from './AboutUs.hook';
 import { StyledAboutUs } from './AboutUs.style';
-import { Typography, Card, Button } from '@components/atoms';
+// Typography/Card/Button from atoms not used here
 import { HeroSectionWithContent } from '@components/molecules/HeroSectionWithContent';
 import { HeroMediaSection } from '@components/molecules/HeroMediaSection';
 import { OurMission } from '@components/molecules/OurMission';
@@ -13,10 +13,6 @@ export const AboutUs: React.FC = () => {
   const {
     heroConfig,
     mission,
-    vision,
-    values,
-    team,
-    handleContactUs,
     cards
   } = useAboutUs();
 
@@ -42,8 +38,6 @@ export const AboutUs: React.FC = () => {
         smallText="OUR MISSION & VISION"
         mainHeading="Built for Rigor. Designed for Partnership."
         description={mission}
-        heroTitle={"Meet our team of industry experts guiding your projects with decades of experience in pharmaceutical analysis, regulatory compliance, and quality assurance."}
-        heroImageSrc="/assets/images/meetOurteam.png"
         cards={cards}
       />
 
