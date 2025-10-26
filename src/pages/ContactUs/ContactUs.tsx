@@ -4,6 +4,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useContactUs } from './ContactUs.hook';
+import UnParalleled from '@components/molecules/UnParalleled/UnParalleled';
 import { StyledContactUs } from './ContactUs.style';
 import { Typography, Button, Card } from '@components/atoms';
 
@@ -58,19 +59,15 @@ export const ContactUs: React.FC = () => {
 
   return (
     <StyledContactUs>
-      {/* Hero Section */}
-      <Box sx={{ py: 8, backgroundColor: 'primary.main', color: 'white' }}>
-        <Container maxWidth="lg">
-          <Box sx={{ textAlign: 'center' }}>
-            <Typography variant="h1" sx={{ mb: 3 }}>
-              {heroConfig.title}
-            </Typography>
-            <Typography variant="h5" sx={{ maxWidth: 800, mx: 'auto' }}>
-              {heroConfig.description}
-            </Typography>
-          </Box>
-        </Container>
+      {/* Intro Section (UnParalleled) */}
+      <Box sx={{ py: 6 }}>
+        <UnParalleled
+          smallText="Contact"
+          mainHeading="Let's Start a Conversation About Your Project Goals"
+          description={`We are ready to learn about your unique challenges and discuss how our next-generation analytical services can help you achieve your objectives. Whether you have a well-defined project or are seeking initial strategic guidance, our team of experts is here to help.`}
+        />
       </Box>
+
 
       {/* Contact Form & Info */}
       <Box sx={{ py: 8 }}>
@@ -240,45 +237,6 @@ export const ContactUs: React.FC = () => {
                   </Grid>
                 </form>
               </Card>
-            </Grid>
-
-            {/* Contact Info */}
-            <Grid item xs={12} md={4}>
-              <Box sx={{ mb: 4 }}>
-                <Typography variant="h4" sx={{ mb: 3 }}>
-                  Contact Information
-                </Typography>
-                <Typography variant="body1" color="textSecondary" sx={{ mb: 4 }}>
-                  {contactInfo.description}
-                </Typography>
-              </Box>
-
-              {contactInfo.details.map((detail, index) => (
-                <Card key={index} sx={{ p: 3, mb: 3 }}>
-                  <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
-                    <Box
-                      sx={{
-                        width: 40,
-                        height: 40,
-                        backgroundColor: 'primary.main',
-                        borderRadius: '50%',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        mr: 2,
-                      }}
-                    >
-                      {detail.icon}
-                    </Box>
-                    <Typography variant="h6">
-                      {detail.title}
-                    </Typography>
-                  </Box>
-                  <Typography variant="body2" color="textSecondary">
-                    {detail.value}
-                  </Typography>
-                </Card>
-              ))}
             </Grid>
           </Grid>
         </Container>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Box} from '@mui/material';
 import { useIndustries } from './Industries.hook';
+import { useNavigate } from 'react-router-dom';
 import { StyledIndustries } from './Industries.style';
 import { Typography, CustomFilledButton } from '@components/atoms';
 import UnParalleled from '@components/molecules/UnParalleled/UnParalleled';
@@ -13,6 +14,8 @@ export const Industries: React.FC = () => {
     // handleLearnMore,
     // handleViewCaseStudy,
   } = useIndustries();
+
+  const navigate = useNavigate();
 
   return (
     <StyledIndustries>
@@ -35,9 +38,7 @@ export const Industries: React.FC = () => {
             <Typography variant="h6" sx={{ mb: 4 }}>
               Your challenges are unique. Your analytical partner should be too. Contact us to discover how our next-generation services can accelerate your success.
             </Typography>
-            <CustomFilledButton 
-            // onClick={handleContactUs}
-            >
+            <CustomFilledButton onClick={() => navigate('/contact')}>
               Contact Us Today
             </CustomFilledButton>
           </Box>

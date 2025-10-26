@@ -3,6 +3,7 @@ import mainLogo from "../../../../public/assets/logos/main-logo.svg"
 import { AppBar, Toolbar, Box, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
 import { useNavbar } from './Navbar.hook';
+import { useNavigate } from 'react-router-dom';
 import { StyledNavbar } from './Navbar.style';
 import { Button, CustomFilledButton, CustomTextButton } from '@components/atoms';
 import { Typography } from '@components/atoms';
@@ -29,6 +30,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     closeMobileMenu,
     handleMenuClick,
   } = useNavbar();
+
+  const navigate = useNavigate();
 
   return (
     <StyledNavbar>
@@ -58,7 +61,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             ))}
           </Box>
           <Box>
-          <CustomTextButton>Contact Us</CustomTextButton>
+          <CustomTextButton onClick={() => navigate('/contact')}>Contact Us</CustomTextButton>
             {ctaButton && (
               <CustomFilledButton  onClick={ctaButton.onClick}>
                 {ctaButton.label}
