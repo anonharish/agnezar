@@ -58,7 +58,11 @@ export const StyledContactUs = styled(Box)(({ theme }) => ({
   },
 
   '.left-column': {
-    color: theme.palette.common.white,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
+    height:"100%",
+    color: theme.palette.primary.contrastText,
     paddingTop: theme.spacing(6),
     paddingLeft: theme.spacing(3),
     paddingRight: theme.spacing(3),

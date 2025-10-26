@@ -113,29 +113,31 @@ export const ContactUs: React.FC = () => {
             {/* Left column: content shown on top of the stacked backgrounds */}
             <Grid item xs={12} md={6}>
               <Box className="left-column">
-                <Typography variant="h3">Get in touch!</Typography>
-                <Typography variant="body1">
+                <Box>
+                <Typography variant="h3" sx={{color: "inherit"}}>Get in touch!</Typography>
+                <Typography variant="body1" sx={{color:"inherit"}}>
                   We appreciate your interest in our company. Please fill out
                   the form, and we'll get back to you promptly.
                 </Typography>
+                </Box>
 
                 <Box className="contact-info">
-                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 3 }}>
+                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 3, color: "inherit" }}>
                     Call Us At: {contactInfo?.phone ?? "+1 (555) 123–4567"}
                   </Typography>
 
-                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
+                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, color: "inherit" }}>
                     Write To Us
                   </Typography>
-                  <Box component="ul" sx={{ pl: 2, mt: 1 }}>
+                  <Box component="ul" sx={{ pl: 2, mt: 1 , color: "inherit" }}>
                     <li>
-                      <Typography variant="body2">
+                      <Typography variant="body2" sx={{ color: "inherit" }}>
                         {contactInfo?.address ??
                           "6789 Elm Street Suite 300 Anytown, CA 91234"}
                       </Typography>
                     </li>
                     <li>
-                      <Typography variant="body2">
+                      <Typography variant="body2" sx={{ color: "inherit" }}>
                         {contactInfo?.email ?? "support@example.com"}
                       </Typography>
                     </li>
