@@ -13,16 +13,19 @@ import * as yup from "yup";
 import { useContactUs } from "./ContactUs.hook";
 import UnParalleled from "@components/molecules/UnParalleled/UnParalleled";
 import { StyledContactUs } from "./ContactUs.style";
-import { Typography, Button, Card } from "@components/atoms";
+import { Typography, Card, CustomFilledButton } from "@components/atoms";
 
 const contactSchema = yup.object({
-  name: yup.string().required("Name is required"),
-  email: yup.string().email("Invalid email").required("Email is required"),
-  phone: yup.string().required("Phone is required"),
-  company: yup.string().required("Company is required"),
-  service: yup.string().required("Service is required"),
-  budget: yup.string().required("Budget is required"),
-  message: yup.string().required("Message is required"),
+  firstName: yup.string().required('First name is required'),
+  lastName: yup.string().required('Last name is required'),
+  company: yup.string().required('Company is required'),
+  email: yup.string().email('Invalid email').required('Email is required'),
+  phone: yup.string().notRequired(),
+  service: yup.string().required('Service is required'),
+  moleculeType: yup.string().notRequired(),
+  developmentPhase: yup.string().notRequired(),
+  projectDescription: yup.string().required('Project description is required'),
+  howDidYouHear: yup.string().notRequired(),
 });
 
 type ContactFormData = yup.InferType<typeof contactSchema>;
@@ -39,6 +42,11 @@ export const ContactUs: React.FC = () => {
     submitSuccess,
   } = useContactUs();
 
+  // If the hook doesn't provide services, use the canonical list
+  const serviceOptions = (services && services.length > 0)
+    ? services
+    : []
+
   const {
     control,
     handleSubmit: handleFormSubmit,
@@ -47,18 +55,35 @@ export const ContactUs: React.FC = () => {
   } = useForm<ContactFormData>({
     resolver: yupResolver(contactSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      phone: "",
-      company: "",
-      service: "",
-      budget: "",
-      message: "",
+      firstName: '',
+      lastName: '',
+      company: '',
+      email: '',
+      phone: '',
+      service: '',
+      moleculeType: '',
+      developmentPhase: '',
+      projectDescription: '',
+      howDidYouHear: '',
     },
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    await handleSubmit(data);
+    // map new form shape to existing handler shape
+    const payload: any = {
+      name: `${data.firstName} ${data.lastName}`,
+      email: data.email,
+      phone: data.phone,
+      company: data.company,
+      service: data.service,
+      budget: undefined,
+      message: data.projectDescription,
+      moleculeType: data.moleculeType,
+      developmentPhase: data.developmentPhase,
+      howDidYouHear: data.howDidYouHear,
+    };
+
+    await handleSubmit(payload);
     if (submitSuccess) {
       reset();
     }
@@ -185,30 +210,62 @@ export const ContactUs: React.FC = () => {
 
                   <form onSubmit={handleFormSubmit(onSubmit)}>
                     <Grid container spacing={3}>
-                      <Grid item xs={12} sm={6}>
+                      <Grid item xs={12}>
                         <Controller
-                          name="name"
+                          name="firstName"
                           control={control}
                           render={({ field }) => (
                             <TextField
                               {...field}
-                              label="Full Name"
+                              label="First Name"
                               fullWidth
-                              error={!!errors.name}
-                              helperText={errors.name?.message}
+                              error={!!errors.firstName}
+                              helperText={errors.firstName?.message}
                             />
                           )}
                         />
                       </Grid>
 
-                      <Grid item xs={12} sm={6}>
+                      <Grid item xs={12}>
+                        <Controller
+                          name="lastName"
+                          control={control}
+                          render={({ field }) => (
+                            <TextField
+                              {...field}
+                              label="Last Name"
+                              fullWidth
+                              error={!!errors.lastName}
+                              helperText={errors.lastName?.message}
+                            />
+                          )}
+                        />
+                      </Grid>
+
+                      <Grid item xs={12}>
+                        <Controller
+                          name="company"
+                          control={control}
+                          render={({ field }) => (
+                            <TextField
+                              {...field}
+                              label="Company"
+                              fullWidth
+                              error={!!errors.company}
+                              helperText={errors.company?.message}
+                            />
+                          )}
+                        />
+                      </Grid>
+
+                      <Grid item xs={12}>
                         <Controller
                           name="email"
                           control={control}
                           render={({ field }) => (
                             <TextField
                               {...field}
-                              label="Email Address"
+                              label="Email"
                               type="email"
                               fullWidth
                               error={!!errors.email}
@@ -218,7 +275,7 @@ export const ContactUs: React.FC = () => {
                         />
                       </Grid>
 
-                      <Grid item xs={12} sm={6}>
+                      <Grid item xs={12}>
                         <Controller
                           name="phone"
                           control={control}
@@ -234,23 +291,7 @@ export const ContactUs: React.FC = () => {
                         />
                       </Grid>
 
-                      <Grid item xs={12} sm={6}>
-                        <Controller
-                          name="company"
-                          control={control}
-                          render={({ field }) => (
-                            <TextField
-                              {...field}
-                              label="Company Name"
-                              fullWidth
-                              error={!!errors.company}
-                              helperText={errors.company?.message}
-                            />
-                          )}
-                        />
-                      </Grid>
-
-                      <Grid item xs={12} sm={6}>
+                      <Grid item xs={12}>
                         <Controller
                           name="service"
                           control={control}
@@ -258,16 +299,13 @@ export const ContactUs: React.FC = () => {
                             <TextField
                               {...field}
                               select
-                              label="Service Interested In"
+                              label="Service of Interest"
                               fullWidth
                               error={!!errors.service}
                               helperText={errors.service?.message}
                             >
-                              {services.map((service) => (
-                                <MenuItem
-                                  key={service.value}
-                                  value={service.value}
-                                >
+                              {serviceOptions.map((service) => (
+                                <MenuItem key={service.value} value={service.value}>
                                   {service.label}
                                 </MenuItem>
                               ))}
@@ -276,27 +314,22 @@ export const ContactUs: React.FC = () => {
                         />
                       </Grid>
 
-                      <Grid item xs={12} sm={6}>
+                      <Grid item xs={12}>
                         <Controller
-                          name="budget"
+                          name="moleculeType"
                           control={control}
                           render={({ field }) => (
                             <TextField
                               {...field}
                               select
-                              label="Project Budget"
+                              label="Molecule Type"
                               fullWidth
-                              error={!!errors.budget}
-                              helperText={errors.budget?.message}
                             >
-                              {budgetRanges.map((budget) => (
-                                <MenuItem
-                                  key={budget.value}
-                                  value={budget.value}
-                                >
-                                  {budget.label}
-                                </MenuItem>
-                              ))}
+                              <MenuItem value="Small Molecule">Small Molecule</MenuItem>
+                              <MenuItem value="Biologic/Protein">Biologic/Protein</MenuItem>
+                              <MenuItem value="Advanced Therapeutic">Advanced Therapeutic</MenuItem>
+                              <MenuItem value="Medical Device">Medical Device</MenuItem>
+                              <MenuItem value="Other">Other</MenuItem>
                             </TextField>
                           )}
                         />
@@ -304,32 +337,67 @@ export const ContactUs: React.FC = () => {
 
                       <Grid item xs={12}>
                         <Controller
-                          name="message"
+                          name="developmentPhase"
                           control={control}
                           render={({ field }) => (
                             <TextField
                               {...field}
-                              label="Project Details"
-                              multiline
-                              rows={4}
+                              select
+                              label="Development Phase"
                               fullWidth
-                              error={!!errors.message}
-                              helperText={errors.message?.message}
+                            >
+                              <MenuItem value="Pre-clinical">Pre-clinical</MenuItem>
+                              <MenuItem value="Phase I">Phase I</MenuItem>
+                              <MenuItem value="Phase II">Phase II</MenuItem>
+                              <MenuItem value="Phase III">Phase III</MenuItem>
+                              <MenuItem value="Commercial">Commercial</MenuItem>
+                              <MenuItem value="Other">Other</MenuItem>
+                            </TextField>
+                          )}
+                        />
+                      </Grid>
+
+                      <Grid item xs={12}>
+                        <Controller
+                          name="projectDescription"
+                          control={control}
+                          render={({ field }) => (
+                            <TextField
+                              {...field}
+                              label="Project Description"
+                              multiline
+                              rows={5}
+                              fullWidth
+                              error={!!errors.projectDescription}
+                              helperText={errors.projectDescription?.message}
                             />
                           )}
                         />
                       </Grid>
 
                       <Grid item xs={12}>
-                        <Button
+                        <Controller
+                          name="howDidYouHear"
+                          control={control}
+                          render={({ field }) => (
+                            <TextField
+                              {...field}
+                              label="How did you hear about us?"
+                              fullWidth
+                            />
+                          )}
+                        />
+                      </Grid>
+
+                      <Grid item xs={12}>
+                        <CustomFilledButton
                           type="submit"
-                          variant="primary"
                           size="large"
                           loading={isSubmitting}
                           fullWidth
                         >
-                          {isSubmitting ? "Sending..." : "Send Message"}
-                        </Button>
+                          {isSubmitting ? 'Submitting...' : 'Submit'}
+                        </CustomFilledButton>
                       </Grid>
                     </Grid>
                   </form>

@@ -48,15 +48,15 @@ export const useContactUs = () => {
   };
 
   const services = [
-    { value: 'web-development', label: 'Web Development' },
-    { value: 'mobile-development', label: 'Mobile App Development' },
-    { value: 'cloud-solutions', label: 'Cloud Solutions' },
-    { value: 'ai-ml', label: 'AI & Machine Learning' },
-    { value: 'cybersecurity', label: 'Cybersecurity' },
-    { value: 'data-analytics', label: 'Data Analytics' },
-    { value: 'consulting', label: 'Technology Consulting' },
-    { value: 'other', label: 'Other' },
-  ];
+        'AR&D',
+        'QC Testing',
+        'Stability Studies',
+        'Impurity Profiling',
+        'E&L',
+        'Nitrosamine Solutions',
+        'Regulatory Consulting',
+        'Other',
+      ].map((s) => ({ value: s, label: s }));
 
   const budgetRanges = [
     { value: 'under-10k', label: 'Under $10,000' },
