@@ -39,7 +39,7 @@ export const OurMission: React.FC<OurMissionProps> = ({
         {/* Cards grid */}
         {cards && cards.length > 0 && (
           <div>
-            <CardsGrid cards={cards} columns={2} cardHeight={cardHeight ? cardHeight : 250} />
+            <CardsGrid cards={cards} columns={2} cardHeight={cardHeight ? cardHeight : undefined} />
           </div>
         )}
       </OurMissionInner>

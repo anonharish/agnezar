@@ -35,26 +35,50 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
   const contentRefs = useRef<Array<HTMLDivElement | null>>([]);
   const [needsReadMore, setNeedsReadMore] = useState<boolean[]>([]);
   const [openDialogIndex, setOpenDialogIndex] = useState<number | null>(null);
+  const [maxContentHeight, setMaxContentHeight] = useState<number | null>(null);
 
   useEffect(() => {
-    if (!cardHeight) {
-      setNeedsReadMore(cards.map(() => false));
-      return;
-    }
-
+    // Reset states when dependencies change
     const compute = () => {
-      const arr = cards.map((_, i) => {
-        const el = contentRefs.current[i];
-        if (!el) return false;
-        return el.scrollHeight > el.clientHeight;
-      });
-      setNeedsReadMore(arr);
+      if (cardHeight) {
+        // If cardHeight is provided, use it and check for overflow
+        setMaxContentHeight(cardHeight);
+        const arr = cards.map((_, i) => {
+          const el = contentRefs.current[i];
+          if (!el) return false;
+          return el.scrollHeight > cardHeight;
+        });
+        setNeedsReadMore(arr);
+      } else {
+        // Auto height - calculate max height from content
+        const heights = contentRefs.current.map(el => el?.scrollHeight || 0);
+        const maxHeight = Math.max(...heights);
+        setMaxContentHeight(maxHeight > 0 ? maxHeight : null);
+        setNeedsReadMore(cards.map(() => false)); // No read more for auto height
+      }
     };
 
+    // Initial computation
     compute();
+    
+    // Add resize listener
     window.addEventListener('resize', compute);
     return () => window.removeEventListener('resize', compute);
   }, [cards, cardHeight]);
+
+    // const compute = () => {
+    //   const arr = cards.map((_, i) => {
+    //     const el = contentRefs.current[i];
+    //     if (!el) return false;
+    //     return el.scrollHeight > el.clientHeight;
+    //   });
+    //   setNeedsReadMore(arr);
+    // };
+
+  //   compute();
+  //   window.addEventListener('resize', compute);
+  //   return () => window.removeEventListener('resize', compute);
+  // }, [cards, cardHeight]);
 
   const renderDescription = (desc?: string | string[]) => {
     if (!desc) return null;
@@ -174,8 +198,8 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                   <Box sx={{ flex: 1 }}>
                     <div
                       style={{
-                        height: cardHeight ? `${cardHeight}px` : "auto",
-                        display: cardHeight ? "flex" : "block",
+                        height: maxContentHeight ? `${maxContentHeight}px` : "auto",
+                        display: maxContentHeight ? "flex" : "block",
                         flexDirection: "column",
                         overflow: "hidden",
                       }}
@@ -183,8 +207,8 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                       <div
                         ref={(el) => (contentRefs.current[i] = el)}
                         style={{
-                          flex: cardHeight ? 1 : undefined,
-                          overflow: cardHeight ? "hidden" : "visible",
+                          flex: maxContentHeight ? 1 : undefined,
+                          overflow: maxContentHeight ? "hidden" : "visible",
                         }}
                       >
                         <Typography sx={{ fontWeight: 700, fontSize:"1.5rem", mb: 1 }}>
@@ -194,7 +218,7 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                         {renderMoreInfo(c.moreInfo)}
                       </div>
 
-                      {cardHeight && needsReadMore[i] && (
+                      {maxContentHeight && needsReadMore[i] && (
                         <Box sx={{ fontWeight: 700, mt: 1 }}>
                           <Typography
                             component="span"

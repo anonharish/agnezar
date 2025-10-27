@@ -142,11 +142,8 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
         </FooterInner>
 
         {/* Bottom Bar */}
-        <BottomBar>
-          {/* Reviews Section */}
-
-
-          <ReviewSection>
+        {/* <BottomBar> */}
+          {/* <ReviewSection>
             <Box>
               <ReviewText sx={{ mb: 1 }}> REVIEWS </ReviewText>
               <ReviewLogo>
@@ -155,7 +152,6 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
             </Box>
             <ReviewContent>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
-                {/* <ReviewText component="span">REVIEWS</ReviewText> */}
                 <ReviewStars>
                   {'★★★★★'}
                 </ReviewStars>
@@ -164,10 +160,8 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
                 45 REVIEWS
               </ReviewText>
             </ReviewContent>
-          </ReviewSection>
-
-          {/* Location Links */}
-          <LocationLinks>
+          </ReviewSection> */}
+          {/* <LocationLinks>
             <Box>
               <Typography component="p">UK:</Typography>
               <Typography component="p">Lorweufs</Typography>
@@ -177,10 +171,8 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
               <Typography component="p">Privacy Policy</Typography>
               <Typography component="p">Terms of Use</Typography>
             </Box>
-          </LocationLinks>
-
-          {/* Social Links */}
-          <SocialLinks>
+          </LocationLinks> */}
+          {/* <SocialLinks>
             <Link href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <LinkedInIcon />
             </Link>
@@ -196,8 +188,8 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
             <Link href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
               <YouTubeIcon />
             </Link>
-          </SocialLinks>
-        </BottomBar>
+          </SocialLinks> */}
+        {/* </BottomBar> */}
       </Box>
     </StyledFooter>
     // </StyledFooter>
