@@ -172,17 +172,12 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                     </CardIcon>
                   )}
                   <Box sx={{ flex: 1 }}>
-                    <Typography  sx={{ fontWeight: 700,fontSize:"1.5rem" }}>
-                      {c.title}
-                    </Typography>
-
                     <div
                       style={{
                         height: cardHeight ? `${cardHeight}px` : "auto",
                         display: cardHeight ? "flex" : "block",
                         flexDirection: "column",
                         overflow: "hidden",
-                        // position: cardHeight ? "relative" : undefined,
                       }}
                     >
                       <div
@@ -192,6 +187,9 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                           overflow: cardHeight ? "hidden" : "visible",
                         }}
                       >
+                        <Typography sx={{ fontWeight: 700, fontSize:"1.5rem", mb: 1 }}>
+                          {c.title}
+                        </Typography>
                         {renderDescription(c.description)}
                         {renderMoreInfo(c.moreInfo)}
                       </div>
@@ -232,12 +230,12 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                 <Box component="ul" sx={{ pl: 2 }}>
                   {cards[openDialogIndex].description!.map((d, idx) => (
                     <li key={idx}>
-                      <Typography variant="body2">{d}</Typography>
+                      <Typography variant="body2" sx={{ fontSize: "1.2rem", fontWeight: 400 }}>{d}</Typography>
                     </li>
                   ))}
                 </Box>
               ) : (
-                <Typography variant="body2">
+                <Typography variant="body2" sx={{ fontSize: "1.2rem", fontWeight: 400 }}>
                   {cards[openDialogIndex].description}
                 </Typography>
               )}
@@ -253,7 +251,7 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                           </Typography>
                         )}
                         {mi.moreInfoItemDescription && (
-                          <Typography variant="body2" sx={{ mt: 1 }}>
+                          <Typography variant="body2" sx={{ mt: 1, fontSize: "1.2rem", fontWeight: 400 }}>
                             {mi.moreInfoItemDescription}
                           </Typography>
                         )}
@@ -279,7 +277,7 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                                           key={lidx}
                                           sx={{ lineHeight: 1.6 }}
                                         >
-                                          <Typography variant="body2">
+                                          <Typography variant="body2" sx={{ fontSize: "1.2rem", fontWeight: 400 }}>
                                             {line}
                                           </Typography>
                                         </Box>
