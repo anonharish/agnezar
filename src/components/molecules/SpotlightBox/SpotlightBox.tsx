@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import { useSpotlightBox } from './SpotlightBox.hook';
-import { StyledSpotlightBox, SpotlightHeading, SpotlightTitle, SpotlightDescription } from './SpotlightBox.style';
+import { StyledSpotlightBox, SpotlightTitle, SpotlightDescription } from './SpotlightBox.style';
 import { CustomFilledButton } from '@components/atoms';
 
 export interface SpotlightBoxProps {

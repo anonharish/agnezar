@@ -1,10 +1,5 @@
 import React from 'react';
-import { Box, Typography, Link } from '@mui/material';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import YouTubeIcon from '@mui/icons-material/YouTube';
+import { Box } from '@mui/material';
 import {
   StyledFooter,
   FooterInner,
@@ -14,14 +9,7 @@ import {
   FooterListItem,
   FooterLink,
   ContactInfo,
-  BottomBar,
-  SocialLinks,
-  ReviewSection,
-  ReviewLogo,
-  ReviewContent,
-  ReviewStars,
-  ReviewText,
-  LocationLinks,
+
 } from './Footer.style';
 
 export interface FooterProps {
