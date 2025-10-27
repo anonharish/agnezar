@@ -85,7 +85,7 @@ export const AboutUs: React.FC = () => {
           description={"At Agnezar, our leadership team combines decades of global experience in pharmaceutical analysis, regulatory affairs, and quality assurance with the agility and innovation of a startup.Our experts deliver end-to-end solutions for Module 3 – CMC, including analytical testing, regulatory strategy, and FDA query resolution, guiding projects with precision, integrity, and scientific excellence.United by a mission to transform pharmaceutical analysis, our team of scientists, strategists, and innovators ensures every solution is compliant, data-driven, and designed for client success."}
         />
       </Box>
-
+      <Box sx={{marginBottom: "1px"}}>
       <AgnezerAdvantage
         title="The Agnezar Advantage"
         cards={[
@@ -126,6 +126,7 @@ export const AboutUs: React.FC = () => {
           },
         ]}
       />
+      </Box>
 
 
       {/* CTA Section */}
