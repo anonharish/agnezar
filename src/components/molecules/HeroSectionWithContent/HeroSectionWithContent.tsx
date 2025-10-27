@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from '@components/atoms';
+import { CustomFilledButton, Typography } from '@components/atoms';
 import { StyledHeroSection, HeroContent, HeroImage, HeroContainer } from './HeroSectionWithContent.style';
 
 export interface HeroSectionWithContentProps {
@@ -9,6 +9,9 @@ export interface HeroSectionWithContentProps {
   imageAlt?: string;
   sectionLabel?: string;
   backgroundColor?: string;
+  button?:boolean;
+  onClick?:()=>void;
+  buttonLabel?:string;
 }
 
 export const HeroSectionWithContent: React.FC<HeroSectionWithContentProps> = ({
@@ -17,7 +20,10 @@ export const HeroSectionWithContent: React.FC<HeroSectionWithContentProps> = ({
   imageSrc,
   imageAlt = "Hero image",
   sectionLabel,
-  backgroundColor = "background.default"
+  backgroundColor = "background.default",
+   button=false,
+  onClick=()=>{},
+  buttonLabel=''
 }) => {
   return (
     <StyledHeroSection backgroundColor={backgroundColor}>
@@ -44,6 +50,11 @@ export const HeroSectionWithContent: React.FC<HeroSectionWithContentProps> = ({
           >
             {description}
           </Typography>
+          {button &&
+          <div style={{ marginTop: 32 }}>
+                              <CustomFilledButton onClick={onClick}>{buttonLabel}</CustomFilledButton>
+                          </div>
+}
         </HeroContent>
         {imageSrc && (
           <HeroImage>

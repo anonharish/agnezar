@@ -1,16 +1,18 @@
 import React from 'react';
-import { Container, Grid, Box } from '@mui/material';
-import { Star } from '@mui/icons-material';
+import {Box } from '@mui/material';
 import { useWhyAgnezar } from './WhyAgnezar.hook';
 import { StyledWhyAgnezar } from './WhyAgnezar.style';
 import ClientExperience from '@/components/molecules/WhyAgenzer/ClientExperience';
 import { OurMission } from '@components/molecules/OurMission';
 import UnParalleled from '@components/molecules/UnParalleled/UnParalleled';
+import DataIntegrity from '@/components/molecules/WhyAgenzer/DataIntegrity';
+import OurLeaders from '@/components/molecules/WhyAgenzer/OurLeaders';
 
 export const WhyAgnezar: React.FC = () => {
   const {
         whatSetsUsApartData,
-    merged
+    merged,
+    ourLeaders
   } = useWhyAgnezar({});
 
   return (
@@ -40,6 +42,10 @@ export const WhyAgnezar: React.FC = () => {
       cards={merged.cards}
       client
     />
+    <DataIntegrity/>
+    <OurLeaders   smallText={ourLeaders.smallText}
+      title={ourLeaders.title}
+      description={ourLeaders.description} chips={ourLeaders.chips}/>
       </Box>
     </StyledWhyAgnezar>
   );

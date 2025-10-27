@@ -52,6 +52,22 @@ export const useWhyAgnezar = (config: WhyAgnezarConfig) => {
     ],
   }), [config]);
 
+  const ourLeaders ={
+  smallText:"OUR LEADERS",
+  title:"Uncompromising Quality. Global Compliance.",
+  description:"Our commitment to quality is the bedrock of our organization and the core of our promise to you. We operate a robust, phase-appropriate quality management system that ensures the integrity, reliability, and regulatory acceptability of every piece of data we generate. Our quality systems are not just a regulatory shield for your project; they are an active tool that provides you with unprecedented visibility and control, giving you the confidence to move forward with your global submissions.",
+  chips:[
+    "cGMP",
+    "GLP",
+    "ISO/IEC 17025 Accreditation",
+    "FDA and EMA Registration and Compliance"
+  ]
+  }
+const heroConfigDataIntegrity = {
+    title: 'ENGINEERED FOR TRANSPARENCY',
+    miniTitle:'Data Integrity by Design',
+    description: 'In the modern regulatory environment, data integrity is paramount. Our infrastructure is built around 21 CFR Part 11–compliant systems, ensuring a complete, secure, and auditable data trail from sample receipt to final report archival. This comprehensive approach guarantees that your data is protected, traceable, and ready for regulatory scrutiny at any time. The real-time dashboard we provide is a direct window into this compliant data ecosystem, transforming our quality promise from a certificate on the wall to a tangible, interactive benefit you can see and use every day.',
+  };
 
   const heroConfig = {
     title: 'Why Choose Agnezar?',
@@ -241,6 +257,7 @@ export const useWhyAgnezar = (config: WhyAgnezarConfig) => {
     whatSetsUsApartData,
     handleGetStarted,
     handleContactUs,
-    merged
+    merged,heroConfigDataIntegrity,
+    ourLeaders
   };
 };
