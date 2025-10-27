@@ -19,8 +19,8 @@ export const DataIntegrity = ({
         description={heroConfigDataIntegrity.description}
         imageSrc="/assets/images/datainegrity.svg"
         backgroundColor="background.default"
-        button
-        buttonLabel={'Book A 15-Min Fit Call'}
+        // button
+        // buttonLabel={'Book A 15-Min Fit Call'}
       />
   );
 };

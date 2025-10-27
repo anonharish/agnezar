@@ -113,7 +113,7 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
       </Box>
     );
   };
-console.log(client,"CLIENT")
+
   return (
     <>
       <CardsGridWrapper container spacing={4} isClient={client}>
