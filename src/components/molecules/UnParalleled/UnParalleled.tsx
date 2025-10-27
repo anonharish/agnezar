@@ -13,13 +13,14 @@ export interface UnParalleledProps {
     mainHeadingColor?: string;
     descriptionColor?: string;
     alignment?: 'left' | 'center' ;
+    client?:boolean
 }
 
-export const UnParalleled: React.FC<UnParalleledProps> = ({ smallText, mainHeading, description, buttonLabel, onButtonClick, smallTextColor, mainHeadingColor, descriptionColor, alignment = 'center' }) => {
+export const UnParalleled: React.FC<UnParalleledProps> = ({ smallText, mainHeading, description, buttonLabel, onButtonClick, smallTextColor, mainHeadingColor, descriptionColor, alignment = 'center',client }) => {
     const cfg = useUnParalleled({ smallText, mainHeading, description, button: buttonLabel ? { label: buttonLabel, onClick: onButtonClick } : undefined });
 
     return (
-        <StyledUnParalleled sx ={alignment === 'left' ? { textAlign: 'left', width: '90%' , mx: 0 } : { textAlign: 'center' }}>
+        <StyledUnParalleled sx ={alignment === 'left' ? { textAlign: 'left', width: '90%' , mx: 0 } : { textAlign: 'center' }} isClient={client}>
             {smallText && (
                 <SmallText variant="overline" sx={smallTextColor ? { color: smallTextColor } : undefined}>{cfg.smallText}</SmallText>
             )}

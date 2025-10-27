@@ -2,13 +2,18 @@ import { styled } from '@mui/material/styles';
 import { Box, Typography as MuiTypography } from '@mui/material';
 import { colors } from '@theme/colors';
 
-export const StyledUnParalleled = styled(Box)(({ theme }) => ({
+interface StyledUnParalleledProps {
+isClient?:boolean;
+}
+
+export const StyledUnParalleled = styled(Box, {
+  shouldForwardProp: (prop) => prop !== 'width' && prop !== 'textAlign' && prop !== 'padding',
+})<StyledUnParalleledProps>(({ theme,isClient }) => ({
   width:"85%",
-  margin:"auto",
+  margin:isClient?"none":"auto",
   textAlign: 'center',
  padding: theme.spacing(4, 0),
 }));
-
 export const SmallText = styled(MuiTypography)(({ theme }) => ({
   color: (theme.palette as any)?.primary?.main ?? colors.primary.main,
   fontWeight: 600,

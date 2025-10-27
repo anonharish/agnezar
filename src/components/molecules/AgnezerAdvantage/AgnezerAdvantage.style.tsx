@@ -8,10 +8,26 @@ export const StyledAdvantage = styled(Box)(({ theme }) => ({
   padding: theme.spacing(8, 0),
 }));
 
-export const AdvantageInner = styled(Box)(({ theme }) => ({
+interface AdvantageInnerProps {
+  isClient?: boolean;
+}
+
+export const AdvantageInner = styled(Box, {
+  shouldForwardProp: (prop) => prop !== "isClient",
+})<AdvantageInnerProps>(({ theme, isClient }) => ({
   maxWidth: 1200,
   margin: '0 auto',
   padding: theme.spacing(0, 3),
+  ...(isClient && {
+    margin: "0 auto",
+    padding: theme.spacing(0, 3),
+display:'flex',
+flexDirection:'row',
+    gap: theme.spacing(6),
+    [theme.breakpoints.down("md")]: {
+      textAlign: "center",
+    },
+  }),
 }));
 
 export const AdvantageTopSmall = styled(MuiTypography)(({ theme }) => ({

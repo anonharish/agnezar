@@ -1,9 +1,57 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Security, Speed, Support, Star, TrendingUp, Group } from '@mui/icons-material';
+import realtime from '../../../public/assets/icons/realtime.svg';
+import dedicated from '../../../public/assets/icons/dedicated.svg';
+import flexible from '../../../public/assets/icons/flexible.svg';
 
-export const useWhyAgnezar = () => {
+export interface WhyAgnezarCard {
+  icon: React.ReactNode | string;
+   title: string;
+  description: string;
+}
+
+export interface WhyAgnezarConfig {
+  smallText?: string;
+  title?: string;
+  description?: string;
+  buttonLabel?: string;
+  cards?: WhyAgnezarCard[];
+  onButtonClick?: () => void;
+}
+
+export const useWhyAgnezar = (config: WhyAgnezarConfig) => {
   const navigate = useNavigate();
+
+   const merged = useMemo(() => ({
+    smallText: config.smallText ?? 'ENGINEERED FOR TRANSPARENCY',
+    title: config.title ?? 'A Smarter Client Experience',
+    description: config.description ?? 
+      'At Agnezer, we’ve reimagined how clients experience analytical testing. Our digital-first approach offers a transparent, real-time connection between your scientific goals and our execution. No more working in the dark — every project update, sample status, and report is just a click away.',
+    buttonLabel: config.buttonLabel ?? 'Book a 15-Min Fit Call',
+    onButtonClick: config.onButtonClick ?? (() => console.log('Book button clicked')),
+    cards: config.cards ?? [
+      {
+        icon: <img src={realtime} alt="realtime" />,
+        title: "Real–Time Dashboards",
+        description:
+          "Your secure client portal is your window into our laboratory, offering real-time visibility into every aspect of your project.",
+      },
+      {
+        icon: <img src={dedicated} alt="dedicated" />,
+        title: "Dedicated Project Managers",
+        description:
+          "A single point of contact ensures clear, consistent, and scientifically informed communication from project initiation to completion.",
+      },
+      {
+        icon: <img src={flexible} alt="flexible" />,
+        title: "Flexible Engagement Models",
+        description:
+          "We move beyond one-size-fits-all contracts. We offer fixed-cost packages, subscription-based services, and volume-based discounts to create pricing structures that align with your budget and project needs.",
+      },
+    ],
+  }), [config]);
+
 
   const heroConfig = {
     title: 'Why Choose Agnezar?',
@@ -193,5 +241,6 @@ export const useWhyAgnezar = () => {
     whatSetsUsApartData,
     handleGetStarted,
     handleContactUs,
+    merged
   };
 };

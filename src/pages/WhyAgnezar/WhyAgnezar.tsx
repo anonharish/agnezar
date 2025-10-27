@@ -1,25 +1,21 @@
 import React from 'react';
-import { Container, Grid, Box, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import { CheckCircle, Star } from '@mui/icons-material';
+import { Container, Grid, Box } from '@mui/material';
+import { Star } from '@mui/icons-material';
 import { useWhyAgnezar } from './WhyAgnezar.hook';
 import { StyledWhyAgnezar } from './WhyAgnezar.style';
-import { Typography, Card, Button } from '@components/atoms';
-import UnParalleled from '@components/molecules/UnParalleled/UnParalleled';
+import ClientExperience from '@/components/molecules/WhyAgenzer/ClientExperience';
 import { OurMission } from '@components/molecules/OurMission';
+import UnParalleled from '@components/molecules/UnParalleled/UnParalleled';
 
 export const WhyAgnezar: React.FC = () => {
   const {
-    heroConfig,
-    advantages,
-    testimonials,
-    awards,
-    handleGetStarted,
-    handleContactUs,
-    whatSetsUsApartData,
-  } = useWhyAgnezar();
+        whatSetsUsApartData,
+    merged
+  } = useWhyAgnezar({});
 
   return (
     <StyledWhyAgnezar>
+      {/* Hero Section */}
       <Box sx={{ py: 6 }}>
         <UnParalleled
           smallText="A Radically Transparent Partnership"
@@ -35,6 +31,15 @@ export const WhyAgnezar: React.FC = () => {
           description={whatSetsUsApartData.description}
           cards={whatSetsUsApartData.cards}
         />
+         <ClientExperience
+      smallText={merged.smallText}
+      title={merged.title}
+      description={merged.description}
+      buttonLabel={merged.buttonLabel}
+      onButtonClick={merged.onButtonClick}
+      cards={merged.cards}
+      client
+    />
       </Box>
     </StyledWhyAgnezar>
   );
