@@ -44,6 +44,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 src={mainLogo}
                 alt="Logo"
                 sx={{ height: 40, marginRight: 2 }}
+                onClick = {() => navigate('/')}
               />
           </Box>
 

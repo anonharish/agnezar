@@ -32,6 +32,7 @@ export const Home: React.FC = () => {
         smallText={'Excellence. Innovation. Partnership.'}
         title='The Agnezar Advantage'
         description='Four pillars driving quality and trust in every project.'
+        cardHeight={80}
       />
 
       {/* Make Every Study Section */}

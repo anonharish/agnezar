@@ -75,6 +75,7 @@ export const AboutUs: React.FC = () => {
             description: 'We foster a culture where knowledge, curiosity, and teamwork empower our people to innovate, learn, and lead in the field of analytical science.',
           },
         ]}
+        cardHeight={200}
       />
       {/* The Agnezar Advantage section */}
 

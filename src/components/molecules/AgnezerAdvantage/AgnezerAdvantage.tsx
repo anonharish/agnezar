@@ -10,9 +10,10 @@ export interface AgnezerAdvantageProps {
   title?: string;
   description?: string;
   cards?: Array<{ icon?: React.ReactNode | string; title: string; description?: string }>
+  cardHeight: number;
 }
 
-export const AgnezerAdvantage: React.FC<AgnezerAdvantageProps> = ({ smallText, title, description, cards }) => {
+export const AgnezerAdvantage: React.FC<AgnezerAdvantageProps> = ({ smallText, title, description, cards, cardHeight }) => {
   const cfg = useAgnezerAdvantage({ smallText, title, description, cards });
   const theme = useTheme();
 
@@ -28,7 +29,7 @@ export const AgnezerAdvantage: React.FC<AgnezerAdvantageProps> = ({ smallText, t
         descriptionColor={theme.palette.white.main}
         />
 
-        <CardsGrid cards={cfg.cards} cardHeight={260} columns={2} />
+        <CardsGrid cards={cfg.cards} cardHeight={cardHeight ? cardHeight : undefined} columns={2} />
       </AdvantageInner>
     </StyledAdvantage>
   );
