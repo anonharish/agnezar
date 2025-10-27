@@ -224,7 +224,7 @@ export const ContactUs: React.FC = () => {
                       />
                     </Grid>
 
-                    <Grid item xs={12}>
+                    {/* <Grid item xs={12}>
                       <TextField
                         select
                         label="Service of Interest"
@@ -241,9 +241,9 @@ export const ContactUs: React.FC = () => {
                           </MenuItem>
                         ))}
                       </TextField>
-                    </Grid>
+                    </Grid> */}
 
-                    <Grid item xs={12}>
+                    {/* <Grid item xs={12}>
                       <TextField
                         select
                         label="Molecule Type"
@@ -258,9 +258,9 @@ export const ContactUs: React.FC = () => {
                         <MenuItem value="Medical Device">Medical Device</MenuItem>
                         <MenuItem value="Other">Other</MenuItem>
                       </TextField>
-                    </Grid>
+                    </Grid> */}
 
-                    <Grid item xs={12}>
+                    {/* <Grid item xs={12}>
                       <TextField
                         select
                         label="Development Phase"
@@ -276,7 +276,7 @@ export const ContactUs: React.FC = () => {
                         <MenuItem value="Commercial">Commercial</MenuItem>
                         <MenuItem value="Other">Other</MenuItem>
                       </TextField>
-                    </Grid>
+                    </Grid> */}
 
                     <Grid item xs={12}>
                       <TextField

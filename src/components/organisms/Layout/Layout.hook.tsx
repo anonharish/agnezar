@@ -20,13 +20,13 @@ export const useLayout = ({}: UseLayoutProps = {}) => {
       { label: 'Why Agnezar', href: '/why-agnezar' },
       // { label: 'Contact Us', href: '/contact' },
     ],
-    ctaButton: {
-      label: 'Login',
-      onClick: () => {
-        // Handle CTA click
-        console.log('Get Started clicked');
-      },
-    },
+    // ctaButton: {
+    //   label: 'Login',
+    //   onClick: () => {
+    //     // Handle CTA click
+    //     console.log('Get Started clicked');
+    //   },
+    // },
   }), []);
 
   const footerConfig = useMemo(() => ({

@@ -18,16 +18,19 @@ export interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ logo }) => {
-  // Contact information structure
+
+
+// info@agnezar.com
   const contactInfo = {
-    phone: '1-555-439-5782',
-    email: 'info@example-tech.com',
+    phone: '+1 (210) 913-7096 ',
+    email: 'info@agnezar.com',
     address: {
-      country: 'New York, USA',
-      area: 'Tech Valley',
-      street: '123 Innovation Dr',
-      city: 'Albany, NY 12203',
-      phone: '(518) 555-1234'
+      contactName: 'Agnezar Life Sciences LLC',
+      country: 'Hightstown',
+      // area: 'Tech Valley',
+      street: ' NJ 08520',
+      // city: 'Albany, NY 12203',
+      phone: '+1 (210) 913-7096'
     }
   };
 
@@ -73,14 +76,16 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
             {logo || (
               <Box component="img" src="/assets/logos/main-logo.svg" alt="Agnezar" sx={{ width: 150, height: 'auto', mb: 3, background: "white", padding: ".75rem", borderRadius: ".5rem" }} />
             )}
+           
             <ContactInfo>
               <Box>T: {contactInfo.phone}</Box>
               <Box>E: {contactInfo.email}</Box>
               <Box sx={{ mt: 2 }}>
-                <Box>A: {contactInfo.address.country}</Box>
-                <Box>{contactInfo.address.area}</Box>
+                <Box> {contactInfo.address.contactName}</Box>
+                <Box> {contactInfo.address.country}</Box>
+             
                 <Box>{contactInfo.address.street}</Box>
-                <Box>{contactInfo.address.city}</Box>
+              
                 <Box>{contactInfo.address.phone}</Box>
               </Box>
             </ContactInfo>

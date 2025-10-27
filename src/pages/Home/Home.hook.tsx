@@ -14,7 +14,7 @@ export const useHome = () => {
     },
     secondaryButton: {
       label: 'Learn More',
-      onClick: () => navigate('/about'),
+      onClick: () => navigate('/services'),
     },
   };
 

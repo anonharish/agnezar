@@ -11,6 +11,7 @@ export const CardsGridWrapper = styled(Grid, {
 })<CardsGridWrapperProps>(({ theme, isClient }) => ({
   marginTop: theme.spacing(2),
   display: 'flex',
+  justifyContent: 'center',
   flexDirection: isClient ? 'column' : 'row',
   flexWrap:isClient?'nowrap':'wrap'
 }));

@@ -20,30 +20,35 @@ export const useContactUs = () => {
     title: 'Contact Us',
     description: 'Ready to transform your business? Get in touch with our team of experts to discuss your project and discover how we can help you achieve your goals.',
   };
-
+// T: +1 (210) 913-7096
+// E: info@agnezar.com
+// Agnezar Life Sciences LLC
+// Hightstown
+// NJ 08520
+// +1 (210) 913-7096
   const contactInfo = {
     description: 'We\'re here to help you succeed. Reach out to us through any of the channels below, and we\'ll get back to you within 24 hours.',
     details: [
       {
         icon: <Email sx={{ color: 'white' }} />,
         title: 'Email Us',
-        value: 'hello@agnezar.com',
+        value: 'info@agnezar.com',
       },
       {
         icon: <Phone sx={{ color: 'white' }} />,
         title: 'Call Us',
-        value: '+1 (555) 123-4567',
+        value: '+1 (210) 913-7096',
       },
       {
         icon: <LocationOn sx={{ color: 'white' }} />,
         title: 'Visit Us',
-        value: '123 Business St, Suite 100, City, State 12345',
+        value: 'Agnezar Life Sciences LLC, Hightstown, NJ 08520',
       },
-      {
-        icon: <Schedule sx={{ color: 'white' }} />,
-        title: 'Business Hours',
-        value: 'Monday - Friday: 9:00 AM - 6:00 PM',
-      },
+      // {
+      //   icon: <Schedule sx={{ color: 'white' }} />,
+      //   title: 'Business Hours',
+      //   value: 'Monday - Friday: 9:00 AM - 6:00 PM',
+      // },
     ],
   };
 

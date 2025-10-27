@@ -35,7 +35,7 @@ export const useWhyAgnezar = (config: WhyAgnezarConfig) => {
     title: config.title ?? 'A Radically Transparent Partnership',
     description: config.description ?? 
       'We are fundamentally changing the client experience. Our partnership model is built on the principles of transparency, flexibility, and unwavering support.',
-    buttonLabel: config.buttonLabel ?? 'Book a 15-Min Fit Call',
+    buttonLabel: config.buttonLabel ?? 'Book a Call',
     onButtonClick: config.onButtonClick ?? (() => console.log('Book button clicked')),
     cards: config.cards ?? [
       // {

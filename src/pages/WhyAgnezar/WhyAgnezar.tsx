@@ -17,9 +17,10 @@ export const WhyAgnezar: React.FC = () => {
       <Box sx={{ py: 6 }}>
         <UnParalleled
           smallText="A Radically Transparent Partnership"
-          mainHeading="Why Choose Agnezar? — More Than a Lab: Your Strategic Scientific Ally"
+          mainHeading="Why Choose Agnezar?"
+          subHeading="More Than a Lab: Your Strategic Scientific Ally"
           description={
-            "At Agnezar, we deliver more than analytical services. We deliver outcomes. Our clients choose us because we combine deep scientific expertise, regulatory foresight, and a client-first mindset in ways others simply can’t match."
+            "At Agnezar, we deliver more than analytical services. We deliver outcomes. Our clients choose us because we combine deep scientific expertise, regulatory foresight, and a client-first mindset in ways others simply can't match."
           }
         />
         <ClientExperience

@@ -3,11 +3,13 @@ import { useHome } from './Home.hook';
 import { StyledHome } from './Home.style';
 import { Hero, SpotlightBox, UnParalleled, AgnezerAdvantage, EmailInsights, MakeEveryStudy } from '@components/molecules';
 import { Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 export const Home: React.FC = () => {
   const {
     heroConfig,
   } = useHome();
+  const navigate = useNavigate();
 
   return (
     <StyledHome>
@@ -15,15 +17,17 @@ export const Home: React.FC = () => {
       <Hero {...heroConfig} />
 
       {/* Spotlight Section (below hero) */}
-      <SpotlightBox
-        heading="Spotlight Box"
-        title="Urgent Need? Nitrosamine Impurity Solutions"
-        description={
-          'The global regulatory focus on nitrosamine impurities demands specialized expertise. We offer a comprehensive, fast-track solution—from risk assessment to validated testing and regulatory support—to ensure your products meet stringent FDA, EMA, and ICH M7 requirements.'
-        }
-        buttonLabel="Contact Us"
-        onButtonClick={() => { /* handle contact click */ }}
-      />
+      <Box id="spotlight">
+        <SpotlightBox
+          heading="Spotlight Box"
+          title="Urgent Need? Nitrosamine Impurity Solutions"
+          description={
+            'The global regulatory focus on nitrosamine impurities demands specialized expertise. We offer a comprehensive, fast-track solution—from risk assessment to validated testing and regulatory support—to ensure your products meet stringent FDA, EMA, and ICH M7 requirements.'
+          }
+          buttonLabel="Contact Us"
+          onButtonClick={() => { navigate('/contact') }}
+        />
+      </Box>
 
       {/* Unparalleled Section (below spotlight) */}
       <Box sx={{ mb: 8 }}>
@@ -44,7 +48,7 @@ export const Home: React.FC = () => {
 
       {/* Make Every Study Section */}
       <MakeEveryStudy />
-      <EmailInsights />
+      {/* <EmailInsights /> */}
     </StyledHome>
   );
 };

@@ -16,7 +16,7 @@ export const DataIntegrity = ({}) => {
         imageSrc="/assets/images/datainegrity.svg"
         backgroundColor="background.default"
         // button
-        // buttonLabel={'Book A 15-Min Fit Call'}
+        // buttonLabel={'Book A Call'}
       />
   );
 };
