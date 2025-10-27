@@ -197,10 +197,11 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                       </div>
 
                       {cardHeight && needsReadMore[i] && (
-                        <Box sx={{fontWeight: 700,mt:1 }}>
+                        <Box sx={{ fontWeight: 700, mt: 1 }}>
                           <Typography
-                            size="small"
-                            sx={{cursor:"pointer", color: 'primary.main'}}
+                            variant="body2"
+                            component="span"
+                            sx={{ cursor: 'pointer', color: 'primary.main' }}
                             onClick={() => setOpenDialogIndex(i)}
                           >
                             Read more

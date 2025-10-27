@@ -1,13 +1,9 @@
-import React from 'react';
-import { StyledAdvantage } from '../AgnezerAdvantage/AgnezerAdvantage.style';
 import { HeroSectionWithContent } from '../HeroSectionWithContent';
-import { useAboutUs } from '@/pages/AboutUs/AboutUs.hook';
 import { useWhyAgnezar } from '@/pages/WhyAgnezar/WhyAgnezar.hook';
 
 
 
-export const DataIntegrity = ({
-}) => {
+export const DataIntegrity = ({}) => {
   const {
     heroConfigDataIntegrity,
   } = useWhyAgnezar({});
