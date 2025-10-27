@@ -2,7 +2,6 @@ import React from 'react';
 import { useTheme } from '@mui/system';
 import CardsGrid from '@components/molecules/CardsGrid';
 import UnParalleled from '../UnParalleled/UnParalleled';
-import { useAgnezerAdvantage } from '../AgnezerAdvantage/AgnezerAdvantage.hook';
 import { AdvantageInner, StyledAdvantage } from '../AgnezerAdvantage/AgnezerAdvantage.style';
 
 export interface AgnezerAdvantageProps {

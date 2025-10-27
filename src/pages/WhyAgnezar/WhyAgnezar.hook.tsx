@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Security, Speed, Support, Star, TrendingUp, Group } from '@mui/icons-material';
-import realtime from '../../../public/assets/icons/realtime.svg';
+// import realtime from '../../../public/assets/icons/realtime.svg';
 import dedicated from '../../../public/assets/icons/dedicated.svg';
 import flexible from '../../../public/assets/icons/flexible.svg';
 
@@ -24,22 +24,22 @@ export const useWhyAgnezar = (config: WhyAgnezarConfig) => {
   const navigate = useNavigate();
 
    const merged = useMemo(() => ({
-    smallText: config.smallText ?? 'ENGINEERED FOR TRANSPARENCY',
-    title: config.title ?? 'A Smarter Client Experience',
+    smallText: config.smallText ?? '',
+    title: config.title ?? 'A Radically Transparent Partnership',
     description: config.description ?? 
-      'At Agnezer, we’ve reimagined how clients experience analytical testing. Our digital-first approach offers a transparent, real-time connection between your scientific goals and our execution. No more working in the dark — every project update, sample status, and report is just a click away.',
+      'We are fundamentally changing the client experience. Our partnership model is built on the principles of transparency, flexibility, and unwavering support.',
     buttonLabel: config.buttonLabel ?? 'Book a 15-Min Fit Call',
     onButtonClick: config.onButtonClick ?? (() => console.log('Book button clicked')),
     cards: config.cards ?? [
-      {
-        icon: <img src={realtime} alt="realtime" />,
-        title: "Real–Time Dashboards",
-        description:
-          "Your secure client portal is your window into our laboratory, offering real-time visibility into every aspect of your project.",
-      },
+      // {
+      //   icon: <img src={realtime} alt="realtime" />,
+      //   title: "Real–Time Dashboards",
+      //   description:
+      //     "Your secure client portal is your window into our laboratory, offering real-time visibility into every aspect of your project.",
+      // },
       {
         icon: <img src={dedicated} alt="dedicated" />,
-        title: "Dedicated Project Managers",
+        title: "Dedicated Project Management",
         description:
           "A single point of contact ensures clear, consistent, and scientifically informed communication from project initiation to completion.",
       },
@@ -203,7 +203,7 @@ const heroConfigDataIntegrity = {
 
   const whatSetsUsApartData = {
     smallText: '',
-    mainHeading: 'What sets us apart:',
+    mainHeading: 'What sets us apart',
     description: '',
     cards: [
       {
@@ -257,7 +257,8 @@ const heroConfigDataIntegrity = {
     whatSetsUsApartData,
     handleGetStarted,
     handleContactUs,
-    merged,heroConfigDataIntegrity,
+    merged,
+    heroConfigDataIntegrity,
     ourLeaders
   };
 };
