@@ -10,6 +10,7 @@ export const StyledNavbar = styled(Box)(({ theme }) => ({
     right: 0,
     backgroundColor: colors.background.default,
     color: colors.text.primary,
+    padding: theme.spacing(1,4),
     borderBottom: `1px solid ${colors.neutral[200]}`,
     zIndex: (theme.zIndex as any)?.appBar ?? 1200,
   },

@@ -5,7 +5,7 @@ import { colors } from '@theme/colors';
 export const StyledAdvantage = styled(Box)(({ theme }) => ({
   backgroundColor: (theme.palette as any)?.secondary?.main ?? colors.secondary.main,
   color: '#fff',
-  padding: theme.spacing(8, 0),
+  padding: theme.spacing(0,0, 8, 0),
 }));
 
 interface AdvantageInnerProps {
@@ -15,7 +15,7 @@ interface AdvantageInnerProps {
 export const AdvantageInner = styled(Box, {
   shouldForwardProp: (prop) => prop !== "isClient",
 })<AdvantageInnerProps>(({ theme, isClient }) => ({
-  maxWidth: 1200,
+  maxWidth: "90%",
   margin: '0 auto',
   padding: theme.spacing(0, 3),
   ...(isClient && {

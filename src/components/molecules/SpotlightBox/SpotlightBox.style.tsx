@@ -4,9 +4,9 @@ import { colors } from '@theme/colors';
 
 export const StyledSpotlightBox = styled(Box)(({ theme }) => ({
   width:"85%",
-  margin:"4rem auto",
+  margin:"4rem auto 0 auto",
   backgroundColor: (theme.palette as any)?.background?.spotlight?.bg10 ?? colors.background.spotlight.bg10,
-  borderLeft: `3px solid ${(theme.palette as any)?.secondary?.main ?? colors.secondary.main}`,
+  borderLeft: `1px solid ${(theme.palette as any)?.primary?.main ?? colors.primary.main}`,
   padding: theme.spacing(3),
   borderRadius: 4,
   display: 'flex',
@@ -15,10 +15,10 @@ export const StyledSpotlightBox = styled(Box)(({ theme }) => ({
 }));
 
 export const SpotlightHeading = styled(MuiTypography)(({ theme }) => ({
-  color: (theme.palette as any)?.secondary?.main ?? colors.secondary.main,
+  color: (theme.palette as any)?.primary?.main ?? colors.secondary.main,
   fontWeight: 700,
   textTransform: 'uppercase',
-  fontSize: '0.75rem',
+  fontSize: '.9rem',
 }));
 
 export const SpotlightTitle = styled(MuiTypography)(({ theme }) => ({

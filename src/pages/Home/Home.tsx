@@ -2,6 +2,7 @@ import React from 'react';
 import { useHome } from './Home.hook';
 import { StyledHome } from './Home.style';
 import { Hero, SpotlightBox, UnParalleled, AgnezerAdvantage, EmailInsights, MakeEveryStudy } from '@components/molecules';
+import { Box } from '@mui/material';
 
 export const Home: React.FC = () => {
   const {
@@ -25,14 +26,20 @@ export const Home: React.FC = () => {
       />
 
       {/* Unparalleled Section (below spotlight) */}
-      <UnParalleled />
+      <Box sx={{ mb: 8 }}>
+      <UnParalleled
+        smallText='Engineered for Transparency'
+        mainHeading='An Unparalleled Client Experience, Engineered for Your Success'
+        description="In today's competitive landscape, access to data is not enough. You need a partner who has engineered a smarter, faster, and more transparent way for you to get the critical information you need to make decisions. We have moved beyond the traditional CRO model to provide a service experience built on visibility and control."
+      />
+      </Box>
 
       {/* Agnezer Advantage Section */}
       <AgnezerAdvantage
         smallText={'Excellence. Innovation. Partnership.'}
         title='The Agnezar Advantage'
         description='Four pillars driving quality and trust in every project.'
-        cardHeight={110}
+        cardHeight={170}
       />
 
       {/* Make Every Study Section */}

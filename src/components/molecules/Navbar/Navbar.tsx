@@ -43,7 +43,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 component="img"
                 src={mainLogo}
                 alt="Logo"
-                sx={{ height: 40, marginRight: 2 }}
+                sx={{ width: 135,height: 56, marginRight: 2 , cursor: 'pointer'}}
                 onClick = {() => navigate('/')}
               />
           </Box>

@@ -19,8 +19,8 @@ export const EmailInsights: React.FC<EmailInsightsProps> = (props) => {
   return (
     <StyledEmailInsights>
       <Inner>
-        <Heading variant="h5">{heading}</Heading>
-        <Description variant="body1">{description}</Description>
+        <Heading variant="h4">{heading}</Heading>
+        <Description>{description}</Description>
 
         <FormRow>
           <InputWrap>

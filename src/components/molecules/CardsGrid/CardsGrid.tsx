@@ -63,13 +63,13 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
         <Box component="ul" sx={{ pl: 2, mt: 1 }}>
           {desc.map((d, idx) => (
             <Box component="li" key={idx} sx={{ lineHeight: 1.6, mb: 0.5 }}>
-              <Typography variant="body2">{d}</Typography>
+              <Typography variant="body2" sx={{fontSize:"1.2rem",fontWeight:400}}>{d}</Typography>
             </Box>
           ))}
         </Box>
       );
     }
-    return <Typography variant="body2" sx={{ mt: 1 }}>{desc}</Typography>;
+    return <Typography variant="body2" sx={{ mt: 1, fontSize:"1.2rem",fontWeight:400 }}>{desc}</Typography>;
   };
 
   const renderMoreInfo = (more?: CardItem['moreInfo']) => {
@@ -135,8 +135,8 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                             src={c.icon}
                             alt={c.title}
                             style={{
-                              width: 40,
-                              height: 40,
+                              width: 56,
+                              height: 56,
                               objectFit: "contain",
                             }}
                           />
@@ -172,7 +172,7 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                     </CardIcon>
                   )}
                   <Box sx={{ flex: 1 }}>
-                    <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                    <Typography  sx={{ fontWeight: 700,fontSize:"1.5rem" }}>
                       {c.title}
                     </Typography>
 
@@ -199,9 +199,8 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                       {cardHeight && needsReadMore[i] && (
                         <Box sx={{ fontWeight: 700, mt: 1 }}>
                           <Typography
-                            variant="body2"
                             component="span"
-                            sx={{ cursor: 'pointer', color: 'primary.main' }}
+                            sx={{ cursor: 'pointer', color: 'primary.main', fontSize:"1.2rem", fontWeight:600 }}
                             onClick={() => setOpenDialogIndex(i)}
                           >
                             Read more

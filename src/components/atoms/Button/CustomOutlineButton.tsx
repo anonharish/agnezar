@@ -20,6 +20,7 @@ export const CustomOutlineButton: React.FC<CustomOutlineButtonProps> = ({ childr
       fullWidth={fullWidth}
       sx={{
         backgroundColor: (theme.palette as any).white?.main ?? '#ffffff',
+        borderRadius: 0,
         color: topBarColor,
         border: `1px solid ${topBarColor}`,
         '&:hover': {

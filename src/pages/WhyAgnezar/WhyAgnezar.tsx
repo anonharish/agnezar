@@ -37,7 +37,7 @@ export const WhyAgnezar: React.FC = () => {
           mainHeading={whatSetsUsApartData.mainHeading}
           description={whatSetsUsApartData.description}
           cards={whatSetsUsApartData.cards}
-          cardHeight={120}
+          cardHeight={220}
         />
         <OurLeaders
           smallText={ourLeaders.smallText}

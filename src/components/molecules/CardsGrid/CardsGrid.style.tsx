@@ -23,8 +23,8 @@ export const CardBox = styled(Box)(({ theme }) => ({
 }));
 
 export const CardIcon = styled(Box)(({ theme }) => ({
-  width: 40,
-  height: 40,
+  width: 56,
+  height: 56,
   borderRadius: 8,
   display: 'flex',
   alignItems: 'center',

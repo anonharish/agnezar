@@ -21,6 +21,7 @@ export const CustomFilledButton: React.FC<CustomFilledButtonProps> = ({ children
       loading={(props as any).loading}
       sx={{
         backgroundColor: topBarColor,
+        borderRadius: 0,
         color: (theme.palette as any).topBar?.contrastText ?? '#fff',
         '&:hover': {
           backgroundColor: (theme.palette as any).topBar?.dark ?? topBarColor,

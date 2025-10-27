@@ -13,7 +13,7 @@ export const useLayout = ({}: UseLayoutProps = {}) => {
   const navbarConfig = useMemo(() => ({
     logoText: 'Agnezar',
     menuItems: [
-      { label: 'Home', href: '/' },
+      // { label: 'Home', href: '/' },
       { label: 'About Us', href: '/about' },
       { label: 'Our Services', href: '/services' },
       { label: 'Industries', href: '/industries' },

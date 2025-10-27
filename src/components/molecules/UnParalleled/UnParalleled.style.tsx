@@ -16,8 +16,8 @@ export const StyledUnParalleled = styled(Box, {
 }));
 export const SmallText = styled(MuiTypography)(({ theme }) => ({
   color: (theme.palette as any)?.primary?.main ?? colors.primary.main,
-  fontWeight: 600,
-  fontSize: '0.75rem',
+  fontWeight: 800,
+  fontSize: '0.9rem',
   letterSpacing: '0.08em',
 }));
 
@@ -35,8 +35,9 @@ export const MainHeading = styled(MuiTypography)(({ theme }) => ({
 export const DescText = styled(MuiTypography, { shouldForwardProp: (prop) => prop !== 'alignment' })<{
   alignment?: 'left' | 'center';
 }>(({ theme, alignment }) => ({
-  color: (theme.palette as any)?.text?.alt?.body ?? colors.text.alt.body,
+  color: (theme.palette as any)?.text?.body ?? colors.text.body,
   maxWidth: 900,
   margin: alignment === 'left' ? undefined : '0 auto',
   marginTop: theme.spacing(2),
+  fontSize: '1.2rem',
 }));

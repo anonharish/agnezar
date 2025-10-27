@@ -49,6 +49,7 @@ export const Heading = styled(Typography)(({ theme }) => ({
 export const Description = styled(Typography)(({ theme }) => ({
   color: theme.palette.common.white,
   opacity: 0.9,
+  fontSize: '1.5rem',
 }));
 
 export const StyledInput = styled(TextField)(({ theme }) => ({

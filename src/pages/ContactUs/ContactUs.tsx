@@ -112,22 +112,22 @@ export const ContactUs: React.FC = () => {
             <Grid item xs={12} md={6}>
               <Box className="left-column">
                 <Box>
-                <Typography variant="h3" sx={{color: "inherit"}}>Get in touch!</Typography>
-                <Typography variant="body1" sx={{color:"inherit"}}>
+                <Typography  sx={{color: "inherit", fontSize:"3rem", fontWeight: 700}}>Get in touch!</Typography>
+                <Typography variant="body1" sx={{color:"inherit", fontSize: "1.25rem"}}>
                   We appreciate your interest in our company. Please fill out
                   the form, and we'll get back to you promptly.
                 </Typography>
                 </Box>
 
                 <Box className="contact-info">
-                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 3, color: 'inherit' }}>
+                  <Typography  sx={{ fontWeight: 700, mb: 3, color: 'inherit', fontSize:"1.5rem", }}>
                     Call Us At: {contactInfo?.details?.find(d => d.title?.toLowerCase().includes('call'))?.value ?? "+1 (555) 123–4567"}
                   </Typography>
 
-                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, color: 'inherit' }}>
+                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, color: 'inherit', fontSize:"1.5rem", }}>
                     Write To Us
                   </Typography>
-                  <Box component="ul" sx={{ pl: 2, mt: 1 , color: 'inherit' }}>
+                  <Box component="ul" sx={{ pl: 2, mt: 1 , color: 'inherit', fontSize: "1.25rem" }}>
                     <li>
                       <Typography variant="body2" sx={{ color: 'inherit' }}>
                         {contactInfo?.details?.find(d => d.title?.toLowerCase().includes('visit'))?.value ??
