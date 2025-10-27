@@ -137,11 +137,60 @@ export const useWhyAgnezar = () => {
     navigate('/contact');
   }, [navigate]);
 
+  const whatSetsUsApartData = {
+    smallText: '',
+    mainHeading: 'What sets us apart:',
+    description: '',
+    cards: [
+      {
+        title: 'End-to-End Depth',
+        description:
+          'From method development, impurity characterization, and stability prediction to filing-ready regulatory submissions, we cover the full CMC lifecycle. You deal with one partner — no handoffs, no miscommunications.',
+      },
+      {
+        title: 'Regulatory-First Thinking',
+        description:
+          'Our lab doesn’t just run tests; we anticipate regulatory challenges. Every procedure, report, and interaction is designed to align with global health authority expectations before they become roadblocks.',
+      },
+      {
+        title: 'AI-Driven Efficiency & Predictivity',
+        description:
+          'Using predictive modeling and machine learning, we cut down experimental cycles, accelerate method validation, and forecast stability issues proactively. This saves precious API, time, and budget for you.',
+      },
+      {
+        title: 'Adaptive Startup Agility with Veteran Expertise',
+        description:
+          'We blend the nimbleness of a startup — fast responses, flexibility, tailored solutions — with the rigor and credibility that come from deep experience in global pharmaceutical organizations.',
+      },
+      {
+        title: 'Strategic Partnership, Not Transactional Service',
+        description:
+          'We engage with your goals as our own. Whether you\'re racing against regulatory clock-times, navigating FDA inquiries, or optimizing formulations, we act as your advisor, not just a vendor.',
+      },
+      {
+        title: 'Unmatched Transparency & Client Ownership',
+        description:
+          'Clear communication, real-time project updates, robust documentation, and ownership of outcomes. Errors are few, but when they occur, you’ll see resolution—not excuses.',
+      },
+      {
+        title: 'Cost-Effectiveness Without Sacrificing Quality',
+        description:
+          'We optimize each step of the analytical workflow — from instrument time, resource allocation, to reporting — without compromising scientific or regulatory integrity.',
+      },
+      {
+        title: 'Unique Promise You Won’t Find Elsewhere',
+        description:
+          'With Agnezar, your analytical strategy becomes predictive, your regulatory path becomes navigable, and your timelines shrink—without sacrificing accuracy or compliance.',
+      },
+    ],
+  };
+
   return {
     heroConfig,
     advantages,
     testimonials,
     awards,
+    whatSetsUsApartData,
     handleGetStarted,
     handleContactUs,
   };
