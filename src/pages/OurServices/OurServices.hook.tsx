@@ -82,6 +82,93 @@ export const useOurServices = () => {
     { name: 'TypeScript', category: 'Language' },
   ];
 
+  const cards = [
+    {
+      title: 'Research and Development',
+      description: [
+        'Innovating for Scientific Excellence',
+        'At Agnezar, our R&D team drives the discovery and development of robust analytical methods. Leveraging cutting-edge technologies and multidisciplinary expertise, we provide solutions that accelerate product development, optimize formulations, and enhance pharmaceutical innovation',
+      ],
+      moreInfo: [
+        {
+          moreInfoItemHeading: 'Our Capabilities:',
+          moreInfoItemContent: [
+            {
+              contentHeading: 'Reverse Engineering & Deformulation Studies:',
+              content: [
+                'Comprehensive comparative analysis for formulation benchmarking and predictive performance evaluation.',
+                'Support for competitive product assessment and lifecycle management strategies.',
+              ],
+            },
+            {
+              contentHeading: 'Unknown Impurity Identification & Characterization:',
+              content: [
+                'Structural elucidation using advanced chromatographic and spectroscopic techniques',
+                'Assessment of degradation pathways and impurity profiling for product safety assurance.',
+              ],
+            },
+            {
+              contentHeading: 'Method Development & Validation:',
+              content: [
+                'Design and validation of analytical methods in full compliance with ICH Q2 (R2) guidelines.',
+                'Development of phase-appropriate methods for discovery, development, and commercial stages.',
+              ],
+            },
+            {
+              contentHeading: 'Cost-Effective Analytical Solutions:',
+              content: [
+                'Optimized workflows and method design to reduce testing time and resource utilization.',
+                'Customized solutions balancing scientific rigor and operational efficiency.',
+              ],
+            },
+            {
+              contentHeading: 'AI and Predictive Modeling:',
+              content: [
+                'Advanced algorithms optimize analytical method development and predict product stability, minimizing experimental cycles and conserving valuable API.',
+                'Data-driven insights enhance accuracy, efficiency, and decision-making across R&D, quality, and regulatory functions.',
+              ],
+            },
+            {
+              contentHeading: 'Drug–Device Combination Product Support:',
+              content: [
+                'Custom method development for drug–device compatibility, extractables/leachables, and release profiles.',
+              ],
+            },
+            {
+              contentHeading: 'Technology Transfer & Lifecycle Management:',
+              content: [
+                'Smooth method transfer across R&D, QA/QC, and manufacturing sites with complete documentation.',
+                'Continuous method optimization for improved robustness and regulatory compliance.',
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      title: 'Analytical Testing & Quality Compliance',
+      description: [
+        'Precision You Can Trust. Excellence You Can Rely On.',
+        'At Agnezar, we provide comprehensive analytical testing solutions across raw materials, intermediates, finished products, and stability studies, supported by state-of-the-art instrumentation and AI-enhanced data analysis.',
+        'Quality is at the core of everything we do. Our laboratory strictly adheres to GMP, GLP, and ISO standards, ensuring every test, report, and workflow meets global regulatory expectations. This integrated approach ensures accurate, reliable, and fully compliant results, supporting every stage of the pharmaceutical lifecycle and empowering our clients to achieve scientific excellence and regulatory success.',
+      ],
+    },
+    {
+      title: 'Quality Management and Regulatory Services',
+      description: [
+        'Beyond Testing — Partnering for Strategic Success',
+        'At Agnezar, we go beyond routine testing to become your strategic development partner. Our Quality Management and Regulatory Services are designed to enhance compliance, streamline submissions, and accelerate your product journey from concept to market.',
+      ],
+    },
+    {
+      title: 'Next-Generation Analytical Excellence',
+      description: [
+        'At Agnezar, we envision a future where innovation and compliance work seamlessly together to accelerate healthcare solutions worldwide. Our mission extends beyond analytical testing — we aim to build a next-generation Innovation Plaza, a center of excellence that supports comprehensive testing, characterization, and regulatory guidance for all classes of medicinal products.',
+        'With a built-in quality mindset, we are dedicated to overcoming complex regulatory challenges and enabling our partners to achieve faster, safer, and more compliant product development. Our vision expands beyond synthetic pharmaceuticals to embrace biologics, advanced therapies, and emerging drug modalities, positioning Agnezar as a one-stop analytical partner for the evolving healthcare landscape.',
+      ],
+    },
+  ];
+
   const handleGetQuote = useCallback(() => {
     navigate('/contact');
   }, [navigate]);
@@ -96,6 +183,7 @@ export const useOurServices = () => {
     services,
     process,
     technologies,
+    cards,
     handleGetQuote,
     handleLearnMore,
   };

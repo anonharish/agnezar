@@ -8,6 +8,15 @@ export interface CardItem {
   title: string;
   // description can be a plain string or an array of bullet strings
   description?: string | string[];
+  // optional extended info sections
+  moreInfo?: Array<{
+    moreInfoItemHeading?: string;
+    moreInfoItemDescription?: string;
+    moreInfoItemContent?: Array<{
+      contentHeading?: string;
+      content?: string[];
+    }>;
+  }>;
 }
 
 export interface CardsGridProps {
@@ -62,6 +71,45 @@ export const CardsGrid: React.FC<CardsGridProps> = ({ cards, cardHeight, columns
     return <Typography variant="body2" sx={{ mt: 1 }}>{desc}</Typography>;
   };
 
+  const renderMoreInfo = (more?: CardItem['moreInfo']) => {
+    if (!more || !more.length) return null;
+    return (
+      <Box sx={{ mt: 2 }}>
+        {more.map((mi, idx) => (
+          <Box key={idx} sx={{ mb: 2 }}>
+            {mi.moreInfoItemHeading && (
+              <Typography variant="h6" sx={{ fontWeight: 700, mt: 1 }}>{mi.moreInfoItemHeading}</Typography>
+            )}
+            {mi.moreInfoItemDescription && (
+              <Typography variant="body2" sx={{ mt: 1 }}>{mi.moreInfoItemDescription}</Typography>
+            )}
+
+            {mi.moreInfoItemContent && mi.moreInfoItemContent.length > 0 && (
+              <Box sx={{ mt: 1 }}>
+                {mi.moreInfoItemContent.map((cic, cidx) => (
+                  <Box key={cidx} sx={{ mb: 1 }}>
+                    {cic.contentHeading && (
+                      <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>{cic.contentHeading}</Typography>
+                    )}
+                    {cic.content && cic.content.length > 0 && (
+                      <Box component="ul" sx={{ pl: 2, mt: 1 }}>
+                        {cic.content.map((line, lidx) => (
+                          <Box component="li" key={lidx} sx={{ lineHeight: 1.6 }}>
+                            <Typography variant="body2">{line}</Typography>
+                          </Box>
+                        ))}
+                      </Box>
+                    )}
+                  </Box>
+                ))}
+              </Box>
+            )}
+          </Box>
+        ))}
+      </Box>
+    );
+  };
+
   return (
     <>
       <CardsGridWrapper container spacing={4}>
@@ -95,6 +143,7 @@ export const CardsGrid: React.FC<CardsGridProps> = ({ cards, cardHeight, columns
                       }}
                     >
                       {renderDescription(c.description)}
+                      {renderMoreInfo(c.moreInfo)}
                     </div>
 
                     {cardHeight && needsReadMore[i] && (
@@ -123,6 +172,43 @@ export const CardsGrid: React.FC<CardsGridProps> = ({ cards, cardHeight, columns
                 </Box>
               ) : (
                 <Typography variant="body2">{cards[openDialogIndex].description}</Typography>
+              )}
+
+              {/* Render moreInfo inside dialog as well */}
+              {cards[openDialogIndex].moreInfo && cards[openDialogIndex].moreInfo.length > 0 && (
+                <Box sx={{ mt: 2 }}>
+                  {cards[openDialogIndex].moreInfo!.map((mi, mIdx) => (
+                    <Box key={mIdx} sx={{ mb: 2 }}>
+                      {mi.moreInfoItemHeading && (
+                        <Typography variant="h6" sx={{ fontWeight: 700 }}>{mi.moreInfoItemHeading}</Typography>
+                      )}
+                      {mi.moreInfoItemDescription && (
+                        <Typography variant="body2" sx={{ mt: 1 }}>{mi.moreInfoItemDescription}</Typography>
+                      )}
+
+                      {mi.moreInfoItemContent && mi.moreInfoItemContent.length > 0 && (
+                        <Box sx={{ mt: 1 }}>
+                          {mi.moreInfoItemContent.map((cic, cidx) => (
+                            <Box key={cidx} sx={{ mb: 1 }}>
+                              {cic.contentHeading && (
+                                <Typography variant="subtitle2" sx={{ fontWeight: 700 }}>{cic.contentHeading}</Typography>
+                              )}
+                              {cic.content && cic.content.length > 0 && (
+                                <Box component="ul" sx={{ pl: 2, mt: 1 }}>
+                                  {cic.content.map((line, lidx) => (
+                                    <Box component="li" key={lidx} sx={{ lineHeight: 1.6 }}>
+                                      <Typography variant="body2">{line}</Typography>
+                                    </Box>
+                                  ))}
+                                </Box>
+                              )}
+                            </Box>
+                          ))}
+                        </Box>
+                      )}
+                    </Box>
+                  ))}
+                </Box>
               )}
             </Box>
           )}
