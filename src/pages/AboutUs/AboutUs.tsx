@@ -8,6 +8,18 @@ import { HeroMediaSection } from '@components/molecules/HeroMediaSection';
 import { OurMission } from '@components/molecules/OurMission';
 import { AgnezerAdvantage } from '../../components/molecules/AgnezerAdvantage/AgnezerAdvantage'
 import { UnParalleled } from '@/components';
+ // MUI icons mapped to card meanings
+ import Gavel from '@mui/icons-material/Gavel';
+ import Lightbulb from '@mui/icons-material/Lightbulb';
+ import Star from '@mui/icons-material/Star';
+ import People from '@mui/icons-material/People';
+ import VerifiedUser from '@mui/icons-material/VerifiedUser';
+ import EnergySavingsLeaf from '@mui/icons-material/EnergySavingsLeaf';
+ import SupportAgent from '@mui/icons-material/SupportAgent';
+ import Dashboard from '@mui/icons-material/Dashboard';
+ import Layers from '@mui/icons-material/Layers';
+ import SupervisorAccount from '@mui/icons-material/SupervisorAccount';
+ import EmojiEvents from '@mui/icons-material/EmojiEvents';
 
 export const AboutUs: React.FC = () => {
   const {
@@ -47,30 +59,37 @@ export const AboutUs: React.FC = () => {
         description={"At Agnezar, our values define who we are and guide every decision, discovery, and collaboration."}
         cards={[
           {
+            icon: <Gavel />,
             title: 'Integrity',
             description: 'We uphold the highest ethical and scientific standards in every analysis, ensuring transparency, trust, and accountability across all operations.',
           },
           {
+            icon: <Lightbulb />,
             title: 'Innovation',
             description: 'We embrace technology, automation, and AI-driven solutions to continuously enhance analytical precision, accelerate research, and redefine industry benchmarks.',
           },
           {
+            icon: <Star />,
             title: 'Excellence',
             description: 'We are committed to delivering reliable, high-quality results that meet and exceed international regulatory and scientific standards.',
           },
           {
+            icon: <People />,
             title: 'Collaboration',
             description: 'We believe in the power of partnerships—working closely with clients, researchers, and industry experts to achieve shared success and scientific advancement.',
           },
           {
+            icon: <VerifiedUser />,
             title: 'Quality & Compliance',
             description: 'We maintain a culture of quality rooted in robust systems, validated methods, and continuous improvement aligned with global regulatory requirements.',
           },
           {
+            icon: <EnergySavingsLeaf />,
             title: 'Sustainability',
             description: 'We promote responsible practices that reduce environmental impact, encourage resource efficiency, and contribute to a healthier world.',
           },
           {
+            icon: <SupportAgent />,
             title: 'Empowerment',
             description: 'We foster a culture where knowledge, curiosity, and teamwork empower our people to innovate, learn, and lead in the field of analytical science.',
           },
@@ -91,36 +110,43 @@ export const AboutUs: React.FC = () => {
         title="The Agnezar Advantage"
         cards={[
           {
+            icon: <VerifiedUser />,
             title: 'Regulatory Excellence',
             description:
               'Navigate global submissions with confidence. Our facilities are cGMP, GLP, and ISO 17025 compliant, registered with the FDA, and adhere to EMA guidelines to ensure your data meets the highest standards of integrity and acceptance.',
           },
           {
+            icon: <Lightbulb />,
             title: 'Innovation-Driven Science',
             description:
               'Leverage the power of technology to accelerate your timeline. We employ AI-powered analytics, robotic automation, and predictive modeling to deliver results with unparalleled speed, precision, and data integrity.',
           },
           {
+            icon: <Layers />,
             title: 'One-Stop Solutions',
             description:
               'Streamline your development lifecycle with a single, integrated partner. Our comprehensive services unite analytical testing, regulatory consulting, and formulation support under one roof, eliminating handoffs and ensuring data continuity.',
           },
           {
+            icon: <People />,
             title: 'Client-First Partnership',
             description:
               'Experience a new standard of transparency and support. We provide dedicated project managers and 24/7 access to your project data through personalized, real-time dashboards, putting critical information at your fingertips.',
           },
           {
+            icon: <Dashboard />,
             title: 'Real-Time Project Dashboards',
             description:
               "Why wait for a weekly update? Our secure client portal provides 24/7 access to your project's progress. Track sample status, view preliminary results, and access final reports anytime, anywhere.",
           },
           {
+            icon: <SupervisorAccount />,
             title: 'Dedicated Project Managers',
             description:
               'Your project is supported by a dedicated Project Manager who serves as your single point of contact. This expert is not just a coordinator but a scientific liaison who understands your goals, ensures seamless communication, and proactively manages your project to meet every milestone.',
           },
           {
+            icon: <EmojiEvents />,
             title: 'An Unparalleled Client Experience',
             description:
               "Engineered for Your Success — In today's competitive landscape, access to data is not enough. You need a partner who has engineered a smarter, faster, and more transparent way for you to get the critical information you need to make decisions. We have moved beyond the traditional CRO model to provide a service experience built on visibility and control.",

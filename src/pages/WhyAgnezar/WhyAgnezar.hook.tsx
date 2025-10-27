@@ -2,6 +2,15 @@ import { useCallback, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import dedicated from '../../../public/assets/icons/dedicated.svg';
 import flexible from '../../../public/assets/icons/flexible.svg';
+// MUI icons for WhatSetsUsApart cards
+import Layers from '@mui/icons-material/Layers';
+import Policy from '@mui/icons-material/Policy';
+import Science from '@mui/icons-material/Science';
+import RocketLaunch from '@mui/icons-material/RocketLaunch';
+import Handshake from '@mui/icons-material/Handshake';
+import Visibility from '@mui/icons-material/Visibility';
+import MonetizationOn from '@mui/icons-material/MonetizationOn';
+import EmojiEvents from '@mui/icons-material/EmojiEvents';
 
 export interface WhyAgnezarCard {
   icon: React.ReactNode | string;
@@ -81,41 +90,49 @@ const heroConfigDataIntegrity = {
     description: '',
     cards: [
       {
+        icon: <Layers />,
         title: 'End-to-End Depth',
         description:
           'From method development, impurity characterization, and stability prediction to filing-ready regulatory submissions, we cover the full CMC lifecycle. You deal with one partner — no handoffs, no miscommunications.',
       },
       {
+        icon: <Policy />,
         title: 'Regulatory-First Thinking',
         description:
           'Our lab doesn’t just run tests; we anticipate regulatory challenges. Every procedure, report, and interaction is designed to align with global health authority expectations before they become roadblocks.',
       },
       {
+        icon: <Science />,
         title: 'AI-Driven Efficiency & Predictivity',
         description:
           'Using predictive modeling and machine learning, we cut down experimental cycles, accelerate method validation, and forecast stability issues proactively. This saves precious API, time, and budget for you.',
       },
       {
+        icon: <RocketLaunch />,
         title: 'Adaptive Startup Agility with Veteran Expertise',
         description:
           'We blend the nimbleness of a startup — fast responses, flexibility, tailored solutions — with the rigor and credibility that come from deep experience in global pharmaceutical organizations.',
       },
       {
+        icon: <Handshake />,
         title: 'Strategic Partnership, Not Transactional Service',
         description:
           'We engage with your goals as our own. Whether you\'re racing against regulatory clock-times, navigating FDA inquiries, or optimizing formulations, we act as your advisor, not just a vendor.',
       },
       {
+        icon: <Visibility />,
         title: 'Unmatched Transparency & Client Ownership',
         description:
           'Clear communication, real-time project updates, robust documentation, and ownership of outcomes. Errors are few, but when they occur, you’ll see resolution—not excuses.',
       },
       {
+        icon: <MonetizationOn />,
         title: 'Cost-Effectiveness Without Sacrificing Quality',
         description:
           'We optimize each step of the analytical workflow — from instrument time, resource allocation, to reporting — without compromising scientific or regulatory integrity.',
       },
       {
+        icon: <EmojiEvents />,
         title: 'Unique Promise You Won’t Find Elsewhere',
         description:
           'With Agnezar, your analytical strategy becomes predictive, your regulatory path becomes navigable, and your timelines shrink—without sacrificing accuracy or compliance.',

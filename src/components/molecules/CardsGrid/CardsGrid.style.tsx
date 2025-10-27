@@ -30,6 +30,8 @@ export const CardIcon = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
   color: '#fff',
+  background: (theme.palette as any)?.primary?.main ?? '#C74634',
+  flexShrink: 0,
   marginBottom: theme.spacing(2),
 }));
 
