@@ -27,7 +27,7 @@ export const OurServices: React.FC = () => {
         />
       </Box>
       {/* Cards Grid (services overview) */}
-      <Box sx={{ py: 6 }}>
+      <Box sx={{ py: 3 }}>
         <Container maxWidth="lg">
           <CardsGrid cards={cards} columns={2} cardHeight={300}/>
         </Container>
