@@ -220,7 +220,7 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
         maxWidth="sm"
         fullWidth
       >
-        <DialogTitle>
+        <DialogTitle sx={{ fontWeight: 700, fontSize: "1.5rem" }}>
           {openDialogIndex !== null ? cards[openDialogIndex].title : ""}
         </DialogTitle>
         <DialogContent dividers>
@@ -230,12 +230,12 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                 <Box component="ul" sx={{ pl: 2 }}>
                   {cards[openDialogIndex].description!.map((d, idx) => (
                     <li key={idx}>
-                      <Typography variant="body2" sx={{ fontSize: "1.2rem", fontWeight: 400 }}>{d}</Typography>
+                      <Typography variant="body2" sx={{ fontSize: "1rem", fontWeight: 400 }}>{d}</Typography>
                     </li>
                   ))}
                 </Box>
               ) : (
-                <Typography variant="body2" sx={{ fontSize: "1.2rem", fontWeight: 400 }}>
+                <Typography variant="body2" sx={{ fontSize: "1rem", fontWeight: 400 }}>
                   {cards[openDialogIndex].description}
                 </Typography>
               )}
@@ -246,12 +246,12 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                     {cards[openDialogIndex].moreInfo!.map((mi, mIdx) => (
                       <Box key={mIdx} sx={{ mb: 2 }}>
                         {mi.moreInfoItemHeading && (
-                          <Typography variant="h6" sx={{ fontWeight: 700 }}>
+                          <Typography variant="h6" sx={{ fontWeight: 700, fontSize: "1.25rem" }}>
                             {mi.moreInfoItemHeading}
                           </Typography>
                         )}
                         {mi.moreInfoItemDescription && (
-                          <Typography variant="body2" sx={{ mt: 1, fontSize: "1.2rem", fontWeight: 400 }}>
+                          <Typography variant="body2" sx={{ mt: 1, fontSize: "1rem", fontWeight: 400 }}>
                             {mi.moreInfoItemDescription}
                           </Typography>
                         )}
@@ -264,7 +264,7 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                                   {cic.contentHeading && (
                                     <Typography
                                       variant="subtitle2"
-                                      sx={{ fontWeight: 700 }}
+                                      sx={{ fontWeight: 700, fontSize: "1.25rem" }}
                                     >
                                       {cic.contentHeading}
                                     </Typography>
@@ -277,7 +277,7 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                                           key={lidx}
                                           sx={{ lineHeight: 1.6 }}
                                         >
-                                          <Typography variant="body2" sx={{ fontSize: "1.2rem", fontWeight: 400 }}>
+                                          <Typography variant="body2" sx={{ fontSize: "1rem", fontWeight: 400 }}>
                                             {line}
                                           </Typography>
                                         </Box>
