@@ -24,7 +24,7 @@ export const useOurServices = () => {
     {
       icon: <Science />,
       title: 'Research and Development',
-      description: "Innovating for Scientific ExcellenceAt Agnezar, our R&D team drives the discovery and development of robust analytical methods. Leveraging cutting-edge technologies and multidisciplinary expertise, we provide solutions that accelerate product development, optimize formulations, and enhance pharmaceutical innovation.",
+      description: "$BInnovating for Scientific Excellence$B At Agnezar, our R&D team drives the discovery and development of robust analytical methods. Leveraging cutting-edge technologies and multidisciplinary expertise, we provide solutions that accelerate product development, optimize formulations, and enhance pharmaceutical innovation.",
       moreInfo: [
         {
           moreInfoItemHeading: 'Our Capabilities:',
@@ -84,7 +84,7 @@ export const useOurServices = () => {
     {
       icon: <Biotech />,
       title: 'Analytical Testing & Quality Compliance',
-      description: "Precision You Can Trust. Excellence You Can Rely On.At Agnezar, we provide comprehensive analytical testing solutions across raw materials, intermediates, finished products, and stability studies, supported by state-of-the-art instrumentation and AI-enhanced data analysis. Quality is at the core of everything we do. Our laboratory strictly adheres to GMP, GLP, and ISO standards, ensuring every test, report, and workflow meets global regulatory expectations. This integrated approach ensures accurate, reliable, and fully compliant results, supporting every stage of the pharmaceutical lifecycle and empowering our clients to achieve scientific excellence and regulatory success.",
+      description: "$BPrecision You Can Trust. Excellence You Can Rely On.$B At Agnezar, we provide comprehensive analytical testing solutions across raw materials, intermediates, finished products, and stability studies, supported by state-of-the-art instrumentation and AI-enhanced data analysis. Quality is at the core of everything we do. Our laboratory strictly adheres to GMP, GLP, and ISO standards, ensuring every test, report, and workflow meets global regulatory expectations. This integrated approach ensures accurate, reliable, and fully compliant results, supporting every stage of the pharmaceutical lifecycle and empowering our clients to achieve scientific excellence and regulatory success.",
       moreInfo: [
         {
           moreInfoItemHeading: 'Analytical Testing Capabilities',
@@ -114,7 +114,7 @@ export const useOurServices = () => {
     {
       icon: <Gavel />,
       title: 'Quality Management and Regulatory Services',
-      description: "Beyond Testing — Partnering for Strategic Success.At Agnezar, we go beyond routine testing to become your strategic development partner. Our Quality Management and Regulatory Services are designed to enhance compliance, streamline submissions, and accelerate your product journey from concept to market.",
+      description: "$BBeyond Testing — Partnering for Strategic Success.$B At Agnezar, we go beyond routine testing to become your strategic development partner. Our Quality Management and Regulatory Services are designed to enhance compliance, streamline submissions, and accelerate your product journey from concept to market.",
       moreInfo: [
         {
           moreInfoItemHeading: 'Regulatory Consulting',
@@ -187,7 +187,7 @@ export const useOurServices = () => {
     {
       icon: <RocketLaunch />,
       title: 'Next-Generation Analytical Excellence',
-      description: "Vision to Success — Powered by Our Expertise At Agnezar, we envision a future where innovation and compliance work seamlessly together to accelerate healthcare solutions worldwide. Our mission extends beyond analytical testing — we aim to build a next-generation Innovation Plaza, a center of excellence that supports comprehensive testing, characterization, and regulatory guidance for all classes of medicinal products.",
+      description: "$BVision to Success — Powered by Our Expertise$B At Agnezar, we envision a future where innovation and compliance work seamlessly together to accelerate healthcare solutions worldwide. Our mission extends beyond analytical testing — we aim to build a next-generation Innovation Plaza, a center of excellence that supports comprehensive testing, characterization, and regulatory guidance for all classes of medicinal products.",
       moreInfo: [
         {
           moreInfoItemHeading: 'Our Value Commitment',

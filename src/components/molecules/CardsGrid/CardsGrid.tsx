@@ -80,6 +80,24 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
   //   return () => window.removeEventListener('resize', compute);
   // }, [cards, cardHeight]);
 
+  const renderFormattedText = (text: string) => {
+    // Split the text by $B markers
+    const parts = text.split(/(\$B.*?\$B)/g);
+    
+    return parts.map((part, index) => {
+      if (part.startsWith('$B') && part.endsWith('$B')) {
+        // Extract text between $B markers and render bold
+        const boldText = part.slice(2, -2);
+        return (
+          <Box component="span" key={index} sx={{ fontWeight: 700 }}>
+            {boldText}
+          </Box>
+        );
+      }
+      return <React.Fragment key={index}>{part}</React.Fragment>;
+    });
+  };
+
   const renderDescription = (desc?: string | string[]) => {
     if (!desc) return null;
     if (Array.isArray(desc)) {
@@ -87,13 +105,19 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
         <Box component="ul" sx={{ pl: 2, mt: 1 }}>
           {desc.map((d, idx) => (
             <Box component="li" key={idx} sx={{ lineHeight: 1.6, mb: 0.5 }}>
-              <Typography variant="body2" sx={{fontSize:"1.2rem",fontWeight:400}}>{d}</Typography>
+              <Typography variant="body2" sx={{fontSize:"1.2rem",fontWeight:400}}>
+                {renderFormattedText(d)}
+              </Typography>
             </Box>
           ))}
         </Box>
       );
     }
-    return <Typography variant="body2" sx={{ mt: 1, fontSize:"1.2rem",fontWeight:400 }}>{desc}</Typography>;
+    return (
+      <Typography variant="body2" sx={{ mt: 1, fontSize:"1.2rem",fontWeight:400 }}>
+        {renderFormattedText(desc)}
+      </Typography>
+    );
   };
 
   const renderMoreInfo = (more?: CardItem['moreInfo']) => {
