@@ -10,10 +10,8 @@ import { Typography, Card, CustomFilledButton } from "@components/atoms";
 
 export const ContactUs: React.FC = () => {
   const {
-    heroConfig,
     contactInfo,
     services,
-    budgetRanges,
     handleSubmit,
     isSubmitting,
     submitError,
@@ -122,23 +120,23 @@ export const ContactUs: React.FC = () => {
                 </Box>
 
                 <Box className="contact-info">
-                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 3, color: "inherit" }}>
-                    Call Us At: {contactInfo?.phone ?? "+1 (555) 123–4567"}
+                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 3, color: 'inherit' }}>
+                    Call Us At: {contactInfo?.details?.find(d => d.title?.toLowerCase().includes('call'))?.value ?? "+1 (555) 123–4567"}
                   </Typography>
 
-                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, color: "inherit" }}>
+                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, color: 'inherit' }}>
                     Write To Us
                   </Typography>
-                  <Box component="ul" sx={{ pl: 2, mt: 1 , color: "inherit" }}>
+                  <Box component="ul" sx={{ pl: 2, mt: 1 , color: 'inherit' }}>
                     <li>
-                      <Typography variant="body2" sx={{ color: "inherit" }}>
-                        {contactInfo?.address ??
+                      <Typography variant="body2" sx={{ color: 'inherit' }}>
+                        {contactInfo?.details?.find(d => d.title?.toLowerCase().includes('visit'))?.value ??
                           "6789 Elm Street Suite 300 Anytown, CA 91234"}
                       </Typography>
                     </li>
                     <li>
-                      <Typography variant="body2" sx={{ color: "inherit" }}>
-                        {contactInfo?.email ?? "support@example.com"}
+                      <Typography variant="body2" sx={{ color: 'inherit' }}>
+                        {contactInfo?.details?.find(d => d.title?.toLowerCase().includes('email'))?.value ?? "support@example.com"}
                       </Typography>
                     </li>
                   </Box>

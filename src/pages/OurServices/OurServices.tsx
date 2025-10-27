@@ -1,21 +1,12 @@
 import React from 'react';
-import { Container, Grid, Box, Chip } from '@mui/material';
+import { Container, Box } from '@mui/material';
 import { useOurServices } from './OurServices.hook';
 import { StyledOurServices } from './OurServices.style';
-import { Typography, Card, Button } from '@components/atoms';
 import CardsGrid from '@components/molecules/CardsGrid';
 import UnParalleled from '@components/molecules/UnParalleled/UnParalleled';
 
 export const OurServices: React.FC = () => {
-  const {
-    heroConfig,
-    services,
-    process,
-    technologies,
-    cards,
-    handleGetQuote,
-    handleLearnMore,
-  } = useOurServices();
+  const { cards } = useOurServices();
 
   return (
     <StyledOurServices>
