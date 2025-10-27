@@ -1,9 +1,9 @@
-import React from 'react';
-import { Stack, Chip, useMediaQuery, useTheme } from '@mui/material';
+import React from "react";
+import { Stack, Chip, useMediaQuery, useTheme } from "@mui/material";
 
 export interface DynamicChipsProps {
   labels: string[];
-  direction?: 'row' | 'column';
+  direction?: "row" | "column";
   spacing?: number;
   wrap?: boolean;
   chipColor?: string; // background color
@@ -11,7 +11,7 @@ export interface DynamicChipsProps {
   fontSize?: number;
   fontWeight?: number;
   borderRadius?: number;
-  marginTop?:string;
+  marginTop?: string;
 }
 
 const DynamicChips: React.FC<DynamicChipsProps> = ({
@@ -24,17 +24,18 @@ const DynamicChips: React.FC<DynamicChipsProps> = ({
   fontSize = 14,
   fontWeight = 400,
   borderRadius = 4,
-  marginTop='2px'
+  marginTop = "2px",
 }) => {
   const theme = useTheme();
-  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Stack
-      direction={direction || (isSmallScreen ? 'column' : 'row')}
+      direction={direction || (isSmallScreen ? "column" : "row")}
       spacing={spacing}
-      flexWrap={wrap ? 'wrap' : 'nowrap'}
-                  mt={marginTop?marginTop:0}
+      flexWrap={wrap ? "wrap" : "nowrap"}
+      mt={marginTop ? marginTop : 0}
+      gap={1}
     >
       {labels.map((label, idx) => (
         <Chip
