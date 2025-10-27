@@ -75,7 +75,7 @@ export const AboutUs: React.FC = () => {
             description: 'We foster a culture where knowledge, curiosity, and teamwork empower our people to innovate, learn, and lead in the field of analytical science.',
           },
         ]}
-        cardHeight={200}
+        cardHeight={100}
       />
       {/* The Agnezar Advantage section */}
 
@@ -126,6 +126,7 @@ export const AboutUs: React.FC = () => {
               "Engineered for Your Success — In today's competitive landscape, access to data is not enough. You need a partner who has engineered a smarter, faster, and more transparent way for you to get the critical information you need to make decisions. We have moved beyond the traditional CRO model to provide a service experience built on visibility and control.",
           },
         ]}
+        cardHeight={120}
       />
       </Box>
 

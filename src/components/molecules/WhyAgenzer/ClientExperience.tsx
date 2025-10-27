@@ -42,7 +42,7 @@ export const ClientExperience: React.FC<AgnezerAdvantageProps> = ({
           client={client}
         />
 
-        <CardsGrid cards={cards} cardHeight={260} columns={2} client={client} />
+        <CardsGrid cards={cards} columns={2} client={client} />
       </AdvantageInner>
     </StyledAdvantage>
   );

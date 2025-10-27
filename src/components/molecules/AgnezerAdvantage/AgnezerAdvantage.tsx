@@ -10,7 +10,7 @@ export interface AgnezerAdvantageProps {
   title?: string;
   description?: string;
   cards?: Array<{ icon?: React.ReactNode | string; title: string; description?: string }>
-  cardHeight: number;
+  cardHeight?: number;
 }
 
 export const AgnezerAdvantage: React.FC<AgnezerAdvantageProps> = ({ smallText, title, description, cards, cardHeight }) => {

@@ -15,6 +15,7 @@ export interface OurMissionProps {
   description?: string;
   // heroTitle/heroImageSrc removed (not used here)
   cards?: OurMissionCard[];
+  cardHeight?: number;
 }
 
 export const OurMission: React.FC<OurMissionProps> = ({
@@ -23,6 +24,7 @@ export const OurMission: React.FC<OurMissionProps> = ({
   description,
   // removed unused hero props
   cards = [],
+  cardHeight,
 }) => {
   return (
     <StyledOurMission>
@@ -37,7 +39,7 @@ export const OurMission: React.FC<OurMissionProps> = ({
         {/* Cards grid */}
         {cards && cards.length > 0 && (
           <div>
-            <CardsGrid cards={cards} columns={2} cardHeight={150} />
+            <CardsGrid cards={cards} columns={2} cardHeight={cardHeight ? cardHeight : 150} />
           </div>
         )}
       </OurMissionInner>
