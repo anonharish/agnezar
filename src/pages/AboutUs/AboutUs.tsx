@@ -102,7 +102,7 @@ export const AboutUs: React.FC = () => {
       </Box>
       {/* The Agnezar Advantage section */}
 
-      <Box sx={{ width: "90%", mx: "auto" }}>
+      <Box id="leadership-section">
         <UnParalleled
           smallText={"Our Leadership"}
           mainHeading={"Driven by Science. Defined by Expertise."}

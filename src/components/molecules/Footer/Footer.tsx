@@ -89,10 +89,10 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
   ];
 
   const company = [
-    { label: 'About Agnezar', href: '/company/about' },
-    { label: 'Leadership', href: '/company/leadership' },
-    { label: 'Quality & Compliance', href: '/company/quality-compliance' },
-    { label: 'Industries', href: '/company/industries' },
+    { label: 'About Agnezar', href: '/about' },
+    { label: 'Leadership', href: '/about' },
+    { label: 'Quality & Compliance', href: '/why-agnezar' },
+    { label: 'Industries', href: '/industries' },
   ];
 
   return (
@@ -178,7 +178,20 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
               {company.map((item, index) => (
                 <FooterListItem key={index}>
                   <FooterLink
-                  // href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (item.label === 'About Agnezar') {
+                        handleNavigation('/about');
+                      } else if (item.label === 'Leadership') {
+                        handleNavigation('/about', 'leadership-section');
+                      } else if (item.label === 'Quality & Compliance') {
+                        handleNavigation('/why-agnezar', 'our-leaders');
+                      } else if (item.label === 'Industries') {
+                        handleNavigation('/industries');
+                      }
+                    }}
+                    href={item.href}
+                    sx={{ cursor: 'pointer' }}
                   >{item.label}</FooterLink>
                 </FooterListItem>
               ))}
