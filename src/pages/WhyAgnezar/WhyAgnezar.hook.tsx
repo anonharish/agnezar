@@ -36,7 +36,22 @@ export const useWhyAgnezar = (config: WhyAgnezarConfig) => {
     description: config.description ?? 
       'We are fundamentally changing the client experience. Our partnership model is built on the principles of transparency, flexibility, and unwavering support.',
     buttonLabel: config.buttonLabel ?? 'Book a Call',
-    onButtonClick: config.onButtonClick ?? (() => console.log('Book button clicked')),
+    onButtonClick: config.onButtonClick ?? (() => {
+      navigate('/contact');
+      setTimeout(() => {
+        const element = document.querySelector('.form-card');
+        if (element) {
+          const headerOffset = 120;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }),
     cards: config.cards ?? [
       // {
       //   icon: <img src={realtime} alt="realtime" />,
