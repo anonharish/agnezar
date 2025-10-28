@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { Email, Phone, LocationOn,  } from '@mui/icons-material';
+import { Email, Phone, LocationOn } from '@mui/icons-material';
 
 interface ContactFormData {
   name: string;

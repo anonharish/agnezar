@@ -1,5 +1,5 @@
-import React from "react";
-import { Container, Grid, Box, TextField, Alert, MenuItem } from "@mui/material";
+import React,{useCallback} from "react";
+import { Container, Grid, Box, TextField, Alert, MenuItem, Snackbar } from "@mui/material";
 import { useState, useEffect } from 'react';
 import { useContactUs } from "./ContactUs.hook";
 import UnParalleled from "@components/molecules/UnParalleled/UnParalleled";
@@ -21,6 +21,20 @@ export const ContactUs: React.FC = () => {
     submitError,
     submitSuccess,
   } = useContactUs();
+
+  const [snackbar, setSnackbar] = useState<{
+    open: boolean;
+    message: string;
+    severity: 'success' | 'error';
+  }>({
+    open: false,
+    message: '',
+    severity: 'success'
+  });
+
+  const handleSnackbarClose = useCallback(() => {
+    setSnackbar(prev => ({ ...prev, open: false }));
+  }, []);
 
   // If the hook doesn't provide services, use the canonical list
   // const serviceOptions = (services && services.length > 0) ? services : [];
@@ -142,12 +156,21 @@ export const ContactUs: React.FC = () => {
         mode: "no-cors",
       });
       clearForm();
+      setSnackbar({
+        open: true,
+        message: 'Submitted successfully! We will get back to you soon.',
+        severity: 'success'
+      });
     } catch (error) {
       console.error('Error sending email:', error);
-      throw error;
-    }finally {
-    setIsSubmittingLocal(false);
-  }
+      setSnackbar({
+        open: true,
+        message: 'Failed to submit form. Please try again.',
+        severity: 'error'
+      });
+    } finally {
+      setIsSubmittingLocal(false);
+    }
   };
 
   return (
@@ -431,6 +454,22 @@ export const ContactUs: React.FC = () => {
           </Grid>
         </Container>
       </Box>
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={6000}
+        onClose={handleSnackbarClose}
+        message={snackbar.message}
+        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+      >
+        <Alert 
+          onClose={handleSnackbarClose} 
+          severity={snackbar.severity}
+          variant="filled"
+          sx={{ width: '100%' }}
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </StyledContactUs>
   );
 };
