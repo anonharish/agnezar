@@ -46,21 +46,24 @@ export const AboutUs: React.FC = () => {
       />
 
       {/* Our Mission section (uses UnParalleled + CardsGrid internally) */}
-      <OurMission
-        smallText="OUR MISSION & VISION"
-        mainHeading="Built for Rigor. Designed for Partnership."
-        description={mission}
-        cards={cards}
-      />
+      <Box id="mission-section">
+        <OurMission
+          smallText="OUR MISSION & VISION"
+          mainHeading="Built for Rigor. Designed for Partnership."
+          description={mission}
+          cards={cards}
+        />
+      </Box>
 
       {/* Agnezer Advantage / Our Values */}
-      <AgnezerAdvantage
-        title="Our Values"
-        description={"At Agnezar, our values define who we are and guide every decision, discovery, and collaboration."}
-        cards={[
-          {
-            icon: <Gavel />,
-            title: 'Integrity',
+      <Box id="values-section">
+        <AgnezerAdvantage
+          title="Our Values"
+          description={"At Agnezar, our values define who we are and guide every decision, discovery, and collaboration."}
+          cards={[
+            {
+              icon: <Gavel />,
+              title: 'Integrity',
             description: 'We uphold the highest ethical and scientific standards in every analysis, ensuring transparency, trust, and accountability across all operations.',
           },
           {
@@ -92,10 +95,11 @@ export const AboutUs: React.FC = () => {
             icon: <SupportAgent />,
             title: 'Empowerment',
             description: 'We foster a culture where knowledge, curiosity, and teamwork empower our people to innovate, learn, and lead in the field of analytical science.',
-          },
+          }
         ]}
         // cardHeight={140}
       />
+      </Box>
       {/* The Agnezar Advantage section */}
 
       <Box sx={{ width: "90%", mx: "auto" }}>

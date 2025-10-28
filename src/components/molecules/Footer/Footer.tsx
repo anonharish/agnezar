@@ -77,15 +77,15 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
   ];
 
   const about = [
-    { label: 'Our Mission', href: '/about/mission' },
-    { label: 'Our Values', href: '/about/values' },
-    { label: 'Openings', href: '/about/careers' },
-    { label: 'Affiliates', href: '/about/affiliates' },
-    { label: 'Recognition', href: '/about/recognition' },
-    { label: 'Articles', href: '/about/articles' },
-    { label: 'Client Success', href: '/about/success-stories' },
-    { label: 'Webinars', href: '/resources/webinars' },
-    { label: 'Support', href: '/support' },
+    { label: 'Our Mission', href: '/about' },
+    { label: 'Our Values', href: '/about' },
+    // { label: 'Openings', href: '/about/careers' },
+    // { label: 'Affiliates', href: '/about/affiliates' },
+    // { label: 'Recognition', href: '/about/recognition' },
+    // { label: 'Articles', href: '/about/articles' },
+    // { label: 'Client Success', href: '/about/success-stories' },
+    // { label: 'Webinars', href: '/resources/webinars' },
+    // { label: 'Support', href: '/' },
   ];
 
   const company = [
@@ -155,7 +155,16 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
               {about.map((item, index) => (
                 <FooterListItem key={index}>
                   <FooterLink
-                  // href={item.href}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (item.label === 'Our Mission') {
+                        handleNavigation('/about', 'mission-section');
+                      } else if (item.label === 'Our Values') {
+                        handleNavigation('/about', 'values-section');
+                      }
+                    }}
+                    href={item.href}
+                    sx={{ cursor: 'pointer' }}
                   >{item.label}</FooterLink>
                 </FooterListItem>
               ))}
