@@ -16,7 +16,7 @@ export const ContactUs: React.FC = () => {
   const {
     contactInfo,
     // services,
-    handleSubmit,
+    // handleSubmit,
     isSubmitting,
     submitError,
     submitSuccess,
@@ -31,28 +31,35 @@ export const ContactUs: React.FC = () => {
   const [companyField, setCompanyField] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [serviceField, setServiceField] = useState('');
-  const [moleculeType, setMoleculeType] = useState('');
-  const [developmentPhase, setDevelopmentPhase] = useState('');
+  // const [serviceField, setServiceField] = useState('');
+  // const [moleculeType, setMoleculeType] = useState('');
+  // const [developmentPhase, setDevelopmentPhase] = useState('');
+  const [isSubmittingLocal, setIsSubmittingLocal] = useState(false);
+
   const [projectDescription, setProjectDescription] = useState('');
   const [howDidYouHear, setHowDidYouHear] = useState('');
 
   const [errors, setErrors] = useState<Record<string, string>>({});
 
+  const clearForm = () => {
+     setFirstName('');
+    setLastName('');
+    setCompanyField('');
+    setEmail('');
+    setPhone('');
+    // setServiceField('');
+    // setMoleculeType('');
+    // setDevelopmentPhase('');
+    setProjectDescription('');
+    setHowDidYouHear('');
+    setErrors({});
+  }
+
   useEffect(() => {
     // clear errors when submitSuccess becomes true
     if (submitSuccess) {
-      setFirstName('');
-      setLastName('');
-      setCompanyField('');
-      setEmail('');
-      setPhone('');
-      setServiceField('');
-      setMoleculeType('');
-      setDevelopmentPhase('');
-      setProjectDescription('');
-      setHowDidYouHear('');
-      setErrors({});
+     clearForm();
+     setIsSubmittingLocal(false);
     }
   }, [submitSuccess]);
 
@@ -90,6 +97,10 @@ export const ContactUs: React.FC = () => {
 
     if (phone) {
       const phoneRegex = /^\+?[0-9()-\s]+$/;
+      const digitsOnly = phone.replace(/\D/g, '');
+      if (digitsOnly && digitsOnly.length < 10) {
+        e.phone = "Phone number must be at least 10 digits";
+      }
       if (!phoneRegex.test(phone)) {
         e.phone = 'Phone number can only contain numbers, spaces, parentheses, and hyphens';
       } else if (phone.length > 20) {
@@ -113,52 +124,30 @@ export const ContactUs: React.FC = () => {
 
   const onSubmit = async () => {
     if (!validate()) return;
-
-    // const payload: any = {
-    //   name: `${firstName} ${lastName}`,
-    //   email,
-    //   phone,
-    //   company: companyField,
-    //   message: projectDescription,
-    //   howDidYouHear,
-    // };
-
-    // const emailContent = `
-    //   New Contact Form Submission:
-      
-    //   Name: ${payload.name}
-    //   Email: ${payload.email}
-    //   Phone: ${payload.phone || 'Not provided'}
-    //   Company: ${payload.company}
-    //   How they heard about us: ${payload.howDidYouHear}
-      
-    //   Project Description:
-    //   ${payload.message}
-    // `;
-
+    setIsSubmittingLocal(true);
     try {
-      // console.log("Email Content:", emailContent);
-      // await handleSubmit(payload);
       const body = new URLSearchParams();
-      body.append("FirstName", firstName); // or 'FIrstName' if you keep the typo
+      body.append("FirstName", firstName);
       body.append("LastName", lastName);
       body.append("Company", companyField);
       body.append("Email", email);
       body.append("PhoneNumber", phone || "");
       body.append("Project Description", projectDescription);
       body.append("Source", howDidYouHear || "Website");
-
-      // Send to Apps Script
+      
       await fetch(GAS_URL, {
         method: "POST",
         body,
         // If you don't need to read the JSON response, this avoids CORS issues:
         mode: "no-cors",
       });
+      clearForm();
     } catch (error) {
       console.error('Error sending email:', error);
       throw error;
-    }
+    }finally {
+    setIsSubmittingLocal(false);
+  }
   };
 
   return (
@@ -186,31 +175,63 @@ export const ContactUs: React.FC = () => {
             <Grid item xs={12} md={6}>
               <Box className="left-column">
                 <Box>
-                <Typography  sx={{color: "inherit", fontSize:"3rem", fontWeight: 700}}>Get in touch!</Typography>
-                <Typography variant="body1" sx={{color:"inherit", fontSize: "1.25rem"}}>
-                  We appreciate your interest in our company. Please fill out
-                  the form, and we'll get back to you promptly.
-                </Typography>
+                  <Typography
+                    sx={{ color: "inherit", fontSize: "3rem", fontWeight: 700 }}
+                  >
+                    Get in touch!
+                  </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{ color: "inherit", fontSize: "1.25rem" }}
+                  >
+                    We appreciate your interest in our company. Please fill out
+                    the form, and we'll get back to you promptly.
+                  </Typography>
                 </Box>
 
                 <Box className="contact-info">
-                  <Typography  sx={{ fontWeight: 700, mb: 3, color: 'inherit', fontSize:"1.5rem", }}>
-                    Call Us At: {contactInfo?.details?.find(d => d.title?.toLowerCase().includes('call'))?.value ?? "+1 (555) 123–4567"}
+                  <Typography
+                    sx={{
+                      fontWeight: 700,
+                      mb: 3,
+                      color: "inherit",
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    Call Us At:{" "}
+                    {contactInfo?.details?.find((d) =>
+                      d.title?.toLowerCase().includes("call")
+                    )?.value ?? "+1 (555) 123–4567"}
                   </Typography>
 
-                  <Typography variant="h6" sx={{ fontWeight: 700, mb: 1, color: 'inherit', fontSize:"1.5rem", }}>
+                  <Typography
+                    variant="h6"
+                    sx={{
+                      fontWeight: 700,
+                      mb: 1,
+                      color: "inherit",
+                      fontSize: "1.5rem",
+                    }}
+                  >
                     Write To Us
                   </Typography>
-                  <Box component="ul" sx={{ pl: 2, mt: 1 , color: 'inherit', fontSize: "1.25rem" }}>
+                  <Box
+                    component="ul"
+                    sx={{ pl: 2, mt: 1, color: "inherit", fontSize: "1.25rem" }}
+                  >
                     <li>
-                      <Typography variant="body2" sx={{ color: 'inherit' }}>
-                        {contactInfo?.details?.find(d => d.title?.toLowerCase().includes('visit'))?.value ??
+                      <Typography variant="body2" sx={{ color: "inherit" }}>
+                        {contactInfo?.details?.find((d) =>
+                          d.title?.toLowerCase().includes("visit")
+                        )?.value ??
                           "6789 Elm Street Suite 300 Anytown, CA 91234"}
                       </Typography>
                     </li>
                     <li>
-                      <Typography variant="body2" sx={{ color: 'inherit' }}>
-                        {contactInfo?.details?.find(d => d.title?.toLowerCase().includes('email'))?.value ?? "support@example.com"}
+                      <Typography variant="body2" sx={{ color: "inherit" }}>
+                        {contactInfo?.details?.find((d) =>
+                          d.title?.toLowerCase().includes("email")
+                        )?.value ?? "support@example.com"}
                       </Typography>
                     </li>
                   </Box>
@@ -237,7 +258,12 @@ export const ContactUs: React.FC = () => {
                   </Alert>
                 )}
 
-                <form onSubmit={(e) => { e.preventDefault(); onSubmit(); }}>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    onSubmit();
+                  }}
+                >
                   <Grid container spacing={3}>
                     <Grid item xs={12}>
                       <TextField
@@ -391,10 +417,11 @@ export const ContactUs: React.FC = () => {
                       <CustomFilledButton
                         type="submit"
                         size="large"
-                        loading={isSubmitting}
+                        loading={isSubmittingLocal}
+                        disabled={isSubmittingLocal}
                         fullWidth
                       >
-                        {isSubmitting ? 'Submitting...' : 'Submit'}
+                        {isSubmitting ? "Submitting..." : "Submit"}
                       </CustomFilledButton>
                     </Grid>
                   </Grid>
