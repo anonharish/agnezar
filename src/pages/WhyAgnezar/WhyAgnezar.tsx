@@ -40,12 +40,14 @@ export const WhyAgnezar: React.FC = () => {
           cards={whatSetsUsApartData.cards}
           // cardHeight={220}
         />
-        <OurLeaders
-          smallText={ourLeaders.smallText}
-          title={ourLeaders.title}
-          description={ourLeaders.description}
-          chips={ourLeaders.chips}
-        />
+        <Box id="our-leaders">
+          <OurLeaders
+            smallText={ourLeaders.smallText}
+            title={ourLeaders.title}
+            description={ourLeaders.description}
+            chips={ourLeaders.chips}
+          />
+        </Box>
         <DataIntegrity />
       </Box>
     </StyledWhyAgnezar>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import {
   StyledFooter,
   FooterInner,
@@ -9,7 +10,6 @@ import {
   FooterListItem,
   FooterLink,
   ContactInfo,
-
 } from './Footer.style';
 
 export interface FooterProps {
@@ -18,9 +18,37 @@ export interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ logo }) => {
+  const navigate = useNavigate();
 
+  const scrollToElement = (elementId: string, headerOffset: number = 120) => {
+    setTimeout(() => {
+      const element = document.getElementById(elementId);
+      if (element) {
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }, 100);
+  };
 
-// info@agnezar.com
+  const handleNavigation = (path: string, elementId?: string) => {
+    const currentPath = window.location.pathname;
+    
+    if (currentPath === path) {
+      // If already on the page, just scroll
+      if (elementId) scrollToElement(elementId);
+    } else {
+      // Navigate and then scroll
+      navigate(path);
+      if (elementId) scrollToElement(elementId);
+    }
+  };
+
+  // info@agnezar.com
   const contactInfo = {
     phone: '+1 (210) 913-7096 ',
     email: 'info@agnezar.com',
@@ -36,16 +64,16 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
 
   // Footer content structure with navigation links
   const whatWeDo = [
-    { label: 'Analytical R&D', href: '/services/analytical-rd' },
-    { label: 'QC Testing', href: '/services/qc-testing' },
-    { label: 'ICH Stability Studies', href: '/services/ich-stability-studies' },
-    { label: 'Impurity Profiling', href: '/services/impurity-profiling' },
-    { label: 'Extractables & Leachables (E&L)', href: '/services/el-testing' },
-    { label: 'Nitrosamine Impurity Solutions (Fast-Track)', href: '/services/nitrosamine-solutions' },
-    { label: 'Regulatory Consulting', href: '/services/regulatory-consulting' },
-    { label: 'Training Programs', href: '/services/training' },
-    { label: 'Fast-Track Testing', href: '/services/fast-track-testing' },
-    { label: 'AI & Predictive Modeling', href: '/services/ai-modeling' },
+    { label: 'Analytical R&D', href: '/services' },
+    { label: 'QC Testing', href: '/why-agnezar' },
+    // { label: 'ICH Stability Studies', href: '/services/ich-stability-studies' },
+    // { label: 'Impurity Profiling', href: '/services/impurity-profiling' },
+    // { label: 'Extractables & Leachables (E&L)', href: '/services/el-testing' },
+    { label: 'Nitrosamine Impurity Solutions (Fast-Track)', href: '/' },
+    // { label: 'Regulatory Consulting', href: '/services/regulatory-consulting' },
+    // { label: 'Training Programs', href: '/services/training' },
+    // { label: 'Fast-Track Testing', href: '/services/fast-track-testing' },
+    // { label: 'AI & Predictive Modeling', href: '/services/ai-modeling' },
   ];
 
   const about = [
@@ -98,8 +126,23 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
               {whatWeDo.map((item, index) => (
                 <FooterListItem key={index}>
                   <FooterLink
-                  // href={item.href}
-                  >{item.label}</FooterLink>
+                    onClick={(e) => {
+                      e.preventDefault();
+                      if (item.label === 'Analytical R&D') {
+                        handleNavigation('/services');
+                      } else if (item.label === 'QC Testing') {
+                        handleNavigation('/why-agnezar', 'our-leaders');
+                      } else if (item.label === 'Nitrosamine Impurity Solutions (Fast-Track)') {
+                        handleNavigation('/', 'spotlight');
+                      } else if (item.href) {
+                        handleNavigation(item.href);
+                      }
+                    }}
+                    href={item.href}
+                    sx={{ cursor: 'pointer' }}
+                  >
+                    {item.label}
+                  </FooterLink>
                 </FooterListItem>
               ))}
             </FooterList>
