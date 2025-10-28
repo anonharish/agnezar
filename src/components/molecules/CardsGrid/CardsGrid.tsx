@@ -222,7 +222,9 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                   <Box sx={{ flex: 1 }}>
                     <div
                       style={{
-                        height: maxContentHeight ? `${maxContentHeight}px` : "auto",
+                        height: maxContentHeight
+                          ? `${maxContentHeight}px`
+                          : "auto",
                         display: maxContentHeight ? "flex" : "block",
                         flexDirection: "column",
                         overflow: "hidden",
@@ -235,7 +237,9 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                           overflow: maxContentHeight ? "hidden" : "visible",
                         }}
                       >
-                        <Typography sx={{ fontWeight: 700, fontSize:"1.5rem", mb: 1 }}>
+                        <Typography
+                          sx={{ fontWeight: 700, fontSize: "1.5rem", mb: 1 }}
+                        >
                           {c.title}
                         </Typography>
                         {renderDescription(c.description)}
@@ -246,7 +250,12 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                         <Box sx={{ fontWeight: 700, mt: 1 }}>
                           <Typography
                             component="span"
-                            sx={{ cursor: 'pointer', color: 'primary.main', fontSize:"1.2rem", fontWeight:600 }}
+                            sx={{
+                              cursor: "pointer",
+                              color: "primary.main",
+                              fontSize: "1.2rem",
+                              fontWeight: 600,
+                            }}
                             onClick={() => setOpenDialogIndex(i)}
                           >
                             Read more
@@ -268,9 +277,30 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
         maxWidth="sm"
         fullWidth
       >
-        <DialogTitle sx={{ fontWeight: 700, fontSize: "1.5rem" }}>
+        <DialogTitle
+          sx={{
+            fontWeight: 700,
+            fontSize: "1.5rem",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
           {openDialogIndex !== null ? cards[openDialogIndex].title : ""}
+          <Typography
+            component="span"
+            sx={{
+              cursor: "pointer",
+              fontSize: "1.8rem",
+              lineHeight: 1,
+              ml: 2,
+            }}
+            onClick={() => setOpenDialogIndex(null)}
+          >
+            ×
+          </Typography>
         </DialogTitle>
+
         <DialogContent dividers>
           {openDialogIndex !== null && (
             <Box>
@@ -278,13 +308,23 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                 <Box component="ul" sx={{ pl: 2 }}>
                   {cards[openDialogIndex].description!.map((d, idx) => (
                     <li key={idx}>
-                      <Typography variant="body2" sx={{ fontSize: "1rem", fontWeight: 400 }}>{d}</Typography>
+                      <Typography
+                        variant="body2"
+                        sx={{ fontSize: "1rem", fontWeight: 400 }}
+                      >
+                        {renderFormattedText(d)}
+                      </Typography>
                     </li>
                   ))}
                 </Box>
               ) : (
-                <Typography variant="body2" sx={{ fontSize: "1rem", fontWeight: 400 }}>
-                  {cards[openDialogIndex].description}
+                <Typography
+                  variant="body2"
+                  sx={{ fontSize: "1rem", fontWeight: 400 }}
+                >
+                  {renderFormattedText(
+                    cards[openDialogIndex].description as string
+                  )}
                 </Typography>
               )}
 
@@ -294,12 +334,18 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                     {cards[openDialogIndex].moreInfo!.map((mi, mIdx) => (
                       <Box key={mIdx} sx={{ mb: 2 }}>
                         {mi.moreInfoItemHeading && (
-                          <Typography variant="h6" sx={{ fontWeight: 700, fontSize: "1.25rem" }}>
+                          <Typography
+                            variant="h6"
+                            sx={{ fontWeight: 700, fontSize: "1.25rem" }}
+                          >
                             {mi.moreInfoItemHeading}
                           </Typography>
                         )}
                         {mi.moreInfoItemDescription && (
-                          <Typography variant="body2" sx={{ mt: 1, fontSize: "1rem", fontWeight: 400 }}>
+                          <Typography
+                            variant="body2"
+                            sx={{ mt: 1, fontSize: "1rem", fontWeight: 400 }}
+                          >
                             {mi.moreInfoItemDescription}
                           </Typography>
                         )}
@@ -312,7 +358,10 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                                   {cic.contentHeading && (
                                     <Typography
                                       variant="subtitle2"
-                                      sx={{ fontWeight: 700, fontSize: "1.25rem" }}
+                                      sx={{
+                                        fontWeight: 700,
+                                        fontSize: "1.25rem",
+                                      }}
                                     >
                                       {cic.contentHeading}
                                     </Typography>
@@ -325,7 +374,13 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                                           key={lidx}
                                           sx={{ lineHeight: 1.6 }}
                                         >
-                                          <Typography variant="body2" sx={{ fontSize: "1rem", fontWeight: 400 }}>
+                                          <Typography
+                                            variant="body2"
+                                            sx={{
+                                              fontSize: "1rem",
+                                              fontWeight: 400,
+                                            }}
+                                          >
                                             {line}
                                           </Typography>
                                         </Box>
