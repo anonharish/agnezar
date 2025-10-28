@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid, Box, TextField, Alert } from "@mui/material";
+import { Container, Grid, Box, TextField, Alert, MenuItem } from "@mui/material";
 import { useState, useEffect } from 'react';
 import { useContactUs } from "./ContactUs.hook";
 import UnParalleled from "@components/molecules/UnParalleled/UnParalleled";
@@ -54,16 +54,55 @@ export const ContactUs: React.FC = () => {
 
   const validate = () => {
     const e: Record<string, string> = {};
-    if (!firstName.trim()) e.firstName = 'First name is required';
-    if (!lastName.trim()) e.lastName = 'Last name is required';
-    if (!companyField.trim()) e.company = 'Company is required';
-    if (!email.trim()) e.email = 'Email is required';
-    else {
-      const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\\.,;:\s@\"]+\.)+[^<>()[\]\\.,;:\s@\"]{2,})$/i;
-      if (!re.test(email)) e.email = 'Invalid email';
+    
+    if (!firstName.trim()) {
+      e.firstName = 'First name is required';
+    } else if (firstName.length > 50) {
+      e.firstName = 'First name must not exceed 50 characters';
     }
-    if (!serviceField) e.service = 'Service is required';
-    if (!projectDescription.trim()) e.projectDescription = 'Project description is required';
+
+    if (!lastName.trim()) {
+      e.lastName = 'Last name is required';
+    } else if (lastName.length > 50) {
+      e.lastName = 'Last name must not exceed 50 characters';
+    }
+
+    if (!companyField.trim()) {
+      e.company = 'Company is required';
+    } else if (companyField.length > 50) {
+      e.company = 'Company name must not exceed 50 characters';
+    }
+
+    if (!email.trim()) {
+      e.email = 'Email is required';
+    } else {
+      const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\\.,;:\s@\"]+\.)+[^<>()[\]\\.,;:\s@\"]{2,})$/i;
+      if (!re.test(email)) {
+        e.email = 'Invalid email format';
+      } else if (email.length > 50) {
+        e.email = 'Email must not exceed 50 characters';
+      }
+    }
+
+    if (phone) {
+      const phoneRegex = /^\+?[0-9()-\s]+$/;
+      if (!phoneRegex.test(phone)) {
+        e.phone = 'Phone number can only contain numbers, spaces, parentheses, and hyphens';
+      } else if (phone.length > 20) {
+        e.phone = 'Phone number is too long';
+      }
+    }
+
+    if (!projectDescription.trim()) {
+      e.projectDescription = 'Project description is required';
+    } else if (projectDescription.length > 500) {
+      e.projectDescription = 'Project description must not exceed 500 characters';
+    }
+
+    if (!howDidYouHear) {
+      e.howDidYouHear = 'Please select how you heard about us';
+    }
+
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -76,15 +115,46 @@ export const ContactUs: React.FC = () => {
       email,
       phone,
       company: companyField,
-      service: serviceField,
-      budget: undefined,
       message: projectDescription,
-      moleculeType,
-      developmentPhase,
       howDidYouHear,
     };
 
-    await handleSubmit(payload);
+    const emailContent = `
+      New Contact Form Submission:
+      
+      Name: ${payload.name}
+      Email: ${payload.email}
+      Phone: ${payload.phone || 'Not provided'}
+      Company: ${payload.company}
+      How they heard about us: ${payload.howDidYouHear}
+      
+      Project Description:
+      ${payload.message}
+    `;
+
+    try {
+      // Send email using EmailJS or similar service
+      // You'll need to set up an email service. Here's an example using EmailJS:
+      // await emailjs.send(
+      //   'YOUR_SERVICE_ID',
+      //   'YOUR_TEMPLATE_ID',
+      //   {
+      //     to_email: 'your-email@example.com',
+      //     from_name: payload.name,
+      //     from_email: payload.email,
+      //     message: emailContent,
+      //   },
+      //   'YOUR_USER_ID'
+      // );
+
+      // For now, we'll just log the content
+      console.log('Email Content:', emailContent);
+      
+      await handleSubmit(payload);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      throw error;
+    }
   };
 
   return (
@@ -221,6 +291,8 @@ export const ContactUs: React.FC = () => {
                         onChange={(e) => setPhone(e.target.value)}
                         fullWidth
                         size="small"
+                        error={!!errors.phone}
+                        helperText={errors.phone}
                       />
                     </Grid>
 
@@ -294,12 +366,21 @@ export const ContactUs: React.FC = () => {
 
                     <Grid item xs={12}>
                       <TextField
+                        select
                         label="How did you hear about us?"
                         value={howDidYouHear}
                         onChange={(e) => setHowDidYouHear(e.target.value)}
                         fullWidth
                         size="small"
-                      />
+                        error={!!errors.howDidYouHear}
+                        helperText={errors.howDidYouHear}
+                      >
+                        <MenuItem value="newspaper">Newspaper</MenuItem>
+                        <MenuItem value="social-media">Social Media</MenuItem>
+                        <MenuItem value="friend">Friend/Referral</MenuItem>
+                        <MenuItem value="youtube">YouTube Ads</MenuItem>
+                        <MenuItem value="others">Others</MenuItem>
+                      </TextField>
                     </Grid>
 
                     <Grid item xs={12}>
