@@ -1,7 +1,7 @@
 import React from 'react';
 import { useHome } from './Home.hook';
 import { StyledHome } from './Home.style';
-import { Hero, SpotlightBox, UnParalleled, AgnezerAdvantage, EmailInsights, MakeEveryStudy } from '@components/molecules';
+import { Hero, SpotlightBox, UnParalleled, AgnezerAdvantage,  MakeEveryStudy } from '@components/molecules';
 import { Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
@@ -43,7 +43,7 @@ export const Home: React.FC = () => {
         smallText={'Excellence. Innovation. Partnership.'}
         title='The Agnezar Advantage'
         description='Four pillars driving quality and trust in every project.'
-        cardHeight={170}
+        // cardHeight={170}
       />
 
       {/* Make Every Study Section */}

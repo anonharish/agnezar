@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Grid, Box, TextField, MenuItem, Alert } from "@mui/material";
+import { Container, Grid, Box, TextField, Alert } from "@mui/material";
 import { useState, useEffect } from 'react';
 import { useContactUs } from "./ContactUs.hook";
 import UnParalleled from "@components/molecules/UnParalleled/UnParalleled";
@@ -11,7 +11,7 @@ import { Typography, Card, CustomFilledButton } from "@components/atoms";
 export const ContactUs: React.FC = () => {
   const {
     contactInfo,
-    services,
+    // services,
     handleSubmit,
     isSubmitting,
     submitError,
@@ -19,7 +19,7 @@ export const ContactUs: React.FC = () => {
   } = useContactUs();
 
   // If the hook doesn't provide services, use the canonical list
-  const serviceOptions = (services && services.length > 0) ? services : [];
+  // const serviceOptions = (services && services.length > 0) ? services : [];
 
   // Local form state (single-column layout) with manual validation
   const [firstName, setFirstName] = useState('');
