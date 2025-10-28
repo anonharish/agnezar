@@ -8,6 +8,10 @@ import { Typography, Card, CustomFilledButton } from "@components/atoms";
 
 // Manual form state + validation (we avoid react-hook-form per request)
 
+// 👇 add this near other imports/constants
+const GAS_URL = "https://script.google.com/macros/s/AKfycbzL3yUJZm3gNmeXmNv8RiI_gp-m9VtF1EJmgFwauT5lx2HnAwC22p_TWx8MjPkawho_/exec";
+
+
 export const ContactUs: React.FC = () => {
   const {
     contactInfo,
@@ -110,47 +114,47 @@ export const ContactUs: React.FC = () => {
   const onSubmit = async () => {
     if (!validate()) return;
 
-    const payload: any = {
-      name: `${firstName} ${lastName}`,
-      email,
-      phone,
-      company: companyField,
-      message: projectDescription,
-      howDidYouHear,
-    };
+    // const payload: any = {
+    //   name: `${firstName} ${lastName}`,
+    //   email,
+    //   phone,
+    //   company: companyField,
+    //   message: projectDescription,
+    //   howDidYouHear,
+    // };
 
-    const emailContent = `
-      New Contact Form Submission:
+    // const emailContent = `
+    //   New Contact Form Submission:
       
-      Name: ${payload.name}
-      Email: ${payload.email}
-      Phone: ${payload.phone || 'Not provided'}
-      Company: ${payload.company}
-      How they heard about us: ${payload.howDidYouHear}
+    //   Name: ${payload.name}
+    //   Email: ${payload.email}
+    //   Phone: ${payload.phone || 'Not provided'}
+    //   Company: ${payload.company}
+    //   How they heard about us: ${payload.howDidYouHear}
       
-      Project Description:
-      ${payload.message}
-    `;
+    //   Project Description:
+    //   ${payload.message}
+    // `;
 
     try {
-      // Send email using EmailJS or similar service
-      // You'll need to set up an email service. Here's an example using EmailJS:
-      // await emailjs.send(
-      //   'YOUR_SERVICE_ID',
-      //   'YOUR_TEMPLATE_ID',
-      //   {
-      //     to_email: 'your-email@example.com',
-      //     from_name: payload.name,
-      //     from_email: payload.email,
-      //     message: emailContent,
-      //   },
-      //   'YOUR_USER_ID'
-      // );
+      // console.log("Email Content:", emailContent);
+      // await handleSubmit(payload);
+      const body = new URLSearchParams();
+      body.append("FirstName", firstName); // or 'FIrstName' if you keep the typo
+      body.append("LastName", lastName);
+      body.append("Company", companyField);
+      body.append("Email", email);
+      body.append("PhoneNumber", phone || "");
+      body.append("Project Description", projectDescription);
+      body.append("Source", howDidYouHear || "Website");
 
-      // For now, we'll just log the content
-      console.log('Email Content:', emailContent);
-      
-      await handleSubmit(payload);
+      // Send to Apps Script
+      await fetch(GAS_URL, {
+        method: "POST",
+        body,
+        // If you don't need to read the JSON response, this avoids CORS issues:
+        mode: "no-cors",
+      });
     } catch (error) {
       console.error('Error sending email:', error);
       throw error;
