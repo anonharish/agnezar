@@ -53,12 +53,12 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
     phone: '+1 (210) 913-7096 ',
     email: 'info@agnezar.com',
     address: {
-      contactName: 'Agnezar Life Sciences LLC',
-      country: 'Hightstown',
-      // area: 'Tech Valley',
-      street: ' NJ 08520',
-      // city: 'Albany, NY 12203',
-      phone: '+1 (210) 913-7096'
+      // contactName: 'Agnezar Life Sciences LLC',
+      // country: 'Hightstown',
+      // // area: 'Tech Valley',
+      // street: ' NJ 08520',
+      // // city: 'Albany, NY 12203',
+      // phone: '+1 (210) 913-7096'
     }
   };
 

@@ -242,14 +242,14 @@ export const ContactUs: React.FC = () => {
                     component="ul"
                     sx={{ pl: 2, mt: 1, color: "inherit", fontSize: "1.25rem" }}
                   >
-                    <li>
+                    {/* <li>
                       <Typography variant="body2" sx={{ color: "inherit" }}>
                         {contactInfo?.details?.find((d) =>
                           d.title?.toLowerCase().includes("visit")
                         )?.value ??
                           "6789 Elm Street Suite 300 Anytown, CA 91234"}
                       </Typography>
-                    </li>
+                    </li> */}
                     <li>
                       <Typography variant="body2" sx={{ color: "inherit" }}>
                         {contactInfo?.details?.find((d) =>
