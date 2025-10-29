@@ -13,11 +13,18 @@ export const StyledNavbar = styled(Box)(({ theme }) => ({
     padding: theme.spacing(1, 4),
     borderBottom: `1px solid ${colors.neutral[200]}`,
     zIndex: (theme.zIndex as any)?.appBar ?? 1200,
+
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(1, 1),
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(1, 1), 
+    },
   },
   
   '& .MuiToolbar-root': {
     minHeight: 64,
-    padding: '0 24px',
+    padding: '0 16px',
     display: 'flex',
     justifyContent: 'space-between',
     
@@ -26,7 +33,7 @@ export const StyledNavbar = styled(Box)(({ theme }) => ({
       minHeight: 56,
     },
     [theme.breakpoints.down('sm')]: {
-      padding: '0 8px',
+      padding: '0 0px',
       minHeight: 48,
     },
   },
