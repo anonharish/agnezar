@@ -45,20 +45,12 @@ export const TopBar: React.FC<TopBarProps> = ({
           {/* Contact Info */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Typography variant="body2">
-                Urgent Need? Nitrosamine Impurity Solutions.
-              </Typography>
-            </Box>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-              <Typography 
-                variant="body2" 
-                sx={{
+              <Typography variant="body2" sx={{textAlign: 'center'}}>
+                Urgent Need? Nitrosamine Impurity Solutions. <span style={{
                   textDecoration:"underline", 
                   cursor: 'pointer',
                 }}
-                onClick={handleLearnMoreClick}
-              >
-                Learn More
+                onClick={handleLearnMoreClick}>Learn More</span>
               </Typography>
             </Box>
           </Box>
