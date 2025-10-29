@@ -47,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <StyledNavbar>
       <AppBar position="static" elevation={0}>
-        <Toolbar>
+        <Toolbar >
           {/* Logo */}
           <LogoContainer>          
               <LogoImage
@@ -72,7 +72,14 @@ export const Navbar: React.FC<NavbarProps> = ({
           </DesktopMenu>
 
           <ActionButtons>
-            <CustomTextButton onClick={() => navigate('/contact')}>Contact Us</CustomTextButton>
+            <CustomTextButton 
+              onClick={() => navigate('/contact')}
+              sx={{
+                display: { xs: 'none', sm: 'none', md: 'inline-flex' },
+              }}
+            >
+              Contact Us
+            </CustomTextButton>
             {ctaButton && (
               <CustomFilledButton onClick={ctaButton.onClick}>
                 {ctaButton.label}
@@ -109,6 +116,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               <ListItemText primary={item.label} />
             </ListItem>
           ))}
+          <ListItem button onClick={() => { navigate('/contact'); closeMobileMenu(); }}>
+            <ListItemText primary="Contact Us" />
+          </ListItem>
           {ctaButton && (
             <ListItem>
               <Button variant="primary" fullWidth onClick={ctaButton.onClick}>

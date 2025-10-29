@@ -22,7 +22,12 @@ export const StyledNavbar = styled(Box)(({ theme }) => ({
     justifyContent: 'space-between',
     
     [theme.breakpoints.down('md')]: {
-      padding: '0 16px',
+      padding: '0 12px',
+      minHeight: 56,
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: '0 8px',
+      minHeight: 48,
     },
   },
 }));
@@ -37,6 +42,16 @@ export const LogoImage = styled('img')(({ theme }) => ({
   height: 56,
   marginRight: theme.spacing(2),
   cursor: 'pointer',
+  [theme.breakpoints.down('md')]: {
+    width: 110,
+    height: 46,
+    marginRight: theme.spacing(1.5),
+  },
+  [theme.breakpoints.down('sm')]: {
+    width: 90,
+    height: 38,
+    marginRight: theme.spacing(1),
+  },
 }));
 
 export const DesktopMenu = styled(Box)(({ theme }) => ({
@@ -55,10 +70,10 @@ export const MenuLink = styled(Box)(({ theme }) => ({
   },
 }));
 
-export const ActionButtons = styled(Box)({
+export const ActionButtons = styled(Box)(() => ({
   display: 'flex',
   alignItems: 'center',
-});
+}));
 
 export const MobileMenuButton = styled(IconButton)(({ theme }) => ({
   color: 'inherit',
@@ -76,6 +91,12 @@ export const MobileDrawer = styled(Drawer)(({ theme }) => ({
   '& .MuiDrawer-paper': {
     width: 250,
     padding: theme.spacing(2),
+    '& .MuiListItem-root': {
+      padding: theme.spacing(1, 1.5),
+    },
+    '& .MuiListItemText-root': {
+      margin: 0,
+    },
   },
 }));
 
