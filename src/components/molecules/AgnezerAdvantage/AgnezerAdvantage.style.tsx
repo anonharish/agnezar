@@ -6,6 +6,10 @@ export const StyledAdvantage = styled(Box)(({ theme }) => ({
   backgroundColor: (theme.palette as any)?.secondary?.main ?? colors.secondary.main,
   color: '#fff',
   padding: theme.spacing(0,0, 8, 0),
+  [theme.breakpoints.down("sm")]: {
+      paddingBottom: theme.spacing(4),
+    },
+  
 }));
 
 interface AdvantageInnerProps {
@@ -27,7 +31,16 @@ flexDirection:'row',
     [theme.breakpoints.down("md")]: {
       textAlign: "center",
     },
+    
   }),
+  [theme.breakpoints.down("sm")]: {
+      maxWidth: "100%",
+      padding: theme.spacing(0, 2),
+    },
+    [theme.breakpoints.down("md")]: {
+      maxWidth: "90%",
+      padding: theme.spacing(0, 2),
+    },
 }));
 
 export const AdvantageTopSmall = styled(MuiTypography)(({ theme }) => ({

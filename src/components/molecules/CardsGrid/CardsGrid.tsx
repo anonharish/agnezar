@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Grid, Box, Typography, Dialog, DialogTitle, DialogContent } from '@mui/material';
-import { CardsGridWrapper, CardBox, CardIcon } from './CardsGrid.style';
+import { CardsGridWrapper, CardBox, CardIcon, CardTitle } from './CardsGrid.style';
 import { Card } from '@components/atoms';
 
 export interface CardItem {
@@ -163,7 +163,7 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
     <>
       <CardsGridWrapper container spacing={4} isClient={client}>
         {cards.map((c, i) => (
-          <Grid item xs={12} md={client ? 12 : md} key={i}>
+          <Grid item xs={12} sm={6} md={client ? 12 : 6} key={i}>
             <CardBox>
               <Card
                 variant="filled"
@@ -183,8 +183,8 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                             src={c.icon}
                             alt={c.title}
                             style={{
-                              width: 56,
-                              height: 56,
+                              width: "100%",
+                              height: "100%",
                               objectFit: "contain",
                             }}
                           />
@@ -237,11 +237,10 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                           overflow: maxContentHeight ? "hidden" : "visible",
                         }}
                       >
-                        <Typography
-                          sx={{ fontWeight: 700, fontSize: "1.5rem", mb: 1 }}
+                        <CardTitle
                         >
                           {c.title}
-                        </Typography>
+                        </CardTitle>
                         {renderDescription(c.description)}
                         {renderMoreInfo(c.moreInfo)}
                       </div>

@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import { colors } from '@theme/colors';
 
 interface CardsGridWrapperProps {
@@ -13,7 +13,10 @@ export const CardsGridWrapper = styled(Grid, {
   display: 'flex',
   justifyContent: 'center',
   flexDirection: isClient ? 'column' : 'row',
-  flexWrap:isClient?'nowrap':'wrap'
+  flexWrap:isClient?'nowrap':'wrap',
+  [theme.breakpoints.down("sm")]: {
+     marginTop: theme.spacing(0),
+    },
 }));
 
 export const CardBox = styled(Box)(({ theme }) => ({
@@ -34,6 +37,30 @@ export const CardIcon = styled(Box)(({ theme }) => ({
   background: (theme.palette as any)?.primary?.main ?? '#C74634',
   flexShrink: 0,
   marginBottom: theme.spacing(2),
+  [theme.breakpoints.down("md")]: {
+      width: 45,
+      height: 45,
+      padding: theme.spacing(0, 0),
+    },
+
+    [theme.breakpoints.down("sm")]: {
+      width: 40,
+      height: 40,
+      padding: theme.spacing(0, 0),
+    },
+}));
+
+export const CardTitle = styled(Typography)(({ theme }) => ({
+  fontWeight: 700,
+  marginBottom: theme.spacing(1),
+  fontSize: '1.5rem',
+
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '1rem',
+  },
+  [theme.breakpoints.between('sm', 'md')]: {
+    fontSize: '1.2rem',
+  },
 }));
 
 export default null;
