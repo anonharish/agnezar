@@ -267,8 +267,16 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                             sx={{
                               cursor: "pointer",
                               color: "primary.main",
-                              fontSize: "1.2rem",
                               fontWeight: 600,
+                              // responsive sizing for Read more
+                              fontSize: {
+                                xs: '1rem',
+                                sm: '1.05rem',
+                                md: '1.2rem',
+                              },
+                              lineHeight: 1,
+                              display: 'inline-block',
+                              mt: { xs: 0.5, sm: 0.75 },
                             }}
                             onClick={() => setOpenDialogIndex(i)}
                           >
@@ -290,24 +298,41 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
         onClose={() => setOpenDialogIndex(null)}
         maxWidth="sm"
         fullWidth
+        PaperProps={{
+          sx: {
+            width: { xs: '95%', sm: '85%', md: '600px' },
+            maxWidth: { xs: '95%', sm: '85%', md: '600px' },
+            margin: '16px',
+          }
+        }}
       >
         <DialogTitle
           sx={{
             fontWeight: 700,
-            fontSize: "1.5rem",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
+            fontSize: {
+              xs: '1.1rem',
+              sm: '1.25rem',
+              md: '1.5rem'
+            },
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            gap: 2,
+            px: { xs: 1.5, sm: 2 },
           }}
         >
           {openDialogIndex !== null ? cards[openDialogIndex].title : ""}
           <Typography
             component="span"
             sx={{
-              cursor: "pointer",
-              fontSize: "1.8rem",
+              cursor: 'pointer',
+              fontSize: {
+                xs: '1.4rem',
+                sm: '1.6rem',
+                md: '1.8rem'
+              },
               lineHeight: 1,
-              ml: 2,
+              ml: { xs: 1, sm: 2 },
             }}
             onClick={() => setOpenDialogIndex(null)}
           >
@@ -315,7 +340,7 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
           </Typography>
         </DialogTitle>
 
-        <DialogContent dividers>
+        <DialogContent dividers sx={{ px: { xs: 2, sm: 3 }, py: { xs: 1.5, sm: 2 } }}>
           {openDialogIndex !== null && (
             <Box>
               {Array.isArray(cards[openDialogIndex].description) ? (
@@ -325,12 +350,9 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                       <Typography
                         variant="body2"
                         sx={{ 
-                          fontSize: {
-                            xs: "0.85rem",
-                            sm: "0.9rem",
-                            md: "1rem"
-                          }, 
-                          fontWeight: 400 
+                          fontSize: { xs: '0.9rem', sm: '0.95rem', md: '1rem' },
+                          fontWeight: 400,
+                          lineHeight: 1.6,
                         }}
                       >
                         {renderFormattedText(d)}
@@ -342,12 +364,9 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                 <Typography
                   variant="body2"
                   sx={{ 
-                    fontSize: {
-                      xs: "0.85rem",
-                      sm: "0.9rem",
-                      md: "1rem"
-                    }, 
-                    fontWeight: 400 
+                    fontSize: { xs: '0.9rem', sm: '0.95rem', md: '1rem' },
+                    fontWeight: 400,
+                    lineHeight: 1.6,
                   }}
                 >
                   {renderFormattedText(
@@ -364,7 +383,7 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                         {mi.moreInfoItemHeading && (
                           <Typography
                             variant="h6"
-                            sx={{ fontWeight: 700, fontSize: "1.25rem" }}
+                            sx={{ fontWeight: 700, fontSize: { xs: '1rem', sm: '1.05rem', md: '1.25rem' } }}
                           >
                             {mi.moreInfoItemHeading}
                           </Typography>
@@ -372,7 +391,7 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                         {mi.moreInfoItemDescription && (
                           <Typography
                             variant="body2"
-                            sx={{ mt: 1, fontSize: "1rem", fontWeight: 400 }}
+                            sx={{ mt: 1, fontSize: { xs: '0.9rem', sm: '0.95rem', md: '1rem' }, fontWeight: 400 }}
                           >
                             {mi.moreInfoItemDescription}
                           </Typography>
@@ -388,7 +407,7 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                                       variant="subtitle2"
                                       sx={{
                                         fontWeight: 700,
-                                        fontSize: "1.25rem",
+                                        fontSize: { xs: '0.95rem', sm: '1.05rem', md: '1.25rem' },
                                       }}
                                     >
                                       {cic.contentHeading}
@@ -405,7 +424,7 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                                           <Typography
                                             variant="body2"
                                             sx={{
-                                              fontSize: "1rem",
+                                              fontSize: { xs: '0.9rem', sm: '0.95rem', md: '1rem' },
                                               fontWeight: 400,
                                             }}
                                           >
