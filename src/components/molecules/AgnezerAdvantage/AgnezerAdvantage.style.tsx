@@ -35,11 +35,11 @@ flexDirection:'row',
   }),
   [theme.breakpoints.down("sm")]: {
       maxWidth: "100%",
-      padding: theme.spacing(0, 2),
+      padding: theme.spacing(0, 1),
     },
     [theme.breakpoints.down("md")]: {
       maxWidth: "90%",
-      padding: theme.spacing(0, 2),
+      padding: theme.spacing(0, 1),
     },
 }));
 

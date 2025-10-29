@@ -105,7 +105,14 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
         <Box component="ul" sx={{ pl: 2, mt: 1 }}>
           {desc.map((d, idx) => (
             <Box component="li" key={idx} sx={{ lineHeight: 1.6, mb: 0.5 }}>
-              <Typography variant="body2" sx={{fontSize:"1.2rem",fontWeight:400}}>
+              <Typography variant="body2" sx={{
+                fontSize: {
+                  xs: "0.9rem",
+                  sm: "1rem",
+                  md: "1.2rem"
+                },
+                fontWeight: 400
+              }}>
                 {renderFormattedText(d)}
               </Typography>
             </Box>
@@ -114,7 +121,15 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
       );
     }
     return (
-      <Typography variant="body2" sx={{ mt: 1, fontSize:"1.2rem",fontWeight:400 }}>
+      <Typography variant="body2" sx={{ 
+        mt: 1, 
+        fontSize: {
+          xs: "0.9rem",
+          sm: "1rem",
+          md: "1.2rem"
+        },
+        fontWeight:400 
+      }}>
         {renderFormattedText(desc)}
       </Typography>
     );
@@ -309,7 +324,14 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
                     <li key={idx}>
                       <Typography
                         variant="body2"
-                        sx={{ fontSize: "1rem", fontWeight: 400 }}
+                        sx={{ 
+                          fontSize: {
+                            xs: "0.85rem",
+                            sm: "0.9rem",
+                            md: "1rem"
+                          }, 
+                          fontWeight: 400 
+                        }}
                       >
                         {renderFormattedText(d)}
                       </Typography>
@@ -319,7 +341,14 @@ export const CardsGrid: React.FC<CardsGridProps> = ({
               ) : (
                 <Typography
                   variant="body2"
-                  sx={{ fontSize: "1rem", fontWeight: 400 }}
+                  sx={{ 
+                    fontSize: {
+                      xs: "0.85rem",
+                      sm: "0.9rem",
+                      md: "1rem"
+                    }, 
+                    fontWeight: 400 
+                  }}
                 >
                   {renderFormattedText(
                     cards[openDialogIndex].description as string
