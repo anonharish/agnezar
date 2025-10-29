@@ -1,10 +1,21 @@
 import React from 'react';
 import mainLogo from "../../../../public/assets/logos/main-logo.svg"
-import { AppBar, Toolbar, Box, IconButton, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import { AppBar, Toolbar, ListItem, ListItemText, IconButton } from '@mui/material';
 import { Menu as MenuIcon, Close as CloseIcon } from '@mui/icons-material';
 import { useNavbar } from './Navbar.hook';
 import { useNavigate } from 'react-router-dom';
-import { StyledNavbar } from './Navbar.style';
+import { 
+  StyledNavbar,
+  LogoContainer,
+  LogoImage,
+  DesktopMenu,
+  MenuLink,
+  ActionButtons,
+  MobileMenuButton,
+  MobileDrawer,
+  DrawerHeader,
+  DrawerList
+} from './Navbar.style';
 import { Button, CustomFilledButton, CustomTextButton } from '@components/atoms';
 import { Typography } from '@components/atoms';
 
@@ -36,83 +47,77 @@ export const Navbar: React.FC<NavbarProps> = ({
   return (
     <StyledNavbar>
       <AppBar position="static" elevation={0}>
-        <Toolbar sx={{display:'flex', justifyContent:"space-between"}}>
+        <Toolbar>
           {/* Logo */}
-          <Box sx={{ display: 'flex', alignItems: 'center',  }}>          
-              <Box
-                component="img"
+          <LogoContainer>          
+              <LogoImage
                 src={mainLogo}
                 alt="Logo"
-                sx={{ width: 135,height: 56, marginRight: 2 , cursor: 'pointer'}}
-                onClick = {() => navigate('/')}
+                onClick={() => navigate('/')}
               />
-          </Box>
+          </LogoContainer>
 
           {/* Desktop Menu */}
-          <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 4 }}>
+          <DesktopMenu>
             {menuItems.map((item, index) => (
-              <Typography
-                key={index}
-                variant="body1"
-                sx={{ cursor: 'pointer', '&:hover': { color: 'primary.main' } }}
-                onClick={() => handleMenuClick(item.href)}
-              >
-                {item.label}
-              </Typography>
+              <MenuLink key={index}>
+                <Typography
+                  variant="body1"
+                  onClick={() => handleMenuClick(item.href)}
+                >
+                  {item.label}
+                </Typography>
+              </MenuLink>
             ))}
-          </Box>
-          <Box>
-          <CustomTextButton onClick={() => navigate('/contact')}>Contact Us</CustomTextButton>
+          </DesktopMenu>
+
+          <ActionButtons>
+            <CustomTextButton onClick={() => navigate('/contact')}>Contact Us</CustomTextButton>
             {ctaButton && (
-              <CustomFilledButton  onClick={ctaButton.onClick}>
+              <CustomFilledButton onClick={ctaButton.onClick}>
                 {ctaButton.label}
               </CustomFilledButton>
             )}
-            </Box>
+          </ActionButtons>
 
           {/* Mobile Menu Button */}
-          <IconButton
-            color="inherit"
+          <MobileMenuButton
             aria-label="menu"
             onClick={toggleMobileMenu}
-            sx={{ display: { xs: 'block', md: 'none' } }}
           >
             <MenuIcon />
-          </IconButton>
+          </MobileMenuButton>
         </Toolbar>
       </AppBar>
 
       {/* Mobile Menu Drawer */}
-      <Drawer
+      <MobileDrawer
         anchor="right"
         open={isMobileMenuOpen}
         onClose={closeMobileMenu}
-        sx={{ display: { xs: 'block', md: 'none' } }}
       >
-        <Box sx={{ width: 250, padding: 2 }}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
-            <Typography variant="h6">Menu</Typography>
-            <IconButton onClick={closeMobileMenu}>
-              <CloseIcon />
-            </IconButton>
-          </Box>
-          
-          <List>
-            {menuItems.map((item, index) => (
-              <ListItem key={index} button onClick={() => handleMenuClick(item.href)}>
-                <ListItemText primary={item.label} />
-              </ListItem>
-            ))}
-            {ctaButton && (
-              <ListItem>
-                <Button variant="primary" fullWidth onClick={ctaButton.onClick}>
-                  {ctaButton.label}
-                </Button>
-              </ListItem>
-            )}
-          </List>
-        </Box>
-      </Drawer>
+        <DrawerHeader>
+          <Typography variant="h6">Menu</Typography>
+          <IconButton onClick={closeMobileMenu}>
+            <CloseIcon />
+          </IconButton>
+        </DrawerHeader>
+        
+        <DrawerList>
+          {menuItems.map((item, index) => (
+            <ListItem key={index} button onClick={() => handleMenuClick(item.href)}>
+              <ListItemText primary={item.label} />
+            </ListItem>
+          ))}
+          {ctaButton && (
+            <ListItem>
+              <Button variant="primary" fullWidth onClick={ctaButton.onClick}>
+                {ctaButton.label}
+              </Button>
+            </ListItem>
+          )}
+        </DrawerList>
+      </MobileDrawer>
     </StyledNavbar>
   );
 };
