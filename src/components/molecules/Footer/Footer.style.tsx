@@ -2,11 +2,18 @@ import { styled } from '@mui/material/styles';
 import { Box, Typography } from '@mui/material';
 import { colors } from '@theme/colors';
 
-export const StyledFooter = styled(Box)(() => ({
-  backgroundColor: '#1E1B4B', // Dark navy background from screenshot
+export const StyledFooter = styled(Box)(({ theme }) => ({
+  backgroundColor: '#1E1B4B',
   color: '#fff',
   marginTop: 'auto',
   padding: '64px 0 0px',
+  
+  [theme.breakpoints.down('md')]: {
+    padding: '48px 0 0px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    padding: '32px 0 0px',
+  }
 }));
 
 export const FooterInner = styled(Box)(({ theme }) => ({
@@ -16,19 +23,36 @@ export const FooterInner = styled(Box)(({ theme }) => ({
   display: 'grid',
   gridTemplateColumns: 'repeat(4, 1fr)',
   gap: theme.spacing(4),
+  
   [theme.breakpoints.down('md')]: {
     gridTemplateColumns: 'repeat(2, 1fr)',
+    padding: theme.spacing(0, 3),
+    gap: theme.spacing(3),
   },
   [theme.breakpoints.down('sm')]: {
     gridTemplateColumns: '1fr',
-  },
+    padding: theme.spacing(0, 2),
+    gap: theme.spacing(2.5),
+  }
 }));
 
 export const LogoSection = styled(Box)(({ theme }) => ({
   gridColumn: '1',
+  '& img': {
+    width: '150px',
+    height: 'auto',
+  },
   [theme.breakpoints.down('md')]: {
     gridColumn: '1 / -1',
+    '& img': {
+      width: '130px',
+    }
   },
+  [theme.breakpoints.down('sm')]: {
+    '& img': {
+      width: '120px',
+    }
+  }
 }));
 
 export const FooterHeading = styled(Typography)(({ theme }) => ({
@@ -36,6 +60,15 @@ export const FooterHeading = styled(Typography)(({ theme }) => ({
   fontSize: '24px',
   fontWeight: 600,
   marginBottom: theme.spacing(3),
+  
+  [theme.breakpoints.down('md')]: {
+    fontSize: '22px',
+    marginBottom: theme.spacing(2.5),
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '20px',
+    marginBottom: theme.spacing(2),
+  }
 }));
 
 export const FooterList = styled('ul')({
@@ -46,23 +79,54 @@ export const FooterList = styled('ul')({
 
 export const FooterListItem = styled('li')(({ theme }) => ({
   marginBottom: theme.spacing(1.5),
+  
+  [theme.breakpoints.down('md')]: {
+    marginBottom: theme.spacing(1.25),
+  },
+  [theme.breakpoints.down('sm')]: {
+    marginBottom: theme.spacing(1),
+  }
 }));
 
 export const FooterLink = styled('a')(({ theme }) => ({
   color: theme.palette.text.footer ?? colors.text.footer,
   textDecoration: 'none',
   transition: 'opacity 0.2s ease',
+  fontSize: '16px',
   '&:hover': {
     opacity: 1,
   },
+  
+  [theme.breakpoints.down('md')]: {
+    fontSize: '15px',
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '14px',
+  }
 }));
 
 export const ContactInfo = styled(Box)(({ theme }) => ({
   color: theme.palette.text.footer ?? colors.text.footer,
   marginTop: theme.spacing(2),
+  fontSize: '16px',
   '& > *': {
     marginBottom: theme.spacing(1),
   },
+  
+  [theme.breakpoints.down('md')]: {
+    fontSize: '15px',
+    marginTop: theme.spacing(1.5),
+    '& > *': {
+      marginBottom: theme.spacing(0.75),
+    }
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '14px',
+    marginTop: theme.spacing(1),
+    '& > *': {
+      marginBottom: theme.spacing(0.5),
+    }
+  }
 }));
 
 export const BottomBar = styled(Box)(({ theme }) => ({
