@@ -108,14 +108,14 @@ export const Footer: React.FC<FooterProps> = ({ logo }) => {
             <ContactInfo>
               <Box>T: {contactInfo.phone}</Box>
               <Box>E: {contactInfo.email}</Box>
-              <Box sx={{ mt: 2 }}>
+              {/* <Box sx={{ mt: 2 }}>
                 <Box> {contactInfo.address.contactName}</Box>
                 <Box> {contactInfo.address.country}</Box>
              
                 <Box>{contactInfo.address.street}</Box>
               
                 <Box>{contactInfo.address.phone}</Box>
-              </Box>
+              </Box> */}
             </ContactInfo>
           </LogoSection>
 
