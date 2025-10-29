@@ -20,11 +20,21 @@ export const SpotlightBox: React.FC<SpotlightBoxProps> = ({ heading, title, desc
       <Box sx={{ flex: 1 }}>
         {/* <SpotlightHeading variant="overline">{config.heading}</SpotlightHeading> */}
         <SpotlightTitle variant="h6" sx={{ mt: 1 }}>{config.title}</SpotlightTitle>
-        <SpotlightDescription variant="body1" sx={{ mt: 2 }}>{config.description}</SpotlightDescription>
+        <SpotlightDescription variant="body1" sx={{ mt: { xs: 1.5, sm: 2 } }}>{config.description}</SpotlightDescription>
       </Box>
 
       {config.button && (
-        <CustomFilledButton onClick={config.button.onClick}>{config.button.label}</CustomFilledButton>
+        <Box sx={{ 
+          display: 'flex', 
+          justifyContent: { xs: 'flex-start', md: 'flex-end' },
+          mt: { xs: 2, md: 0 }
+        }}>
+          <CustomFilledButton 
+            onClick={config.button.onClick}
+          >
+            {config.button.label}
+          </CustomFilledButton>
+        </Box>
       )}
     </StyledSpotlightBox>
   );

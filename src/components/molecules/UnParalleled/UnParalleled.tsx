@@ -62,9 +62,13 @@ export const UnParalleled: React.FC<UnParalleledProps> = ({
                 <DescText alignment={alignment} variant="body1" sx={descriptionColor ? { color: descriptionColor } : undefined}>{cfg.description}</DescText>
             )}
             {cfg.button && (
-                <div style={{ marginTop: 32 }}>
+                <Box sx={{ 
+                    mt: { xs: 2.5, sm: 3, md: 4 },
+                    display: 'flex',
+                    justifyContent: alignment === 'left' ? 'flex-start' : 'center'
+                }}>
                     <CustomFilledButton onClick={cfg.button.onClick}>{cfg.button.label}</CustomFilledButton>
-                </div>
+                </Box>
             )}
         </StyledUnParalleled>
     );

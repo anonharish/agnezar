@@ -12,6 +12,22 @@ export const StyledSpotlightBox = styled(Box)(({ theme }) => ({
   display: 'flex',
   gap: theme.spacing(4),
   alignItems: 'flex-start',
+
+  [theme.breakpoints.down('md')]: {
+    width: "90%",
+    padding: theme.spacing(2.5),
+    gap: theme.spacing(3),
+    margin: "3rem auto 0 auto",
+    flexDirection: 'column',
+    alignItems: 'stretch',
+  },
+
+  [theme.breakpoints.down('sm')]: {
+    width: "95%",
+    padding: theme.spacing(2),
+    gap: theme.spacing(2),
+    margin: "2rem auto 0 auto",
+  },
 }));
 
 export const SpotlightHeading = styled(MuiTypography)(({ theme }) => ({
@@ -25,8 +41,23 @@ export const SpotlightTitle = styled(MuiTypography)(({ theme }) => ({
   color: (theme.palette as any)?.text?.alt?.heading ?? colors.text.alt.heading,
   fontWeight: 700,
   fontSize: '1.25rem',
+  [theme.breakpoints.down('md')]: {
+    fontSize: '1.125rem',
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '1rem',
+  },
 }));
 
 export const SpotlightDescription = styled(MuiTypography)(({ theme }) => ({
   color: (theme.palette as any)?.text?.alt?.body ?? colors.text.alt.body,
+  fontSize: '1rem',
+  lineHeight: 1.6,
+  [theme.breakpoints.down('md')]: {
+    fontSize: '0.9375rem',
+  },
+  [theme.breakpoints.down('sm')]: {
+    fontSize: '0.875rem',
+    lineHeight: 1.5,
+  },
 }));
