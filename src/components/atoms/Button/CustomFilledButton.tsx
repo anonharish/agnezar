@@ -23,6 +23,16 @@ export const CustomFilledButton: React.FC<CustomFilledButtonProps> = ({ children
         backgroundColor: topBarColor,
         borderRadius: 0,
         color: (theme.palette as any).topBar?.contrastText ?? '#fff',
+        padding: {
+          xs: '6px 16px',
+          sm: '8px 20px',
+          md: '8px 24px'
+        },
+        fontSize: {
+          xs: '0.875rem',
+          sm: '0.9375rem',
+          md: '1rem'
+        },
         '&:hover': {
           backgroundColor: (theme.palette as any).topBar?.dark ?? topBarColor,
         },

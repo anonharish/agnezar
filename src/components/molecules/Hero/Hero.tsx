@@ -40,19 +40,42 @@ export const Hero: React.FC<HeroProps> = ({
         <Grid container spacing={4} alignItems="center" justifyContent="center" sx={{ minHeight: 'inherit' }}>
           <Grid item xs={12} md={10} lg={8}>
 
-            <Box sx={{ mx: 'auto', textAlign: 'center', maxWidth: 900 }}>
+            <Box sx={{ 
+                mx: 'auto', 
+                textAlign: 'center', 
+                maxWidth: 900,
+                px: { xs: 2, sm: 3, md: 4 }
+              }}>
               {subtitle && (
-                <HeroSubtitle variant="overline" sx={{ mb: 2, display: 'block' }}>
+                <HeroSubtitle 
+                  variant="overline" 
+                  sx={{ 
+                    mb: { xs: 1.5, sm: 2 }, 
+                    display: 'block' 
+                  }}
+                >
                   {subtitle}
                 </HeroSubtitle>
               )}
 
-              <HeroTitle variant="h2" sx={{ mb: 3, fontWeight: 700, }}>
+              <HeroTitle 
+                variant="h2" 
+                sx={{ 
+                  mb: { xs: 2, sm: 2.5, md: 3 }, 
+                  fontWeight: 700,
+                }}
+              >
                 {title}
               </HeroTitle>
 
               {description && (
-                <HeroDescription variant="body1" sx={{ mb: 4, fontSize: '1.125rem', lineHeight: 1.7 }}>
+                <HeroDescription 
+                  variant="body1" 
+                  sx={{ 
+                    mb: { xs: 3, sm: 3.5, md: 4 },
+                    lineHeight: { xs: 1.5, sm: 1.6, md: 1.7 }
+                  }}
+                >
                   {description}
                 </HeroDescription>
               )}

@@ -23,6 +23,16 @@ export const CustomOutlineButton: React.FC<CustomOutlineButtonProps> = ({ childr
         borderRadius: 0,
         color: topBarColor,
         border: `1px solid ${topBarColor}`,
+        padding: {
+          xs: '6px 16px',
+          sm: '8px 20px',
+          md: '8px 24px'
+        },
+        fontSize: {
+          xs: '0.875rem',
+          sm: '0.9375rem',
+          md: '1rem'
+        },
         '&:hover': {
           backgroundColor: topBarColor,
           color: (theme.palette as any).topBar?.contrastText ?? '#fff',
