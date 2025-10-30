@@ -23,6 +23,14 @@ export const StyledContactUs = styled(Box)(({ theme }) => ({
     // add breathing room so content (form) doesn't touch the colored backgrounds
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(8),
+    [theme.breakpoints.down('md')]: {
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(6),
+    },
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: theme.spacing(3),
+      paddingBottom: theme.spacing(4),
+    },
   },
 
   '.stacked-bg': {
@@ -39,6 +47,12 @@ export const StyledContactUs = styled(Box)(({ theme }) => ({
   '.stacked-bg__dark': {
     height: '40%',
     backgroundColor: (theme.palette as any)?.secondary?.main ?? '#221C50',
+    [theme.breakpoints.down('md')]: {
+      height: '45%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      height: '50%',
+    },
   },
 
   // red bottom -> 60% of the wrapper height, positioned after the dark block
@@ -49,6 +63,14 @@ export const StyledContactUs = styled(Box)(({ theme }) => ({
     right: 0,
     height: '60%',
     backgroundColor: (theme.palette as any)?.primary?.main ?? '#C74634',
+    [theme.breakpoints.down('md')]: {
+      top: '45%',
+      height: '55%',
+    },
+    [theme.breakpoints.down('sm')]: {
+      top: '50%',
+      height: '50%',
+    },
   },
 
   // container content sits above the backgrounds
@@ -66,6 +88,16 @@ export const StyledContactUs = styled(Box)(({ theme }) => ({
     paddingTop: theme.spacing(6),
     paddingLeft: theme.spacing(3),
     paddingRight: theme.spacing(3),
+    [theme.breakpoints.down('md')]: {
+      paddingTop: theme.spacing(4),
+      paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(2),
+    },
+    [theme.breakpoints.down('sm')]: {
+      paddingTop: theme.spacing(3),
+      paddingLeft: theme.spacing(2),
+      paddingRight: theme.spacing(2),
+    },
     '& h3': { fontWeight: 700, marginBottom: theme.spacing(2) },
     '& p': { maxWidth: 520 },
     '& .contact-info': {
@@ -87,5 +119,16 @@ export const StyledContactUs = styled(Box)(({ theme }) => ({
     padding: theme.spacing(4),
     position: 'relative',
     zIndex: 2,
+    [theme.breakpoints.down('md')]: {
+      padding: theme.spacing(3),
+      maxWidth: '100%',
+      marginTop: theme.spacing(2),
+    },
+    [theme.breakpoints.down('sm')]: {
+      padding: theme.spacing(2),
+      maxWidth: '100%',
+      marginTop: theme.spacing(1),
+      boxShadow: theme.shadows[4],
+    },
   },
 }));

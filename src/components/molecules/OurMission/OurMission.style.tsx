@@ -10,6 +10,9 @@ export const OurMissionInner = styled(Box)(({ theme }) => ({
   maxWidth: "90%",
   margin: '0 auto',
   padding: theme.spacing(0, 3),
+  [theme.breakpoints.down("md")]: {
+      padding: theme.spacing(0),
+    },
 }));
 
 export default null;

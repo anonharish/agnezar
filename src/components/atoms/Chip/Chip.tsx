@@ -36,6 +36,7 @@ const DynamicChips: React.FC<DynamicChipsProps> = ({
       flexWrap={wrap ? "wrap" : "nowrap"}
       mt={marginTop ? marginTop : 0}
       gap={1}
+      sx={{marginTop: isSmallScreen ? "0px" : marginTop}}
     >
       {labels.map((label, idx) => (
         <Chip
