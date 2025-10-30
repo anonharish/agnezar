@@ -199,13 +199,17 @@ export const ContactUs: React.FC = () => {
               <Box className="left-column">
                 <Box>
                   <Typography
-                    sx={{ color: "inherit", fontSize: "3rem", fontWeight: 700 }}
+                    sx={{
+                      color: "inherit",
+                      fontWeight: 700,
+                      fontSize: { xs: '1.75rem', sm: '2rem', md: '3rem' },
+                    }}
                   >
                     Get in touch!
                   </Typography>
                   <Typography
                     variant="body1"
-                    sx={{ color: "inherit", fontSize: "1.25rem" }}
+                    sx={{ color: "inherit", fontSize: { xs: '1rem', sm: '1.1rem', md: '1.25rem' } }}
                   >
                     We appreciate your interest in our company. Please fill out
                     the form, and we'll get back to you promptly.
@@ -218,7 +222,7 @@ export const ContactUs: React.FC = () => {
                       fontWeight: 700,
                       mb: 3,
                       color: "inherit",
-                      fontSize: "1.5rem",
+                      fontSize: { xs: '1.1rem', sm: '1.25rem', md: '1.5rem' },
                     }}
                   >
                     Call Us At:{" "}
@@ -233,7 +237,7 @@ export const ContactUs: React.FC = () => {
                       fontWeight: 700,
                       mb: 1,
                       color: "inherit",
-                      fontSize: "1.5rem",
+                      fontSize: { xs: '1.1rem', sm: '1.25rem', md: '1.5rem' },
                     }}
                   >
                     Write To Us
@@ -265,7 +269,10 @@ export const ContactUs: React.FC = () => {
             {/* Right column: form card (overlaps stacked background) */}
             <Grid item xs={12} md={6} className="right-column">
               <Card className="form-card">
-                <Typography variant="h4" sx={{ mb: 4 }}>
+                <Typography
+                  variant="h4"
+                  sx={{ mb: 4, fontSize: { xs: '1.25rem', sm: '1.5rem', md: '2rem' } }}
+                >
                   Get In Touch
                 </Typography>
 
